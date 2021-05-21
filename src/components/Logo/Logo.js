@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-import dafaultImage from "../../images/logoSBSS.svg";
+import "./Logo.css";
+import defaulImage from "../../images/logoSBSS.svg";
 
 // place = footer || mainpage || about
-const Logo = ({ place, image = dafaultImage }) => {
+const Logo = ({ place, image = defaulImage }) => {
   return (
     <Link
       class={`logo logo_place_${place}`}
