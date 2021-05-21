@@ -6,7 +6,7 @@
     "logo btn nav"
     "dev  dev nav";
   gap: 131px 85px;
-  align-items: center;
+  align-items: start;
   background-color: #2e2468;
   flex-shrink: 0;
 }
@@ -48,12 +48,15 @@
 */
 
 .footer__navigation {
-  display: flex;
   grid-area: nav;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .footer__menu {
-  margin-right: 44px;
+  margin: 0 44px 0 0;
+  padding: 0;
 }
 
 .footer__menu:last-child {
@@ -65,16 +68,19 @@
   padding: 0;
   list-style: none;
   display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
   flex-direction: column;
+  align-content: flex-start;
 }
 
 .footer__list-item {
-  margin: 0 0 20px 0;
+  margin: 0 0 20px;
   padding: 0;
   list-style-type: none;
 }
 
-.footer__list-item:last-child {
+.footer__list-item:last-child{
   margin-bottom: 0;
 }
 
@@ -88,6 +94,7 @@
   line-height: 17px;
   letter-spacing: 0.2px;
   font-weight: 300;
+  white-space: nowrap;
   text-align: left;
 }
 
@@ -156,25 +163,36 @@
 
 @media (max-width: 1280px) {
   .footer {
-    padding: 40px 270px 30px;
+    padding: 40px 32px 30px;
     grid-template-columns: 1fr;
     grid-template-areas:
       "logo"
       "nav"
       "btn"
       "dev";
-    gap: 31px;
+    gap: 0;
     justify-items: center;
     justify-content: center;
   }
 
+  .footer__logo {
+    grid-area: "logo";
+  }
+
   .footer__navigation {
+    margin-top: 20px;
+    margin-bottom: 10px;
     flex-direction: column;
     align-items: center;
   }
 
   .footer__menu {
     margin-right: 0;
+    border-bottom: 1px solid #c8d1ff;
+  }
+
+  .footer__menu:last-child {
+    border-bottom: 0;
   }
 
   .footer__list {
@@ -183,24 +201,13 @@
     justify-content: center;
   }
 
-  .footer__list_type_nav {
-    padding-bottom: 21px;
-    border-bottom: 1px solid #c8d1ff;
-  }
-
-  .footer__list_type_social {
-    padding-top: 21px;
+  .footer__list {
+    margin: 12px 0;
   }
 
   .footer__list-item {
-    margin-bottom: 0;
-    margin-right: 15px;
+    margin: 8px;
   }
-
-  .footer__list-item:last-child {
-    margin-right: 0;
-  }
-
   /*
   .footer__money {
     margin-right: 0;
@@ -250,23 +257,4 @@
   .footer__develop-text:last-child {
       margin-bottom: 0;
   }*/
-}
-
-@media (max-width: 768px) {
-  .footer {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-
-  .footer__list_type_nav {
-    margin-top: 10px;
-  }
-
-  .footer__list-item {
-    margin-bottom: 17px;
-  }
-
-  .footer__list-item:nth-last-child(2) {
-    margin-bottom: 0;
-  }
 }
