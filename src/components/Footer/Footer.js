@@ -1,12 +1,11 @@
 import React from "react";
 import "./Footer.css";
+import Logo from "../Logo/Logo";
 
 const Footer = () => {
   return (
     <footer className="footer">
-      {/* <a class="logo logo_place_footer" href="https://www.nastavniki.org/o-nas/ob-organizaczii/" target="_blank" rel="noopener">
-          <img class="logo__img" src="./images/logoSBSS.svg" alt="Логотип Старшие Братья Старшие Сестры">
-        </a> */}
+      <Logo place="footer" />
       {/* <a class="footer__money" href="https://www.nastavniki.org/campaign/pomoch-dengami/" target="_blank" rel="noopener">Помочь деньгами</a> */}
       <div class="footer__navigation">
         <nav class="footer__menu">
