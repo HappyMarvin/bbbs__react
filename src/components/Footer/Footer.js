@@ -1,35 +1,55 @@
 import React from "react";
-import "./Footer.css";
+import { Link } from "react-router-dom";
 import Logo from "../Logo/Logo";
+import "./Footer.css";
 
 const Footer = () => {
+  const navLinks = [
+    { title: "О проекте", link: "about" },
+    { title: "Календарь", link: "calendar" },
+    { title: "Куда пойти", link: "where_to_go" },
+    { title: "Вопросы", link: "questions" },
+    { title: "Читать и смотреть", link: "read_watch" },
+    { title: "Права детей", link: "rights" },
+    { title: "Истории", link: "stories" },
+  ];
+  const navSocial = [
+    { title: "facebook", link: "http://facebook.com" },
+    { title: "vkontakte", link: "http://vk.com" },
+    { title: "instagram", link: "http://instagram.com" },
+    { title: "youtube", link: "http://youtube.com" },
+  ];
+
   return (
     <footer className="footer">
       <Logo place="footer" />
       {/* <a class="footer__money" href="https://www.nastavniki.org/campaign/pomoch-dengami/" target="_blank" rel="noopener">Помочь деньгами</a> */}
-      <div class="footer__navigation">
-        <nav class="footer__menu">
-          {/* <ul class="footer__list footer__list_type_nav">
-            <li class="footer__list-item"><a href="./pages-html/about.html" class="footer__list-link">О проекте</a></li>
-            <li class="footer__list-item"><a href="#" class="footer__list-link calender-open">Календарь</a></li>
-            <li class="footer__list-item"><a href="./pages-html/where_to_go.html" class="footer__list-link">Куда пойти</a></li>
-            <li class="footer__list-item"><a href="./pages-html/questions.html" class="footer__list-link">Вопросы</a></li>
-            <li class="footer__list-item"><a href="./pages-html/read_watch.html" class="footer__list-link">Читать и смотреть</a></li>
-            <li class="footer__list-item"><a href="./pages-html/rights.html" class="footer__list-link">Права детей</a></li>
-            <li class="footer__list-item"><a href="#" class="footer__list-link">Истории</a></li>
-          </ul> */}
+      <div className="footer__navigation">
+        <nav className="footer__menu">
+          <ul className="footer__list footer__list_type_nav">
+            {navLinks.map((item, index) => (
+              <li key={index} className="footer__list-item">
+                <Link to={item.link} className="footer__list-link">
+                  {item.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </nav>
-        <nav class="footer__menu">
-          <ul class="footer__list footer__list_type_social">
-            {/* <li class="footer__list-item"><a href="#" class="footer__list-link" target="_blank" rel="noopener">facebook</a></li>
-            <li class="footer__list-item"><a href="#" class="footer__list-link" target="_blank" rel="noopener">vkontakte</a></li>
-            <li class="footer__list-item"><a href="#" class="footer__list-link" target="_blank" rel="noopener">instagram</a></li>
-            <li class="footer__list-item"><a href="#" class="footer__list-link" target="_blank" rel="noopener">youtube</a></li> */}
+        <nav className="footer__menu">
+          <ul className="footer__list footer__list_type_social">
+            {navSocial.map((item, index) => (
+              <li key={index} className="footer__list-item">
+                <Link to={item.link} className="footer__list-link">
+                  {item.title}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
       <div class="footer__about">
-        <p class="footer__copyright">&#169; Старшие Братья Старшие Сестры</p>
+        {/* <p class="footer__copyright">&#169; Старшие Братья Старшие Сестры</p> */}
         <div class="footer__develop">
           <p class="footer__develop-text">
             Разработка &mdash; студенты
