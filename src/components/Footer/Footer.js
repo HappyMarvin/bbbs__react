@@ -23,10 +23,17 @@ const Footer = () => {
   return (
     <footer className="footer">
       <Logo place="footer" />
-      {/* <a class="footer__money" href="https://www.nastavniki.org/campaign/pomoch-dengami/" target="_blank" rel="noopener">Помочь деньгами</a> */}
+      <a
+        className="footer__money"
+        href="https://www.nastavniki.org/campaign/pomoch-dengami/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Помочь деньгами
+      </a>
       <div className="footer__navigation">
         <nav className="footer__menu">
-          <ul className="footer__list footer__list_type_nav">
+          <ul className="footer__list">
             {navLinks.map((item, index) => (
               <li key={index} className="footer__list-item">
                 <Link to={item.link} className="footer__list-link">
@@ -37,32 +44,49 @@ const Footer = () => {
           </ul>
         </nav>
         <nav className="footer__menu">
-          <ul className="footer__list footer__list_type_social">
+          <ul className="footer__list">
             {navSocial.map((item, index) => (
               <li key={index} className="footer__list-item">
-                <Link to={item.link} className="footer__list-link">
+                <a
+                  className="footer__list-link"
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {item.title}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
         </nav>
       </div>
-      {/* <div className="footer__about">
+      <div className="footer__about">
         <p class="footer__copyright">&#169; Старшие Братья Старшие Сестры</p>
         <div className="footer__develop">
           <p className="footer__develop-text">
-            Разработка &mdash; студенты
-            <a class="footer__develop-accent"
-                    href="https://praktikum.yandex.ru/" target="_blank" rel="noopener">Яндекс.Практикум</a>
+            Разработка &mdash; студенты &nbsp;
+            <a
+              className="footer__develop-accent"
+              href="https://praktikum.yandex.ru/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Яндекс.Практикум
+            </a>
           </p>
           <p className="footer__develop-text">
-            Концепия и дизайн &mdash;
-            <a class="footer__develop-accent"
-                    href="https://krkr.design/" target="_blank" rel="noopener">krkr.design</a>
+            Концепия и дизайн &mdash; &nbsp;
+            <a
+              className="footer__develop-accent"
+              href="https://krkr.design/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              krkr.design
+            </a>
           </p>
         </div>
-      </div> */}
+      </div>
     </footer>
   );
 };
