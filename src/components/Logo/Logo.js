@@ -7,13 +7,13 @@ import defaulImage from "../../images/logoSBSS.svg";
 const Logo = ({ place, image = defaulImage }) => {
   return (
     <Link
-      class={`logo logo_place_${place}`}
-      href="https://www.nastavniki.org/o-nas/ob-organizaczii/"
+      className={`logo logo_place_${place}`}
+      to="https://www.nastavniki.org/o-nas/ob-organizaczii/"
       target="_blank"
       rel="noopener"
     >
       <img
-        class="logo__img"
+        className="logo__img"
         src={image}
         alt="Логотип Старшие Братья Старшие Сестры"
       />
