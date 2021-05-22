@@ -4,7 +4,7 @@ import "./Header.css";
 
 import HeaderMenu from "../HeaderMenu/HeaderMenu";
 
-export default function Header() {
+export default function Header(props) {
   return (
     <header className="header">
       <div className="header__wrapper">
@@ -12,14 +12,11 @@ export default function Header() {
         <button type="button" className="header__burger-btn"></button>
         <HeaderMenu />
         <nav className="header__action">
-          <a
-            className="header__button-search"
-            href="./pages-html/search.html"
-          ></a>
-          <a
-            href="#"
+          <Link to="/" className="header__button-search"></Link>
+          <button
+            onClick={props.handleButtonClick}
             className="header__button-login header__button-login_unauthorized"
-          ></a>
+          ></button>
         </nav>
       </div>
       <div className="header__burger header__burger_hidden">
@@ -27,54 +24,39 @@ export default function Header() {
           <nav className="header__menu-burger">
             <ul className="header__burger-list">
               <li className="header__burger-item">
-                <a
-                  href="./pages-html/about.html"
-                  className="header__burger-link"
-                >
+                <Link to="/" className="header__burger-link">
                   О проекте
-                </a>
+                </Link>
               </li>
               <li className="header__burger-item">
-                <a href="#" className="header__burger-link calender-open">
+                <Link to="/" className="header__burger-link calender-open">
                   Календарь
-                </a>
+                </Link>
               </li>
               <li className="header__burger-item">
-                <a
-                  href="./pages-html/where_to_go.html"
-                  className="header__burger-link"
-                >
+                <Link to="/" className="header__burger-link">
                   Куда пойти
-                </a>
+                </Link>
               </li>
               <li className="header__burger-item">
-                <a
-                  href="./pages-html/questions.html"
-                  className="header__burger-link"
-                >
+                <Link to="/" className="header__burger-link">
                   Вопросы
-                </a>
+                </Link>
               </li>
               <li className="header__burger-item">
-                <a
-                  href="./pages-html/read_watch.html"
-                  className="header__burger-link"
-                >
+                <Link to="/" className="header__burger-link">
                   Читать и смотреть
-                </a>
+                </Link>
               </li>
               <li className="header__burger-item">
-                <a
-                  href="./pages-html/questions.html"
-                  className="header__burger-link"
-                >
+                <Link to="/" className="header__burger-link">
                   Права детей
-                </a>
+                </Link>
               </li>
               <li className="header__burger-item">
-                <a href="#" className="header__burger-link">
+                <Link to="/" className="header__burger-link">
                   Истории
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
@@ -82,40 +64,40 @@ export default function Header() {
             <ul className="header__burger-list">
               <li className="header__burger-item">
                 <a
-                  href="#"
+                  href="https://www.facebook.com/BigBrothers.BigSisters.Russia/"
                   className="header__burger-link"
                   target="_blank"
-                  rel="noopener"
+                  rel="noopener noreferrer"
                 >
                   facebook
                 </a>
               </li>
               <li className="header__burger-item">
                 <a
-                  href="#"
+                  href="https://vk.com/big.brothers.big.sisters"
                   className="header__burger-link"
                   target="_blank"
-                  rel="noopener"
+                  rel="noopener noreferrer"
                 >
                   vkontakte
                 </a>
               </li>
               <li className="header__burger-item">
                 <a
-                  href="#"
+                  href="https://www.instagram.com/nastavniki_org/"
                   className="header__burger-link"
                   target="_blank"
-                  rel="noopener"
+                  rel="noopener noreferrer"
                 >
                   instagram
                 </a>
               </li>
               <li className="header__burger-item">
                 <a
-                  href="#"
+                  href="https://www.youtube.com/user/Nastavniki"
                   className="header__burger-link"
                   target="_blank"
-                  rel="noopener"
+                  rel="noopener noreferrer"
                 >
                   youtube
                 </a>

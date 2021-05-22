@@ -7,34 +7,34 @@ export default function HeaderMenu() {
     <nav className="header__menu">
       <ul className="header__list">
         <li className="header__list-item calender-open">
-          <a href="#" className="header__list-link">
+          <Link to="/" className="header__list-link">
             Календарь
-          </a>
+          </Link>
         </li>
         <li className="header__list-item">
-          <a href="./pages-html/where_to_go.html" className="header__list-link">
+          <Link to="/" className="header__list-link">
             Куда пойти
-          </a>
+          </Link>
         </li>
         <li className="header__list-item">
-          <a href="./pages-html/questions.html" className="header__list-link">
+          <Link to="/" className="header__list-link">
             Вопросы
-          </a>
+          </Link>
         </li>
         <li className="header__list-item">
-          <a href="./pages-html/read_watch.html" className="header__list-link">
+          <Link to="/" className="header__list-link">
             Читать и смотреть
-          </a>
+          </Link>
         </li>
         <li className="header__list-item">
-          <a href="./pages-html/rights.html" className="header__list-link">
+          <Link to="/" className="header__list-link">
             Права детей
-          </a>
+          </Link>
         </li>
         <li className="header__list-item">
-          <a href="#" className="header__list-link">
+          <Link to="/" className="header__list-link">
             Истории
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>
