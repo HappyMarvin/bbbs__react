@@ -1,0 +1,237 @@
+.footer {
+  padding: 90px calc(50% - 600px) 80px;
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  grid-template-areas:
+    "logo btn nav"
+    "dev  dev nav";
+  gap: 131px 85px;
+  align-items: start;
+  background-color: #2e2468;
+  flex-shrink: 0;
+}
+
+.footer__money {
+  grid-area: btn;
+  margin-right: 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  border: 1px solid #f3f2f2;
+  color: #f3f2f2;
+  border-radius: 100px;
+  font-family: "Proto", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+}
+
+.footer__money:hover {
+  color: #c8d1ff;
+  border-color: #c8d1ff;
+}
+
+.footer__navigation {
+  grid-area: nav;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.footer__menu {
+  margin: 0 44px 0 0;
+  padding: 0;
+}
+
+.footer__menu:last-child {
+  margin-right: 0;
+}
+
+.footer__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-content: flex-start;
+}
+
+.footer__list-item {
+  margin: 0 0 20px;
+  padding: 0;
+  list-style-type: none;
+}
+
+.footer__list-item:last-child {
+  margin-bottom: 0;
+}
+
+.footer__list-link {
+  margin: 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #f3f2f2;
+  font-family: "Proto", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.2px;
+  font-weight: 300;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.footer__list-link:hover {
+  color: #c8d1ff;
+}
+
+.footer__about {
+  display: flex;
+  flex-direction: column;
+  grid-area: dev;
+}
+
+.footer__copyright {
+  grid-area: copy;
+  margin: 0 0 12px 0;
+  padding: 0;
+  font-family: "PT Proto", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  color: #c8d1ff;
+}
+
+.footer__develop {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.footer__develop-text {
+  margin: 0 30px 0 0;
+  padding: 0;
+  font-family: "PT Proto", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  color: #f3f2f2;
+}
+
+.footer__develop-text:last-child {
+  margin-right: 0;
+}
+
+.footer__develop-accent {
+  margin: 0;
+  padding: 0;
+  color: #f3f2f2;
+}
+
+.footer__develop-accent:hover {
+  color: #c8d1ff;
+}
+
+@media (max-width: 1280px) {
+  .footer {
+    padding: 40px 32px 30px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "logo"
+      "nav"
+      "btn"
+      "dev";
+    gap: 0;
+    justify-items: center;
+    justify-content: center;
+  }
+
+  .footer__logo {
+    grid-area: "logo";
+  }
+
+  .footer__navigation {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer__menu {
+    margin-right: 0;
+    border-bottom: 1px solid #c8d1ff;
+  }
+
+  .footer__menu:last-child {
+    border-bottom: 0;
+  }
+
+  .footer__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer__list {
+    margin: 12px 0;
+  }
+
+  .footer__list-item {
+    margin: 8px;
+  }
+
+  .footer__money {
+    margin-right: 0;
+    padding: 11px 15px;
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .footer__about {
+    margin-top: 30px;
+    flex-direction: row;
+  }
+  
+  .footer__copyright {
+    margin-right: 30px;
+    margin-bottom: 0;
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .footer__develop-text {
+    font-size: 12px;
+    line-height: 17px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .footer__about {
+    flex-direction: column;
+  }
+
+  .footer__copyright {
+    margin-bottom: 5px;
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .footer__develop {
+    flex-direction: column;
+  }
+
+  .footer__develop-text {
+    margin-bottom: 5px;
+    margin-right: 0;
+  }
+
+  .footer__develop-text:last-child {
+    margin-bottom: 0;
+  }
+}
