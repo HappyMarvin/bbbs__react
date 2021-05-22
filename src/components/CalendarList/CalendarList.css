@@ -1,0 +1,39 @@
+.calendar-list {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 570px);
+    column-gap: 30px;
+    row-gap: 30px;
+}
+
+@media (max-width: 1900px) {
+
+    .calendar-list {
+        grid-template-columns: repeat(2, 570px);
+    }
+}
+
+
+@media (max-width: 1250px) {
+    .calendar-list {
+        grid-template-columns: repeat(2, 370px);
+    }
+}
+
+@media (max-width: 850px) {
+    .calendar-list {
+        grid-template-columns: 470px;
+        row-gap: 30px;
+        column-gap: 0;
+    }
+}
+
+
+@media (max-width: 530px) {
+    .calendar-list {
+        grid-template-columns: 1fr;
+    }
+}
