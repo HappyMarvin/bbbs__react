@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Logo.css";
 import defaultImage from "../../images/logoSBSS.svg";
 
