@@ -13,7 +13,7 @@ function App() {
       <Switch>
         <Route exact path="/"></Route>
         <Route path="/about">
-          <About />
+          <About mix="app__content" />
         </Route>
       </Switch>
       <Footer />
