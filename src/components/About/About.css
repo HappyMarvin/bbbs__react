@@ -91,6 +91,7 @@
   }
 
   .about__organization-text {
+    padding: 15px;
     min-height: 30px;
   }
 
