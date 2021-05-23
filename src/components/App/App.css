@@ -14,7 +14,6 @@
   }
 
   .app__section {
-    margin-top: 45px;
     margin-bottom: 100px;
   }
 }
@@ -22,6 +21,10 @@
 @media (max-width: 1024px) {
   .app__content {
     width: calc(100% - 254px);
+  }
+
+  .app__section {
+    margin-top: 35px;
   }
 }
 
@@ -31,7 +34,7 @@
   }
 
   .app__section {
-    margin-top: 25px;
+    margin-top: 15px;
     margin-bottom: 50px;
   }
 }
