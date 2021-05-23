@@ -23,7 +23,7 @@ const About = ({ mix }) => {
         <div className="about__organization-circle">
           <h2 className="about__organization-title">Об организации</h2>
         </div>
-        <article className="about__organization-text">
+        <div className="about__organization-text">
           <p className="about__organization-paragraph">
             &laquo;Старшие Братья Старшие Сестры&raquo; &ndash; межрегиональная
             общественная организация содействия воспитанию подрастающего
@@ -46,7 +46,7 @@ const About = ({ mix }) => {
             вещи о&nbsp;жизни, адаптироваться и&nbsp;полноценно участвовать
             в&nbsp;жизни общества.
           </p>
-        </article>
+        </div>
       </section>
 
       <section className="about__target" aria-label="Цель организации">
