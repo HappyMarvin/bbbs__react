@@ -63,9 +63,36 @@
   color: #000000;
 }
 
+.about__target {
+  margin: 80px auto;
+  padding: 60px 0;
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+}
+
+.about__target-text {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1170px;
+  font-family: "Proto", "Arial", "Helvetica", sans-serif;
+  font-size: 44px;
+  line-height: 50px;
+  font-weight: 300;
+  text-align: center;
+  color: #000000;
+}
+
 @media (max-width: 1440px) {
   .about__intro-text {
     max-width: 1030px;
+  }
+
+  .about__target {
+    padding: 50px 0;
+  }
+
+  .about__target-text {
+    max-width: 964px;
   }
 }
 
@@ -98,6 +125,17 @@
   .about__organization-paragraph {
     font-size: 15px;
     line-height: 21px;
+  }
+
+  .about__target {
+    margin: 50px auto;
+    padding: 30px 0;
+  }
+
+  .about__target-text {
+    max-width: 100%;
+    font-size: 23px;
+    line-height: 30px;
   }
 }
 

@@ -48,6 +48,13 @@ const About = ({ mix }) => {
           </p>
         </article>
       </section>
+
+      <section className="about__target" aria-label="Цель организации">
+        <p className="about__target-text">
+          Мы хотим, чтобы наставник был у каждого ребенка, который в&nbsp;нем
+          нуждается
+        </p>
+      </section>
     </main>
   );
 };
