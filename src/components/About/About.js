@@ -1,4 +1,5 @@
 import React from "react";
+import Logo from "../Logo/Logo";
 import "./About.css";
 
 const About = ({ mix }) => {
@@ -10,6 +11,10 @@ const About = ({ mix }) => {
           огрганизации &laquo;Старшие Братья Старшие Сестры&raquo;. Созданная
           для поддержки наставников программы.
         </div>
+      </section>
+
+      <section className="about__logo" aria-label="Логотип">
+        <Logo place="about" />
       </section>
     </main>
   );
