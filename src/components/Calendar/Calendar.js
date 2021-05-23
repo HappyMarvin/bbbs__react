@@ -5,7 +5,7 @@ import CalendarList from "../CalendarList/CalendarList";
 
 function Calendar() {
   return (
-    <div className="grid-calendar content">
+    <div className="calendar content">
       <Title text={"Календарь"} />
       <SelectList />
       <CalendarList />
