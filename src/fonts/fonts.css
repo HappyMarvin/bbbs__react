@@ -1,29 +1,19 @@
 @font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src:
-    url("Inter-Regular.woff2?v=3.15") format("woff2"),
-    url("Inter-Regular.woff?v=3.15") format("woff");
+    src: url('./Proto\ Grotesk-Light-Web.eot') format('eot'),
+    url('./Proto\ Grotesk-Light-Web.ttf') format('truetype'),
+    url('./Proto\ Grotesk-Light-Web.woff') format('woff'),
+    url('./Proto\ Grotesk-Light-Web.woff2') format('woff2');
+    font-family: 'Proto';
+    font-style: normal;
+    font-weight: 300;
 }
 
 @font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src:
-    url("Inter-Medium.woff2?v=3.15") format("woff2"),
-    url("Inter-Medium.woff?v=3.15") format("woff");
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 900;
-  font-display: swap;
-  src:
-    url("Inter-Black.woff2?v=3.15") format("woff2"),
-    url("Inter-Black.woff?v=3.15") format("woff");
+    src: url('./PT-Root-UI_Regular.eot') format('eot'),
+    url('./PT-Root-UI_Regular.ttf') format('truetype'),
+    url('./PT-Root-UI_Regular.woff') format('woff'),
+    url('./PT-Root-UI_Regular.woff2') format('woff2');
+    font-family: 'PT Root';
+    font-style: normal;
+    font-weight: 400;
 }
