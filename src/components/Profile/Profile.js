@@ -5,6 +5,7 @@ import "./Profile.css";
 
 import meetingImage from "../../images/photo-personal-account.png";
 import { TIME_DELAY } from "../../utils/constants";
+import Loader from "../Loader/Loader";
 
 const Profile = ({ isloggedIn }) => {
   const [isLoading, setIsloading] = React.useState(true);
@@ -78,12 +79,12 @@ const Profile = ({ isloggedIn }) => {
         },
       ]);
       setIsloading(false);
-    }, 1000);
+    }, TIME_DELAY);
   }, []);
 
   return (
     <main className="profile" aria-label="Личный кабинет">
-      {isLoading && <p>Загрузка</p>}
+      {isLoading && <Loader />}
       {isloggedIn ? (
         <>
           <section className="profile__buttons" aria-label="Кнопки">
