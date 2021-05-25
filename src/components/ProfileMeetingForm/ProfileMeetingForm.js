@@ -21,7 +21,7 @@ const ProfileMeetingForm = ({ meeting = {}, onClose }) => {
     <form onSubmit={handleSubmit}>
       <label>
         <input type="file" name="image" accept="image/*" />
-        <p>Загрузить фото</p>
+        <span>Загрузить фото</span>
       </label>
       <div>
         <input
@@ -32,14 +32,14 @@ const ProfileMeetingForm = ({ meeting = {}, onClose }) => {
         />
         <label>
           <input type="date" name="date" onChange={handleDateChange} />
-          <p>
+          <span>
             Дата{" "}
             {meetingData.date
               ? `${meetingData.date.getDate()}.${
                   meetingData.date.getMonth() + 1
                 }.${meetingData.date.getFullYear()}`
               : "__.__.____"}
-          </p>
+          </span>
         </label>
       </div>
       <textarea
@@ -49,15 +49,15 @@ const ProfileMeetingForm = ({ meeting = {}, onClose }) => {
       <fieldset>
         <label>
           <input type="radio" value="great" name="rating" />
-          <div></div>
+          <span></span>
         </label>
         <label>
           <input type="radio" value="normal" name="rating" />
-          <div></div>
+          <span></span>
         </label>
         <label>
           <input type="radio" value="wrong" name="rating" />
-          <div></div>
+          <span></span>
         </label>
         <p>хорошо</p>
       </fieldset>
