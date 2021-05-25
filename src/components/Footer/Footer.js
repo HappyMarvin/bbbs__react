@@ -61,7 +61,9 @@ const Footer = () => {
         </nav>
       </div>
       <div className="footer__about">
-        <p class="footer__copyright">&#169; Старшие Братья Старшие Сестры</p>
+        <p className="footer__copyright">
+          &#169; Старшие Братья Старшие Сестры
+        </p>
         <div className="footer__develop">
           <p className="footer__develop-text">
             Разработка &mdash; студенты &nbsp;
