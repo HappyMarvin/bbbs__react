@@ -101,7 +101,7 @@
 }
 
 .loader__point:nth-child(12) {
-  animation-delay: 0;
+  animation-delay: 0s;
   top: 70px;
   left: 0;
 }
