@@ -35,7 +35,7 @@ const Profile = ({ mix, isloggedIn }) => {
         name: "Воронеж",
       });
       setEvents(TEST_EVENTS);
-      setHistory(TEST_HISTORY);
+      // setHistory(TEST_HISTORY);
       setIsloading(false);
     }, TIME_DELAY);
   }, []);

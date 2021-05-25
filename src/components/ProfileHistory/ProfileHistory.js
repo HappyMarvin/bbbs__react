@@ -26,13 +26,14 @@ const ProfileHistory = ({ history, onShare }) => {
       {isFormOpen ? (
         <ProfileMeetingForm onClose={closeForm} />
       ) : (
-        <button
-          className="profile-history__button-add"
-          type="button"
-          onClick={handleAddMeetingClick}
-        >
-          Добавить встречу
-        </button>
+        <label className="profile-history__add">
+          <button
+            className="profile-history__add-button"
+            type="button"
+            onClick={handleAddMeetingClick}
+          />
+          <span className="profile-history__add-text">Добавить встречу</span>
+        </label>
       )}
       <ul>
         {history.map((meeting) => (

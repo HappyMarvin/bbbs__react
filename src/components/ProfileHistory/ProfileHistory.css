@@ -1,0 +1,82 @@
+.profile-history__intro {
+  margin: 50px auto;
+  padding: 0;
+  max-width: 770px;
+  font-family: "Proto", sans-serif;
+  font-weight: 300;
+  font-size: 23px;
+  line-height: 30px;
+  text-align: center;
+  color: #1a1a1a;
+}
+
+.profile-history__add {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #224cff;
+}
+
+.profile-history__add-button {
+  width: 48px;
+  height: 48px;
+  color: #224cff;
+  font-size: 20px;
+  outline: 0;
+  border: 1px solid #224cff;
+  border-radius: 50%;
+  background-color: transparent;
+  background-image: url("../../images/trans-blue-plus.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.profile-history__add:hover {
+  cursor: pointer;
+}
+
+.profile-history__add:active {
+  color: #f3f2f2;
+}
+
+.profile-history__add-button:hover {
+  background-color: #c8d1ff;
+}
+
+.profile-history__add-button:active {
+  background-color: #224cff;
+  border-color: #224cff;
+}
+
+.profile-history__add-button:active:hover {
+  background-color: #2e2468;
+  border-color: #2e2468;
+}
+
+.profile-history__add-text {
+  margin: 0 0 0 15px;
+  font-family: "Proto", sans-serif;
+  font-size: 15px;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+}
+
+@media (max-width: 1024px) {
+  .profile-history__intro {
+    margin: 20px auto 30px;
+    font-size: 19px;
+    line-height: 23px;
+  }
+
+  .profile-history__add-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .profile-history__add-text {
+    font-size: 12px;
+    line-height: 17px;
+    letter-spacing: 0.2px;
+  }
+}
