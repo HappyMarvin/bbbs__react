@@ -87,11 +87,13 @@ const Profile = ({ mix, isloggedIn }) => {
       {isLoading && <Loader />}
       {isloggedIn ? (
         <>
-          <section className="profile__buttons" aria-label="Кнопки">
-            <button className="profile__button-city">
+          <section className="profile__settings" aria-label="Кнопки">
+            <button className="profile__settings-button" type="button">
               {city.name}. Изменить город
             </button>
-            <button className="profile__button-exit">Выход</button>
+            <button className="profile__settings-button" type="button">
+              Выход
+            </button>
           </section>
 
           <ProfileEvents events={events} />
