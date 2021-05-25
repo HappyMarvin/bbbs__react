@@ -17,7 +17,7 @@ const ProfileMeetting = ({ meeting, onShare }) => {
 
   return (
     <li>
-      <article>
+      <article className="profile-meeting__article">
         <figure>
           <img src={meeting.imageUrl} alt="фото встречи" />
           <figcaption>

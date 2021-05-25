@@ -10,9 +10,11 @@ const ProfileEvent = ({ eventData }) => {
       <article className="profile-event__card">
         <h3 className="profile-event__date">
           <span className="profile-event__date-number">
-            {eventDate.getDate()}
+            {`00${eventDate.getDate()}`.slice(-2)}
           </span>
-          {MONTHS[eventDate.getMonth()]}
+          <span className="profile-event__date-month">
+            {MONTHS[eventDate.getMonth()]}
+          </span>
         </h3>
         <p className="profile-event__title">{eventData.title}</p>
       </article>

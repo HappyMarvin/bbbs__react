@@ -8,7 +8,7 @@ const ProfileEvents = ({ events }) => {
       {events.length > 0 ? (
         <>
           <p className="profile-events__intro">Вы записаны на мероприятия:</p>
-          <ul>
+          <ul className="profile-events__list">
             {events.map((eventData) => (
               <ProfileEvent key={eventData.id} eventData={eventData} />
             ))}

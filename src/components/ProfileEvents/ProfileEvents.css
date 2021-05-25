@@ -1,0 +1,40 @@
+.profile-events {
+  padding: 0 0 50px;
+  border-bottom: 0.5px solid #464646;
+}
+
+.profile-events__intro {
+  margin: 0;
+  font-family: "Proto", sans-serif;
+  font-weight: 300;
+  font-size: 23px;
+  line-height: 30px;
+  text-align: center;
+  color: #1a1a1a;
+}
+
+.profile-events__list {
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  gap: 30px;
+  overflow-y: scroll;
+}
+
+@media (max-width: 1024px) {
+  .profile-events {
+    padding-bottom: 20px;
+  }
+
+  .profile-events__intro {
+    font-size: 19px;
+    line-height: 23px;
+  }
+
+  .profile-events__list {
+    margin-top: 20px;
+  }
+}
