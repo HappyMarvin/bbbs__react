@@ -33,7 +33,7 @@
   }
 }
 
-@media (max-width: 1230px) {
+@media (max-width: 1280px) {
   .logo_place_mainpage {
     width: 164px;
     height: 30px;
@@ -52,7 +52,7 @@
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 678px) {
   .logo_place_mainpage {
     margin-top: 22px;
     margin-bottom: 26px;
