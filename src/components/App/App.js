@@ -5,6 +5,7 @@ import "../../fonts/fonts.css";
 
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
+import About from "../About/About";
 import Calendar from "../Calendar/Calendar";
 
 function App() {
@@ -13,6 +14,9 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/"></Route>
+        <Route path="/about">
+          <About mix="app__content app__section" />
+        </Route>
         <Route exact path="/calendar" component={Calendar}></Route>
       </Switch>
       <Footer />
