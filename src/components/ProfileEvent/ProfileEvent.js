@@ -3,16 +3,18 @@ import { MONTHS } from "../../utils/constants";
 import "./ProfileEvent.css";
 
 const ProfileEvent = ({ eventData }) => {
-  const eventdate = new Date(eventData.startAt);
+  const eventDate = new Date(eventData.startAt);
 
   return (
     <li className="profile-event">
       <article className="profile-event__card">
-        <h3 class="profile-event__date">
-          <span class="profile-event__date-number">{eventdate.getDate()}</span>
-          {MONTHS[eventdate.getMonth()]}
+        <h3 className="profile-event__date">
+          <span className="profile-event__date-number">
+            {eventDate.getDate()}
+          </span>
+          {MONTHS[eventDate.getMonth()]}
         </h3>
-        <p class="profile-event__title">{eventData.title}</p>
+        <p className="profile-event__title">{eventData.title}</p>
       </article>
     </li>
   );

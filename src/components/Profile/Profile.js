@@ -3,11 +3,27 @@ import ProfileEvents from "../ProfileEvents/ProfileEvents";
 import ProfileHistory from "../ProfileHistory/ProfileHistory";
 import "./Profile.css";
 
+import meetingImage from "../../images/photo-personal-account.png";
+import { TIME_DELAY } from "../../utils/constants";
+
 const Profile = ({ isloggedIn }) => {
   const [isLoading, setIsloading] = React.useState(true);
   const [city, setCity] = React.useState({});
   const [events, setEvents] = React.useState([]);
   const [history, setHistory] = React.useState([]);
+
+  const handleShareMeetingClick = (meetingId) => {
+    // TO DO: отправить запрос на сервер и получить обновленную информацию
+    const meetingUpdate = history.find((meeting) => meeting.id === meetingId);
+    meetingUpdate.isShared = true;
+    setTimeout(() => {
+      setHistory((state) =>
+        state.map((meeting) =>
+          meeting.id === meetingUpdate.id ? meetingUpdate : meeting
+        )
+      );
+    }, TIME_DELAY / 10);
+  };
 
   React.useEffect(() => {
     setIsloading(true);
@@ -52,8 +68,13 @@ const Profile = ({ isloggedIn }) => {
       setHistory([
         {
           id: 21,
-          imageUrl: "https://picsum.photos/870/520",
+          imageUrl: meetingImage,
+          date: "2021-05-12T08:00:00Z",
           title: "История Марины и Алины",
+          description:
+            "Описание в несколько срок. Подробное описание. Опишите вашу встречу, какие чувства вы испытывали, что понравилось не понравилось. Описание в несколько срок. Подробное описание. Подробное описание. Опишите вашу встречу, какие чувства вы испытывали, что понравилось не понравилось.  Описание в несколько срок. Подробное описание. Опишите вашу встречу, какие чувства вы испытывали, что понравилось не понравилось. Описание в несколько срок. Подробное описание. Подробное описание. Опишите вашу встречу, какие чувства вы испытывали, что понравилось не понравилось. чувства вы испытывали, что понравилось не понравилось. ",
+          rating: "great", // great || normal || wrong\
+          isShared: false,
         },
       ]);
       setIsloading(false);
@@ -74,7 +95,7 @@ const Profile = ({ isloggedIn }) => {
 
           <ProfileEvents events={events} />
 
-          <ProfileHistory history={history} />
+          <ProfileHistory history={history} onShare={handleShareMeetingClick} />
         </>
       ) : (
         <p>Не осуществлен вход</p>
