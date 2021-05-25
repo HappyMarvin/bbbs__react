@@ -18,7 +18,7 @@ function App() {
           <About mix="app__content app__section" />
         </Route>
         <Route path="/profile">
-          <Profile isloggedIn={true} />
+          <Profile mix="app__content" isloggedIn={true} />
         </Route>
         <Route exact path="/calendar" component={Calendar}></Route>
       </Switch>

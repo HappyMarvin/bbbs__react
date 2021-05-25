@@ -7,7 +7,7 @@ import meetingImage from "../../images/photo-personal-account.png";
 import { TIME_DELAY } from "../../utils/constants";
 import Loader from "../Loader/Loader";
 
-const Profile = ({ isloggedIn }) => {
+const Profile = ({ mix, isloggedIn }) => {
   const [isLoading, setIsloading] = React.useState(true);
   const [city, setCity] = React.useState({});
   const [events, setEvents] = React.useState([]);
@@ -83,7 +83,7 @@ const Profile = ({ isloggedIn }) => {
   }, []);
 
   return (
-    <main className="profile" aria-label="Личный кабинет">
+    <main className={`profile ${mix}`} aria-label="Личный кабинет">
       {isLoading && <Loader />}
       {isloggedIn ? (
         <>
