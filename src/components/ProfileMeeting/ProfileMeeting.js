@@ -21,7 +21,7 @@ const ProfileMeetting = ({ meeting, onShare }) => {
         <figure>
           <img src={meeting.imageUrl} alt="фото встречи" />
           <figcaption>
-            <h3>{meeting.title}</h3>
+            <h3>{meeting.place}</h3>
             <p>
               <span>
                 {`${
