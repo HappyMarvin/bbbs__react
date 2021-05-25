@@ -1,11 +1,13 @@
 import React from "react";
 import ProfileEvents from "../ProfileEvents/ProfileEvents";
+import ProfileHistory from "../ProfileHistory/ProfileHistory";
 import "./Profile.css";
 
 const Profile = ({ isloggedIn }) => {
   const [isLoading, setIsloading] = React.useState(true);
   const [city, setCity] = React.useState({});
   const [events, setEvents] = React.useState([]);
+  const [history, setHistory] = React.useState([]);
 
   React.useEffect(() => {
     setIsloading(true);
@@ -47,6 +49,13 @@ const Profile = ({ isloggedIn }) => {
           city: 1,
         },
       ]);
+      setHistory([
+        {
+          id: 21,
+          imageUrl: "https://picsum.photos/870/520",
+          title: "История Марины и Алины",
+        },
+      ]);
       setIsloading(false);
     }, 1000);
   }, []);
@@ -64,6 +73,8 @@ const Profile = ({ isloggedIn }) => {
           </section>
 
           <ProfileEvents events={events} />
+
+          <ProfileHistory history={history} />
         </>
       ) : (
         <p>Не осуществлен вход</p>
