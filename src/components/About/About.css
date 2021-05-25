@@ -178,13 +178,7 @@
   }
 }
 
-@media (max-width: 1024px) {
-  .about__intro-text {
-    max-width: 770px;
-    font-size: 19px;
-    line-height: 23px;
-  }
-
+@media (max-width: 1280px) {
   .about__organization {
     flex-direction: column;
   }
@@ -209,6 +203,14 @@
     margin: 10px auto;
     font-size: 15px;
     line-height: 21px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about__intro-text {
+    max-width: 770px;
+    font-size: 19px;
+    line-height: 23px;
   }
 
   .about__target {
