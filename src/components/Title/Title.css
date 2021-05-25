@@ -1,4 +1,4 @@
-.heading {
+.title {
     margin: 0 auto;
     margin-bottom: 40px;
     padding: 0;
@@ -9,19 +9,19 @@
     text-align: center;
 }
 
-.heading_place_articles {
+.title_place_articles {
     margin-bottom: 0;
 }
 
 @media (max-width: 1024px) {
-    .heading {
+    .title {
         font-size: 37px;
         line-height: 39px;
         margin-bottom: 20px;
     }
 }
 @media (max-width: 850px) {
-    .heading {
+    .title {
         margin-bottom: 20px;
     }
 }
