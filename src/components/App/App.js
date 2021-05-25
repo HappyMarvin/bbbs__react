@@ -2,8 +2,9 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 
-import Footer from "./Footer/Footer";
-import Header from "./Header/Header";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
+import About from "../About/About";
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/"></Route>
+        <Route path="/about">
+          <About mix="app__content app__section" />
+        </Route>
       </Switch>
       <Footer />
     </>
