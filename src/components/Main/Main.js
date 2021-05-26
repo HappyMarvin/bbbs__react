@@ -1,6 +1,7 @@
 import React from "react";
 
 import Bbbs from "../Bbbs/Bbbs";
+import Story from "../Story/Story";
 
 import "./Main.css";
 
@@ -10,10 +11,7 @@ export default function Main() {
       <section className="mainpage content main__section">
         <section className="mainpage__intro">
           <Bbbs />
-          <div className="story">
-            <a className="mainlink" href="#"></a>
-            <h3 className="story__title">История Марины и Алины</h3>
-          </div>
+          <Story />
         </section>
 
         <section className="mainpage__blocks">
