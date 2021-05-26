@@ -63,6 +63,12 @@
   letter-spacing: 0.2px;
 }
 
+.profile-history__list {
+  margin: 50px auto 120px;
+  padding: 0;
+  list-style: none;
+}
+
 @media (max-width: 1024px) {
   .profile-history__intro {
     margin: 20px auto 30px;
@@ -72,7 +78,7 @@
   .profile-history__add {
     margin: 20px 0;
   }
-  
+
   .profile-history__add-button {
     width: 40px;
     height: 40px;
@@ -82,5 +88,9 @@
     font-size: 12px;
     line-height: 17px;
     letter-spacing: 0.2px;
+  }
+
+  .profile-history__list {
+    margin: 20px auto 50px;
   }
 }

@@ -5,7 +5,7 @@ import "./Profile.css";
 
 import { TIME_DELAY } from "../../utils/constants";
 import Loader from "../Loader/Loader";
-import { TEST_EVENTS, TEST_HISTORY } from "../ProfileEvents/ForTest";
+import { TEST_EVENTS, TEST_HISTORY } from "./ForTest";
 
 const Profile = ({ mix, isloggedIn }) => {
   const [isLoading, setIsloading] = React.useState(true);
@@ -35,7 +35,7 @@ const Profile = ({ mix, isloggedIn }) => {
         name: "Воронеж",
       });
       setEvents(TEST_EVENTS);
-      // setHistory(TEST_HISTORY);
+      setHistory(TEST_HISTORY);
       setIsloading(false);
     }, TIME_DELAY);
   }, []);

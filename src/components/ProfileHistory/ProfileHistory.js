@@ -35,7 +35,7 @@ const ProfileHistory = ({ history, onShare }) => {
           <span className="profile-history__add-text">Добавить встречу</span>
         </label>
       )}
-      <ul>
+      <ul className="profile-history__list">
         {history.map((meeting) => (
           <ProfileMeetting
             key={meeting.id}
