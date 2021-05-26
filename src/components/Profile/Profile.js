@@ -8,10 +8,30 @@ import Loader from "../Loader/Loader";
 import { TEST_EVENTS, TEST_HISTORY } from "./ForTest";
 
 const Profile = ({ mix, isloggedIn }) => {
-  const [isLoading, setIsloading] = React.useState(true);
+  const [isLoading, setIsloading] = React.useState(false);
   const [city, setCity] = React.useState({});
   const [events, setEvents] = React.useState([]);
   const [history, setHistory] = React.useState([]);
+
+  const handleAddMeeting = ({ meeting }, endLoading, closeMeetingForm) => {
+    // TO DO: запрос на сервер для добавления встречи
+    setTimeout(() => {
+      setHistory([{ ...meeting, id: Math.random() }, ...history]);
+      endLoading();
+      closeMeetingForm(); // закрывать форму после ответа с сервера со статусом ОК
+    }, TIME_DELAY);
+  };
+
+  const handleUpdateMeeting = ({ meeting }, endLoading, closeMeetingForm) => {
+    // TO DO: запрос на сервер для обновления данных встречи
+    setTimeout(() => {
+      setHistory(
+        history.map((item) => (item.id === meeting.id ? meeting : item))
+      );
+      endLoading();
+      closeMeetingForm(); // закрывать форму после ответа с сервера со статусом ОК
+    }, TIME_DELAY);
+  };
 
   const handleShareMeetingClick = (meetingId) => {
     // TO DO: отправить запрос на сервер и получить обновленную информацию
@@ -23,7 +43,7 @@ const Profile = ({ mix, isloggedIn }) => {
           meeting.id === meetingUpdate.id ? meetingUpdate : meeting
         )
       );
-    }, TIME_DELAY / 10);
+    }, TIME_DELAY);
   };
 
   React.useEffect(() => {
@@ -56,7 +76,12 @@ const Profile = ({ mix, isloggedIn }) => {
 
           <ProfileEvents events={events} />
 
-          <ProfileHistory history={history} onShare={handleShareMeetingClick} />
+          <ProfileHistory
+            history={history}
+            onAddMeeting={handleAddMeeting}
+            onUpdateMeeting={handleUpdateMeeting}
+            onShare={handleShareMeetingClick}
+          />
         </>
       ) : (
         <p>Не осуществлен вход</p>

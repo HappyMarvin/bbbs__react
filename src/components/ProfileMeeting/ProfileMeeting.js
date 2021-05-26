@@ -4,11 +4,15 @@ import "./ProfileMeeting.css";
 import { MONTHS } from "../../utils/constants";
 import ProfileMeetingForm from "../ProfileMeetingForm/ProfileMeetingForm";
 
-const ProfileMeetting = ({ meeting, onShare }) => {
+const ProfileMeetting = ({ meeting, onUpdate, onShare }) => {
   const [isEdit, setIsEdit] = React.useState(false);
 
   const handleEditMeetingClick = () => {
     setIsEdit(true);
+  };
+
+  const handleDeleteMeetingClick = () => {
+    // попап удаления
   };
 
   const meetingDate = new Date(meeting.date);
@@ -26,7 +30,13 @@ const ProfileMeetting = ({ meeting, onShare }) => {
     <li className="profile-meeting__item">
       <article className="profile-meeting__article">
         {isEdit ? (
-          <ProfileMeetingForm meeting={meeting} />
+          <ProfileMeetingForm
+            meeting={meeting}
+            onClose={() => {
+              setIsEdit(false);
+            }}
+            onSubmit={onUpdate}
+          />
         ) : (
           <figure className="profile-meeting__figure">
             <img
@@ -84,6 +94,7 @@ const ProfileMeetting = ({ meeting, onShare }) => {
                   <button
                     className="profile-meeting__actions-button profile-meeting__actions-button_type_delete"
                     type="button"
+                    onClick={handleDeleteMeetingClick}
                   >
                     Удалить
                   </button>

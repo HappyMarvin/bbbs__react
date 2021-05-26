@@ -1,12 +1,23 @@
 import React from "react";
+import Loader from "../Loader/Loader";
 import "./ProfileMeetingForm.css";
 
-const ProfileMeetingForm = ({ meeting = {}, onClose }) => {
+const ProfileMeetingForm = ({ meeting = {}, onClose, onSubmit }) => {
   const [meetingData, setMeetingData] = React.useState({ meeting });
+  const [isLoading, setIsLoading] = React.useState(false);
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    // отправка данных на сервер для добавления формы - onSubmit
-    onClose();
+    setIsLoading(true);
+    onSubmit(
+      meetingData,
+      () => {
+        setIsLoading(false);
+      },
+      () => {
+        onClose();
+      }
+    );
   };
 
   const handleDateChange = (event) => {
@@ -18,7 +29,8 @@ const ProfileMeetingForm = ({ meeting = {}, onClose }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="profile-meeting-form" onSubmit={handleSubmit}>
+      {isLoading && <Loader />}
       <label>
         <input type="file" name="image" accept="image/*" />
         <span>Загрузить фото</span>

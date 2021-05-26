@@ -3,8 +3,14 @@ import "./ProfileHistory.css";
 
 import ProfileMeetingForm from "../ProfileMeetingForm/ProfileMeetingForm";
 import ProfileMeetting from "../ProfileMeeting/ProfileMeeting";
+// import Loader from "../Loader/Loader";
 
-const ProfileHistory = ({ history, onShare }) => {
+const ProfileHistory = ({
+  history,
+  onAddMeeting,
+  onUpdateMeeting,
+  onShare,
+}) => {
   const [isFormOpen, setIsFormOpen] = React.useState(false);
 
   const handleAddMeetingClick = () => {
@@ -17,6 +23,7 @@ const ProfileHistory = ({ history, onShare }) => {
 
   return (
     <section className="profile-history" aria-label="История встреч">
+      {/* {isLoading && <Loader />} */}
       {history.length === 0 && (
         <p className="profile-history__intro">
           Составьте историю вашей дружбы с младшим. Эта страница доступна только
@@ -24,7 +31,7 @@ const ProfileHistory = ({ history, onShare }) => {
         </p>
       )}
       {isFormOpen ? (
-        <ProfileMeetingForm onClose={closeForm} />
+        <ProfileMeetingForm onClose={closeForm} onSubmit={onAddMeeting} />
       ) : (
         <label className="profile-history__add">
           <button
@@ -40,6 +47,7 @@ const ProfileHistory = ({ history, onShare }) => {
           <ProfileMeetting
             key={meeting.id}
             meeting={meeting}
+            onUpdate={onUpdateMeeting}
             onShare={onShare}
           />
         ))}

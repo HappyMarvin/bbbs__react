@@ -1,3 +1,7 @@
+.profile-history {
+  position: relative;
+}
+
 .profile-history__intro {
   margin: 50px auto;
   padding: 0;
