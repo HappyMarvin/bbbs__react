@@ -24,12 +24,15 @@ export default function Header(props) {
           <nav className="header__menu-burger">
             <ul className="header__burger-list">
               <li className="header__burger-item">
-                <Link to="/" className="header__burger-link">
+                <Link to="/about" className="header__burger-link">
                   О проекте
                 </Link>
               </li>
               <li className="header__burger-item">
-                <Link to="/" className="header__burger-link calender-open">
+                <Link
+                  to="/calendar"
+                  className="header__burger-link calender-open"
+                >
                   Календарь
                 </Link>
               </li>
