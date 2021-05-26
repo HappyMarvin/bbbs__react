@@ -11,6 +11,7 @@
 }
 
 .profile-history__add {
+  margin: 50px 0;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -68,7 +69,10 @@
     font-size: 19px;
     line-height: 23px;
   }
-
+  .profile-history__add {
+    margin: 20px 0;
+  }
+  
   .profile-history__add-button {
     width: 40px;
     height: 40px;
