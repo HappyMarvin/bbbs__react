@@ -13,7 +13,7 @@ const Profile = ({ mix, isloggedIn }) => {
   const [events, setEvents] = React.useState([]);
   const [history, setHistory] = React.useState([]);
 
-  const handleAddMeeting = ({ meeting }, endLoading, closeMeetingForm) => {
+  const handleAddMeeting = (meeting, endLoading, closeMeetingForm) => {
     // TO DO: запрос на сервер для добавления встречи
     setTimeout(() => {
       setHistory([{ ...meeting, id: Math.random() }, ...history]);
@@ -22,7 +22,7 @@ const Profile = ({ mix, isloggedIn }) => {
     }, TIME_DELAY);
   };
 
-  const handleUpdateMeeting = ({ meeting }, endLoading, closeMeetingForm) => {
+  const handleUpdateMeeting = (meeting, endLoading, closeMeetingForm) => {
     // TO DO: запрос на сервер для обновления данных встречи
     setTimeout(() => {
       setHistory(

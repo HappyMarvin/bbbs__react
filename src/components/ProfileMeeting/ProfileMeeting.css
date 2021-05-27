@@ -17,7 +17,7 @@
   padding: 0;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: stretch;
   align-items: stretch;
 }
 
@@ -34,6 +34,7 @@
   position: relative;
   padding: 35px 30px 30px;
   height: 100%;
+  width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -104,25 +105,25 @@
   align-items: center;
 }
 
-.profile-meeting__ratting {
+.profile-meeting__rating {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.profile-meeting__ratting_type_good {
+.profile-meeting__rating_type_good {
   color: #8cdd94;
 }
 
-.profile-meeting__ratting_type_normal {
+.profile-meeting__rating_type_normal {
   color: #464646;
 }
 
-.profile-meeting__ratting_type_bad {
+.profile-meeting__rating_type_bad {
   color: #ff8585;
 }
 
-.profile-meeting__ratting-emoji {
+.profile-meeting__rating-emoji {
   width: 26px;
   height: 26px;
   background-position: center;
@@ -131,19 +132,19 @@
   border-radius: 50%;
 }
 
-.profile-meeting__ratting-emoji_type_good {
+.profile-meeting__rating-emoji_type_good {
   background-image: url("../../images/feedback-good-color.svg");
 }
 
-.profile-meeting__ratting-emoji_type_normal {
+.profile-meeting__rating-emoji_type_normal {
   background-image: url("../../images/feedback-normal-color.svg");
 }
 
-.profile-meeting__ratting-emoji_type_bad {
+.profile-meeting__rating-emoji_type_bad {
   background-image: url("../../images/feedback-bad-color.svg");
 }
 
-.profile-meeting__ratting-text {
+.profile-meeting__rating-text {
   margin: 0 0 0 15px;
   font-family: "PT Root", sans-serif;
   font-weight: 400;

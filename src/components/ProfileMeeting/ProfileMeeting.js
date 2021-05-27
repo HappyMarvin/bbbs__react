@@ -61,12 +61,12 @@ const ProfileMeetting = ({ meeting, onUpdate, onShare }) => {
               </div>
               <div className="profile-meeting__actions">
                 <div
-                  className={`profile-meeting__ratting profile-meeting__ratting_type_${meeting.rating}`}
+                  className={`profile-meeting__rating profile-meeting__rating_type_${meeting.rating}`}
                 >
                   <div
-                    className={`profile-meeting__ratting-emoji profile-meeting__ratting-emoji_type_${meeting.rating}`}
+                    className={`profile-meeting__rating-emoji profile-meeting__rating-emoji_type_${meeting.rating}`}
                   ></div>
-                  <p className="profile-meeting__ratting-text">{ratingText}</p>
+                  <p className="profile-meeting__rating-text">{ratingText}</p>
                 </div>
                 <div className="profile-meeting__actions-buttons">
                   {meeting.isShared ? (

@@ -3,7 +3,9 @@ import Loader from "../Loader/Loader";
 import "./ProfileMeetingForm.css";
 
 const ProfileMeetingForm = ({ meeting = {}, onClose, onSubmit }) => {
-  const [meetingData, setMeetingData] = React.useState({ meeting });
+  const [meetingData, setMeetingData] = React.useState(meeting);
+  // const [ratingText]
+  const [isValid, setIsValid] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
 
   const handleSubmit = (event) => {
@@ -28,55 +30,101 @@ const ProfileMeetingForm = ({ meeting = {}, onClose, onSubmit }) => {
     // попап удаления встречи
   };
 
+  const handleChange = (event) => {
+    const input = event.target;
+    const { value, name } = input;
+    setMeetingData({ ...meetingData, [name]: value });
+    // setValues({ ...values, [name]: value });
+    // setErrors({ ...errors, [name]: input.validationMessage });
+    // setIsValid(input.closest("form").checkValidity());
+  };
+
+  React.useEffect(() => {
+    console.log(meetingData);
+  }, [meetingData]);
+
   return (
     <form className="profile-meeting-form" onSubmit={handleSubmit}>
       {isLoading && <Loader />}
-      <label>
-        <input type="file" name="image" accept="image/*" />
-        <span>Загрузить фото</span>
-      </label>
-      <div>
+      <label className="profile-meeting-form__image">
         <input
-          className="profile-meeting-form__input"
+          className="profile-meeting-form__image-input"
+          type="file"
+          name="image"
+          accept="image/*"
+        />
+        <span className="profile-meeting-form__image-text">Загрузить фото</span>
+      </label>
+      <div className="profile-meeting-form__info">
+        <input
+          className="profile-meeting-form__input profile-meeting-form__info-place"
           type="text"
           name="place"
           placeholder="Место встречи"
         />
-        <label>
+        <label className="profile-meeting-form__info-date">
           <input type="date" name="date" onChange={handleDateChange} />
           <span>
-            Дата{" "}
-            {meetingData.date
+            {/* {meetingData.date
               ? `${meetingData.date.getDate()}.${
                   meetingData.date.getMonth() + 1
                 }.${meetingData.date.getFullYear()}`
-              : "__.__.____"}
+              : "Дата __.__.____"} */}
+            "hi"
           </span>
         </label>
+        <textarea
+          className="profile-meeting-form__info-description"
+          placeholder="Опишите вашу встречу, какие чувства вы испытывали, что понравилось / не понравилось"
+          name="description"
+        />
+        <div className="profile-meeting-form__info-rating">
+          <label>
+            <input
+              type="radio"
+              value="good"
+              name="rating"
+              onChange={handleChange}
+            />
+            <span></span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="normal"
+              name="rating"
+              onChange={handleChange}
+            />
+            <span></span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="bad"
+              name="rating"
+              onChange={handleChange}
+            />
+            <span></span>
+          </label>
+          <p>{"hi"}</p>
+        </div>
+        <div className="profile-meeting-form__buttons">
+          <button
+            className="profile-meeting-form__button profile-meeting-form__button-reset"
+            type="button"
+            onClick={handleDeleteClick}
+          >
+            Удалить
+          </button>
+          <button
+            className="profile-meeting-form__button profile-meeting-form__button-submit"
+            type="submit"
+            disabled={isValid}
+          >
+            {meeting.id ? "Сохранить" : "Добавить"}
+          </button>
+        </div>
       </div>
-      <textarea
-        placeholder="Опишите вашу встречу, какие чувства вы испытывали, что понравилось / не понравилось"
-        name="description"
-      />
-      <fieldset>
-        <label>
-          <input type="radio" value="great" name="rating" />
-          <span></span>
-        </label>
-        <label>
-          <input type="radio" value="normal" name="rating" />
-          <span></span>
-        </label>
-        <label>
-          <input type="radio" value="wrong" name="rating" />
-          <span></span>
-        </label>
-        <p>хорошо</p>
-      </fieldset>
-      <button type="button" onClick={handleDeleteClick}>
-        Удалить
-      </button>
-      <button type="submit">cоздать</button>
     </form>
   );
 };

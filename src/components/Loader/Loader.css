@@ -2,7 +2,7 @@
   0% {
     transform: scale(1);
   }
-  90%,
+  75%,
   100% {
     transform: scale(0);
   }
