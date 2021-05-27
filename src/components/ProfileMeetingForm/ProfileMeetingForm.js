@@ -3,7 +3,9 @@ import Loader from "../Loader/Loader";
 import "./ProfileMeetingForm.css";
 
 const ProfileMeetingForm = ({ meeting = {}, onClose, onSubmit }) => {
+  // TO DO: добавление изображения
   const [meetingData, setMeetingData] = React.useState(meeting);
+  const [meetingDate, setMeetingDate] = React.useState("");
   const ratingValues = ["good", "normal", "bad"];
   const ratingText = {
     default: "Оцените проведенное время",
@@ -28,26 +30,27 @@ const ProfileMeetingForm = ({ meeting = {}, onClose, onSubmit }) => {
     );
   };
 
-  const handleDateChange = (event) => {
-    setMeetingData({ meetingData, date: new Date(event.target.value) });
-  };
-
   const handleDeleteClick = () => {
     // попап удаления встречи
   };
 
   const handleChange = (event) => {
     const input = event.target;
-    const { value, name } = input;
-    setMeetingData({ ...meetingData, [name]: value });
-    // setValues({ ...values, [name]: value });
-    // setErrors({ ...errors, [name]: input.validationMessage });
+    const { value, name, type } = input;
+    if (type === "date") {
+      const d = new Date(event.target.value).toISOString();
+      setMeetingDate(d.slice(0, 10));
+      setMeetingData({ ...meetingData, date: d });
+    } else {
+      setMeetingData({ ...meetingData, [name]: value });
+    }
     setIsValid(input.closest("form").checkValidity());
   };
 
-  // React.useEffect(() => {
-  //   console.log(meetingData);
-  // }, [meetingData]);
+  React.useState(() => {
+    const d = new Date(meeting.date).toISOString();
+    setMeetingDate(d.slice(0, 10));
+  }, []);
 
   return (
     <form className="profile-meeting-form" onSubmit={handleSubmit}>
@@ -67,17 +70,22 @@ const ProfileMeetingForm = ({ meeting = {}, onClose, onSubmit }) => {
           type="text"
           name="place"
           placeholder="Место встречи"
+          value={meetingData.place}
+          onChange={handleChange}
         />
         <input
           className="profile-meeting-form__input profile-meeting-form__info-date"
           type="date"
           name="date"
-          onChange={handleDateChange}
+          value={meetingDate}
+          onChange={handleChange}
         />
         <textarea
           className="profile-meeting-form__input profile-meeting-form__input_textarea profile-meeting-form__info-description"
           placeholder="Опишите вашу встречу, какие чувства вы испытывали, что понравилось / не понравилось"
           name="description"
+          value={meetingData.description}
+          onChange={handleChange}
         />
         <div className="profile-meeting-form__rating">
           {ratingValues.map((item, index) => (
