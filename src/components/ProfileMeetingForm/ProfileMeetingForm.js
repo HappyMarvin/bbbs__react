@@ -4,8 +4,14 @@ import "./ProfileMeetingForm.css";
 
 const ProfileMeetingForm = ({ meeting = {}, onClose, onSubmit }) => {
   const [meetingData, setMeetingData] = React.useState(meeting);
-  // const [ratingText]
-  const [isValid, setIsValid] = React.useState(false);
+  const ratingValues = ["good", "normal", "bad"];
+  const ratingText = {
+    default: "Оцените проведенное время",
+    good: "Было классно!",
+    normal: "Нормально",
+    bad: "Что-пошло не так",
+  };
+  const [isValid, setIsValid] = React.useState(true);
   const [isLoading, setIsLoading] = React.useState(false);
 
   const handleSubmit = (event) => {
@@ -36,19 +42,19 @@ const ProfileMeetingForm = ({ meeting = {}, onClose, onSubmit }) => {
     setMeetingData({ ...meetingData, [name]: value });
     // setValues({ ...values, [name]: value });
     // setErrors({ ...errors, [name]: input.validationMessage });
-    // setIsValid(input.closest("form").checkValidity());
+    setIsValid(input.closest("form").checkValidity());
   };
 
-  React.useEffect(() => {
-    console.log(meetingData);
-  }, [meetingData]);
+  // React.useEffect(() => {
+  //   console.log(meetingData);
+  // }, [meetingData]);
 
   return (
     <form className="profile-meeting-form" onSubmit={handleSubmit}>
       {isLoading && <Loader />}
       <label className="profile-meeting-form__image">
         <input
-          className="profile-meeting-form__image-input"
+          className="profile-meeting-form__input-hide"
           type="file"
           name="image"
           accept="image/*"
@@ -62,51 +68,43 @@ const ProfileMeetingForm = ({ meeting = {}, onClose, onSubmit }) => {
           name="place"
           placeholder="Место встречи"
         />
-        <label className="profile-meeting-form__info-date">
-          <input type="date" name="date" onChange={handleDateChange} />
-          <span>
-            {/* {meetingData.date
-              ? `${meetingData.date.getDate()}.${
-                  meetingData.date.getMonth() + 1
-                }.${meetingData.date.getFullYear()}`
-              : "Дата __.__.____"} */}
-            "hi"
-          </span>
-        </label>
+        <input
+          className="profile-meeting-form__input profile-meeting-form__info-date"
+          type="date"
+          name="date"
+          onChange={handleDateChange}
+        />
         <textarea
-          className="profile-meeting-form__info-description"
+          className="profile-meeting-form__input profile-meeting-form__input_textarea profile-meeting-form__info-description"
           placeholder="Опишите вашу встречу, какие чувства вы испытывали, что понравилось / не понравилось"
           name="description"
         />
-        <div className="profile-meeting-form__info-rating">
-          <label>
-            <input
-              type="radio"
-              value="good"
-              name="rating"
-              onChange={handleChange}
-            />
-            <span></span>
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="normal"
-              name="rating"
-              onChange={handleChange}
-            />
-            <span></span>
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="bad"
-              name="rating"
-              onChange={handleChange}
-            />
-            <span></span>
-          </label>
-          <p>{"hi"}</p>
+        <div className="profile-meeting-form__rating">
+          {ratingValues.map((item, index) => (
+            <label key={index} className="profile-meeting-form__rating-label">
+              <input
+                className="profile-meeting-form__input-hide"
+                type="radio"
+                value={item}
+                name="rating"
+                checked={item === meetingData.rating}
+                onChange={handleChange}
+              />
+              <span
+                className={`profile-meeting-form__rating-emoji profile-meeting-form__rating-emoji_type_${item} ${
+                  item === meetingData.rating &&
+                  "profile-meeting-form__rating-emoji_active"
+                }`}
+              ></span>
+            </label>
+          ))}
+          <p
+            className={`profile-meeting-form__rating-text profile-meeting-form__rating-text_type_${meetingData.rating}`}
+          >
+            {meetingData.rating
+              ? ratingText[meetingData.rating]
+              : ratingText.default}
+          </p>
         </div>
         <div className="profile-meeting-form__buttons">
           <button
@@ -119,7 +117,7 @@ const ProfileMeetingForm = ({ meeting = {}, onClose, onSubmit }) => {
           <button
             className="profile-meeting-form__button profile-meeting-form__button-submit"
             type="submit"
-            disabled={isValid}
+            disabled={!isValid}
           >
             {meeting.id ? "Сохранить" : "Добавить"}
           </button>

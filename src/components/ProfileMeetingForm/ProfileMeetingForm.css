@@ -1,10 +1,42 @@
 .profile-meeting-form {
-  /* margin: 0 auto; */
+  margin-bottom: 80px;
   position: relative;
   height: 470px;
   display: flex;
   justify-content: stretch;
   align-items: stretch;
+}
+
+.profile-meeting-form__input {
+  margin: 0;
+  padding: 15px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Proto", sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 19px;
+  color: #000;
+  outline: 0;
+  border: 0;
+  border-radius: 30px;
+  background-color: #f3f2f2;
+}
+
+.profile-meeting-form__input_textarea {
+  resize: none;
+}
+
+.profile-meeting-form__info {
+  color: #a7a6a6;
+}
+
+.profile-meeting-form__input-hide {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
 }
 
 .profile-meeting-form__image {
@@ -16,13 +48,6 @@
   border-radius: 30px;
   background-color: #fff;
   cursor: pointer;
-}
-
-.profile-meeting-form__image-input {
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
 }
 
 .profile-meeting-form__image-text {
@@ -67,8 +92,77 @@
   grid-area: desc;
 }
 
-.profile-meeting-form__info-rating {
+.profile-meeting-form__rating {
   grid-area: rate;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.profile-meeting-form__rating-emoji {
+  margin: 0 15px 0 0;
+  width: 20px;
+  height: 20px;
+  display: block;
+  background-image: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.profile-meeting-form__rating-emoji_type_good {
+  background-image: url("../../images/feedback-good-black.svg");
+}
+
+.profile-meeting-form__rating-emoji_type_good:hover {
+  background-image: url("../../images/feedback-good-color.svg");
+}
+
+.profile-meeting-form__rating-emoji_type_good.profile-meeting-form__rating-emoji_active {
+  background-image: url("../../images/feedback-good-color.svg");
+}
+
+.profile-meeting-form__rating-emoji_type_normal {
+  background-image: url("../../images/feedback-normal-black.svg");
+}
+
+.profile-meeting-form__rating-emoji_type_normal:hover {
+  background-image: url("../../images/feedback-normal-color.svg");
+}
+
+.profile-meeting-form__rating-emoji_type_normal.profile-meeting-form__rating-emoji_active {
+  background-image: url("../../images/feedback-normal-color.svg");
+}
+
+.profile-meeting-form__rating-emoji_type_bad {
+  background-image: url("../../images/feedback-bad-black.svg");
+}
+
+.profile-meeting-form__rating-emoji_type_bad:hover {
+  background-image: url("../../images/feedback-bad-color.svg");
+}
+
+.profile-meeting-form__rating-emoji_type_bad.profile-meeting-form__rating-emoji_active {
+  background-image: url("../../images/feedback-bad-color.svg");
+}
+
+.profile-meeting-form__rating-text {
+  margin: 0;
+  font-family: "PT Root", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #a7a6a6;
+}
+
+.profile-meeting-form__rating-text_type_good {
+  color: #8cdd94;
+}
+
+.profile-meeting-form__rating-text_type_noraml {
+  color: #464646;
+}
+.profile-meeting-form__rating-text_type_bad {
+  color: #ff8585;
 }
 
 .profile-meeting-form__buttons {
