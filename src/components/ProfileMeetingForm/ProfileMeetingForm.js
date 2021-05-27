@@ -7,6 +7,7 @@ const ProfileMeetingForm = ({
   mix,
   onClose,
   onSubmit,
+  onDelete,
 }) => {
   // TO DO: добавление изображения
   const [meetingData, setMeetingData] = React.useState(meeting);
@@ -36,7 +37,7 @@ const ProfileMeetingForm = ({
   };
 
   const handleDeleteClick = () => {
-    // попап удаления встречи
+    onDelete(meetingData);
   };
 
   const handleChange = (event) => {

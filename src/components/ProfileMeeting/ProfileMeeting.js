@@ -4,15 +4,11 @@ import "./ProfileMeeting.css";
 import { MONTHS } from "../../utils/constants";
 import ProfileMeetingForm from "../ProfileMeetingForm/ProfileMeetingForm";
 
-const ProfileMeetting = ({ meeting, onUpdate, onShare }) => {
+const ProfileMeetting = ({ meeting, onUpdate, onDelete, onShare }) => {
   const [isEdit, setIsEdit] = React.useState(false);
 
   const handleEditMeetingClick = () => {
     setIsEdit(true);
-  };
-
-  const handleDeleteMeetingClick = () => {
-    // попап удаления
   };
 
   const meetingDate = new Date(meeting.date);
@@ -37,6 +33,7 @@ const ProfileMeetting = ({ meeting, onUpdate, onShare }) => {
               setIsEdit(false);
             }}
             onSubmit={onUpdate}
+            onDelete={onDelete}
           />
         ) : (
           <figure className="profile-meeting__figure">
@@ -95,7 +92,7 @@ const ProfileMeetting = ({ meeting, onUpdate, onShare }) => {
                   <button
                     className="profile-meeting__actions-button profile-meeting__actions-button_type_delete"
                     type="button"
-                    onClick={handleDeleteMeetingClick}
+                    onClick={() => onDelete(meeting)}
                   >
                     Удалить
                   </button>

@@ -9,6 +9,7 @@ const ProfileHistory = ({
   history,
   onAddMeeting,
   onUpdateMeeting,
+  onDeleteMeeting,
   onShare,
 }) => {
   const [isFormOpen, setIsFormOpen] = React.useState(false);
@@ -31,7 +32,11 @@ const ProfileHistory = ({
         </p>
       )}
       {isFormOpen ? (
-        <ProfileMeetingForm onClose={closeForm} onSubmit={onAddMeeting} />
+        <ProfileMeetingForm
+          onClose={closeForm}
+          onSubmit={onAddMeeting}
+          onDelete={closeForm}
+        />
       ) : (
         <label className="profile-history__add">
           <button
@@ -48,6 +53,7 @@ const ProfileHistory = ({
             key={meeting.id}
             meeting={meeting}
             onUpdate={onUpdateMeeting}
+            onDelete={onDeleteMeeting}
             onShare={onShare}
           />
         ))}

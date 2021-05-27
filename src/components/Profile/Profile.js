@@ -6,12 +6,15 @@ import "./Profile.css";
 import { TIME_DELAY } from "../../utils/constants";
 import Loader from "../Loader/Loader";
 import { TEST_EVENTS, TEST_HISTORY } from "./ForTest";
+import PopupDeleteProfileMeeting from "../PopupDeleteProfileMeeting/PopupDeleteProfileMeeting";
 
 const Profile = ({ mix, isloggedIn }) => {
   const [isLoading, setIsloading] = React.useState(false);
   const [city, setCity] = React.useState({});
   const [events, setEvents] = React.useState([]);
   const [history, setHistory] = React.useState([]);
+  const [isPopupDeleteOpen, setIsPopupDeleteOpen] = React.useState(false);
+  const [deleteMeeting, setDeleteMeeting] = React.useState({});
 
   const handleAddMeeting = (meeting, endLoading, closeMeetingForm) => {
     // TO DO: запрос на сервер для добавления встречи
@@ -31,6 +34,19 @@ const Profile = ({ mix, isloggedIn }) => {
       endLoading();
       closeMeetingForm(); // закрывать форму после ответа с сервера со статусом ОК
     }, TIME_DELAY);
+  };
+
+  const handleDeleteMetting = (meeting, endLoading, closePopup) => {
+    // TO DO: запрос на сервер для удаления встречи
+    console.log(meeting);
+    setTimeout(() => {
+      closePopup();
+    }, TIME_DELAY);
+  };
+
+  const handleDeleteMeetingPopupOpen = (meeting) => {
+    setDeleteMeeting(meeting);
+    setIsPopupDeleteOpen(true);
   };
 
   const handleShareMeetingClick = (meetingId) => {
@@ -80,8 +96,17 @@ const Profile = ({ mix, isloggedIn }) => {
             history={history}
             onAddMeeting={handleAddMeeting}
             onUpdateMeeting={handleUpdateMeeting}
+            onDeleteMeeting={handleDeleteMeetingPopupOpen}
             onShare={handleShareMeetingClick}
           />
+
+          {isPopupDeleteOpen && (
+            <PopupDeleteProfileMeeting
+              meeting={deleteMeeting}
+              onDelete={handleDeleteMetting}
+              onClose={() => setIsPopupDeleteOpen(false)}
+            />
+          )}
         </>
       ) : (
         <p>Не осуществлен вход</p>
