@@ -2,7 +2,7 @@ import React from "react";
 import Loader from "../Loader/Loader";
 import "./ProfileMeetingForm.css";
 
-const ProfileMeetingForm = ({ meeting = {}, onClose, onSubmit }) => {
+const ProfileMeetingForm = ({ meeting = {}, mix, onClose, onSubmit }) => {
   // TO DO: добавление изображения
   const [meetingData, setMeetingData] = React.useState(meeting);
   const [meetingDate, setMeetingDate] = React.useState("");
@@ -13,7 +13,7 @@ const ProfileMeetingForm = ({ meeting = {}, onClose, onSubmit }) => {
     normal: "Нормально",
     bad: "Что-пошло не так",
   };
-  const [isValid, setIsValid] = React.useState(true);
+  const [isValid, setIsValid] = React.useState(!!meetingData.id);
   const [isLoading, setIsLoading] = React.useState(false);
 
   const handleSubmit = (event) => {
@@ -38,9 +38,11 @@ const ProfileMeetingForm = ({ meeting = {}, onClose, onSubmit }) => {
     const input = event.target;
     const { value, name, type } = input;
     if (type === "date") {
-      const d = new Date(event.target.value).toISOString();
-      setMeetingDate(d.slice(0, 10));
-      setMeetingData({ ...meetingData, date: d });
+      const d = new Date(event.target.value);
+      if (!isNaN(d.getTime())) {
+        setMeetingDate(d.toISOString().slice(0, 10));
+        setMeetingData({ ...meetingData, date: d.toISOString() });
+      }
     } else {
       setMeetingData({ ...meetingData, [name]: value });
     }
@@ -48,12 +50,12 @@ const ProfileMeetingForm = ({ meeting = {}, onClose, onSubmit }) => {
   };
 
   React.useState(() => {
-    const d = new Date(meeting.date).toISOString();
-    setMeetingDate(d.slice(0, 10));
+    const d = new Date(meeting.date);
+    if (!isNaN(d.getTime())) setMeetingDate(d.toISOString().slice(0, 10));
   }, []);
 
   return (
-    <form className="profile-meeting-form" onSubmit={handleSubmit}>
+    <form className={`profile-meeting-form ${mix}`} onSubmit={handleSubmit}>
       {isLoading && <Loader />}
       <label className="profile-meeting-form__image">
         <input

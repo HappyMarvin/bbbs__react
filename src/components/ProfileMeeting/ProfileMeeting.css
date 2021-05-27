@@ -12,6 +12,10 @@
   overflow: hidden;
 }
 
+.profile-meeting__form {
+  margin: 0;
+}
+
 .profile-meeting__figure {
   margin: 0;
   padding: 0;

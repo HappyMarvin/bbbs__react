@@ -32,6 +32,7 @@ const ProfileMeetting = ({ meeting, onUpdate, onShare }) => {
         {isEdit ? (
           <ProfileMeetingForm
             meeting={meeting}
+            mix="profile-meeting__form"
             onClose={() => {
               setIsEdit(false);
             }}
