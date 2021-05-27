@@ -2,7 +2,12 @@ import React from "react";
 import Loader from "../Loader/Loader";
 import "./ProfileMeetingForm.css";
 
-const ProfileMeetingForm = ({ meeting = {}, mix, onClose, onSubmit }) => {
+const ProfileMeetingForm = ({
+  meeting = { place: "", description: "" },
+  mix,
+  onClose,
+  onSubmit,
+}) => {
   // TO DO: добавление изображения
   const [meetingData, setMeetingData] = React.useState(meeting);
   const [meetingDate, setMeetingDate] = React.useState("");
@@ -74,6 +79,7 @@ const ProfileMeetingForm = ({ meeting = {}, mix, onClose, onSubmit }) => {
           placeholder="Место встречи"
           value={meetingData.place}
           onChange={handleChange}
+          required
         />
         <input
           className="profile-meeting-form__input profile-meeting-form__info-date"
@@ -81,6 +87,7 @@ const ProfileMeetingForm = ({ meeting = {}, mix, onClose, onSubmit }) => {
           name="date"
           value={meetingDate}
           onChange={handleChange}
+          required
         />
         <textarea
           className="profile-meeting-form__input profile-meeting-form__input_textarea profile-meeting-form__info-description"
@@ -88,6 +95,7 @@ const ProfileMeetingForm = ({ meeting = {}, mix, onClose, onSubmit }) => {
           name="description"
           value={meetingData.description}
           onChange={handleChange}
+          required
         />
         <div className="profile-meeting-form__rating">
           {ratingValues.map((item, index) => (

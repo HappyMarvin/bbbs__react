@@ -54,8 +54,8 @@ const Profile = ({ mix, isloggedIn }) => {
         id: 2,
         name: "Воронеж",
       });
-      // setEvents(TEST_EVENTS);
-      // setHistory(TEST_HISTORY);
+      setEvents(TEST_EVENTS);
+      setHistory(TEST_HISTORY);
       setIsloading(false);
     }, TIME_DELAY);
   }, []);
