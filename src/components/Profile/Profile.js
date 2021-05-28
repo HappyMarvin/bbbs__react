@@ -44,22 +44,21 @@ const Profile = ({ mix, isloggedIn }) => {
     }, TIME_DELAY);
   };
 
+  const handleShareMeeting = (meeting, endLoading) => {
+    // TO DO: запрос на сервер поделиться встречей
+    setTimeout(() => {
+      setHistory(
+        history.map((item) =>
+          item.id === meeting.id ? { ...meeting, isShared: true } : item
+        )
+      );
+      endLoading();
+    }, TIME_DELAY);
+  };
+
   const handleDeleteMeetingPopupOpen = (meeting) => {
     setDeleteMeeting(meeting);
     setIsPopupDeleteOpen(true);
-  };
-
-  const handleShareMeetingClick = (meetingId) => {
-    // TO DO: отправить запрос на сервер и получить обновленную информацию
-    const meetingUpdate = history.find((meeting) => meeting.id === meetingId);
-    meetingUpdate.isShared = true;
-    setTimeout(() => {
-      setHistory((state) =>
-        state.map((meeting) =>
-          meeting.id === meetingUpdate.id ? meetingUpdate : meeting
-        )
-      );
-    }, TIME_DELAY);
   };
 
   React.useEffect(() => {
@@ -97,7 +96,7 @@ const Profile = ({ mix, isloggedIn }) => {
             onAddMeeting={handleAddMeeting}
             onUpdateMeeting={handleUpdateMeeting}
             onDeleteMeeting={handleDeleteMeetingPopupOpen}
-            onShare={handleShareMeetingClick}
+            onShare={handleShareMeeting}
           />
 
           {isPopupDeleteOpen && (

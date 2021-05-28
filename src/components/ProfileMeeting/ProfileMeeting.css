@@ -1,4 +1,5 @@
-.profile-meeting__item {
+.profile-meeting {
+  position: relative;
   margin: 0 auto 80px;
 }
 
@@ -232,7 +233,7 @@
 }
 
 @media (max-width: 1024px) {
-  .profile-meeting__item {
+  .profile-meeting {
     margin-bottom: 50px;
   }
   .profile-meeting__info {
