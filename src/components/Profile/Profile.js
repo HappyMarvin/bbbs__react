@@ -7,9 +7,11 @@ import { TEST_EVENTS, TEST_HISTORY } from "./ForTest";
 import { TIME_DELAY } from "../../utils/constants";
 import Loader from "../Loader/Loader";
 import PopupDeleteProfileMeeting from "../PopupDeleteProfileMeeting/PopupDeleteProfileMeeting";
+import UserContext from "../../contexts/UserContext";
 
-const Profile = ({ mix, isloggedIn }) => {
+const Profile = ({ mix }) => {
   const [isLoading, setIsloading] = React.useState(false);
+  const user = React.useContext(UserContext);
   const [city, setCity] = React.useState({});
   const [events, setEvents] = React.useState([]);
   const [history, setHistory] = React.useState([]);
@@ -62,23 +64,25 @@ const Profile = ({ mix, isloggedIn }) => {
   };
 
   React.useEffect(() => {
-    setIsloading(true);
-    // пока вместо запроса данных на сервер используем функцию setTimeout
-    setTimeout(() => {
-      setCity({
-        id: 2,
-        name: "Воронеж",
-      });
-      setEvents(TEST_EVENTS);
-      setHistory(TEST_HISTORY);
-      setIsloading(false);
-    }, TIME_DELAY);
-  }, []);
+    if (Object.keys(user).length) {
+      setIsloading(true);
+      // пока вместо запроса данных на сервер используем функцию setTimeout
+      setTimeout(() => {
+        setCity({
+          id: 2,
+          name: "Воронеж",
+        });
+        setEvents(TEST_EVENTS);
+        setHistory(TEST_HISTORY);
+        setIsloading(false);
+      }, TIME_DELAY);
+    }
+  }, [user]);
 
   return (
     <main className={`profile ${mix}`} aria-label="Личный кабинет">
       {isLoading && <Loader />}
-      {isloggedIn ? (
+      {Object.keys(user).length ? (
         <>
           <section className="profile__settings" aria-label="Кнопки">
             <button className="profile__settings-button" type="button">
