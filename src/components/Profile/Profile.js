@@ -36,12 +36,11 @@ const Profile = ({ mix, isloggedIn }) => {
     }, TIME_DELAY);
   };
 
-  const handleDeleteMetting = (meeting, endLoading, closePopup) => {
+  const handleDeleteMetting = (meeting, endLoading) => {
     // TO DO: запрос на сервер для удаления встречи
     setTimeout(() => {
       setHistory(history.filter((item) => item.id !== meeting.id));
       endLoading();
-      closePopup();
     }, TIME_DELAY);
   };
 
