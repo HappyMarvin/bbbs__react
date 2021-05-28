@@ -64,7 +64,7 @@ const Profile = ({ mix }) => {
   };
 
   React.useEffect(() => {
-    if (Object.keys(user).length) {
+    if (user.id) {
       setIsloading(true);
       // пока вместо запроса данных на сервер используем функцию setTimeout
       setTimeout(() => {
@@ -82,7 +82,7 @@ const Profile = ({ mix }) => {
   return (
     <main className={`profile ${mix}`} aria-label="Личный кабинет">
       {isLoading && <Loader />}
-      {Object.keys(user).length ? (
+      {user.id ? (
         <>
           <section className="profile__settings" aria-label="Кнопки">
             <button className="profile__settings-button" type="button">

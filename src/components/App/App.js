@@ -13,7 +13,7 @@ import UserContext from "../../contexts/UserContext";
 
 function App() {
   const [isLoading, setIsLoading] = React.useState(false);
-  const [user, setUser] = React.useState({});
+  const [user, setUser] = React.useState({ login: false });
 
   const handleCheckToken = () => {
     // TO DO: проверка, что пользователь залогинин
@@ -23,6 +23,7 @@ function App() {
     setTimeout(() => {
       // при положительном ответе от сервера
       handleGetUser();
+      setUser({ ...user, login: true });
       // при отрицательном ответе от сервера
       // setIsLoading(false);
     }, TIME_DELAY);
@@ -34,6 +35,7 @@ function App() {
     setTimeout(() => {
       // предполагаемый ответ сервера
       const res = {
+        ...user,
         id: 1,
         user: 1,
         city: { id: 2, name: "Воронеж", isPrimary: false },
