@@ -9,11 +9,11 @@ import Loader from "../Loader/Loader";
 import PopupDeleteProfileMeeting from "../PopupDeleteProfileMeeting/PopupDeleteProfileMeeting";
 import UserContext from "../../contexts/UserContext";
 import UserData from "../UserData/UserData";
+import Popup from "../Popup/Popup";
 
 const Profile = ({ mix }) => {
   const [isLoading, setIsloading] = React.useState(false);
   const user = React.useContext(UserContext);
-  const [city, setCity] = React.useState({});
   const [events, setEvents] = React.useState([]);
   const [history, setHistory] = React.useState([]);
   const [isPopupDeleteOpen, setIsPopupDeleteOpen] = React.useState(false);
@@ -69,10 +69,6 @@ const Profile = ({ mix }) => {
       setIsloading(true);
       // пока вместо запроса данных на сервер используем функцию setTimeout
       setTimeout(() => {
-        setCity({
-          id: 2,
-          name: "Воронеж",
-        });
         setEvents(TEST_EVENTS);
         setHistory(TEST_HISTORY);
         setIsloading(false);
@@ -101,7 +97,8 @@ const Profile = ({ mix }) => {
           />
 
           {isPopupDeleteOpen && (
-            <PopupDeleteProfileMeeting
+            <Popup
+              component={PopupDeleteProfileMeeting}
               meeting={deleteMeeting}
               onDelete={handleDeleteMetting}
               onClose={() => setIsPopupDeleteOpen(false)}

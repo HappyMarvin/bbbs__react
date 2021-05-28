@@ -1,17 +1,4 @@
 .popup-delete-profile-meeting {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 5000;
-}
-
-.popup-delete-profile-meeting__container {
   position: relative;
   padding: 50px 30px;
   max-width: 470px;
@@ -86,7 +73,7 @@
 }
 
 @media (max-width: 1024px) {
-  .popup-delete-profile-meeting__container {
+  .popup-delete-profile-meeting {
     padding: 50px 15px;
     max-width: 320px;
   }
