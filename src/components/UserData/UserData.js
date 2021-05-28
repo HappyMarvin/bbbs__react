@@ -11,7 +11,7 @@ const UserData = () => {
       {user.login && (
         <div className="user-data">
           <button className="user-data__settings-button" type="button">
-            {user.login && user.city.name}. Изменить город
+            {`${user.city.name}. Изменить город`}
           </button>
           <button
             className="user-data__settings-button"
