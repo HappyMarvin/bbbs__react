@@ -13,10 +13,7 @@ import UserContext from "../../contexts/UserContext";
 
 function App() {
   const [isLoading, setIsLoading] = React.useState(false);
-  const [user, setUser] = React.useState({
-    login: false,
-    onExit: () => handleLogout(),
-  });
+  const [user, setUser] = React.useState({ login: false });
 
   const handleCheckToken = () => {
     // TO DO: проверка, что пользователь залогинин
@@ -46,9 +43,17 @@ function App() {
     }, TIME_DELAY);
   };
 
+  const handleChangeUserCity = (city, endLoading) => {
+    // TO DO: запрос на сервер для смены города пользователя
+    setTimeout(() => {
+      setUser({ ...user, city });
+      endLoading();
+    }, TIME_DELAY);
+  };
+
   const handleLogout = () => {
     // удалить token из localStorage или cookie
-    setUser({ login: false, onExit: () => handleLogout() });
+    setUser({ login: false });
   };
 
   React.useEffect(() => {
@@ -56,7 +61,9 @@ function App() {
   }, []);
 
   return (
-    <UserContext.Provider value={user}>
+    <UserContext.Provider
+      value={{ ...user, handleChangeUserCity, handleLogout }}
+    >
       {isLoading && <Loader />}
       <Header />
       <Switch>

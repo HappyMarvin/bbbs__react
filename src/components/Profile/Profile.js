@@ -74,7 +74,7 @@ const Profile = ({ mix }) => {
         setIsloading(false);
       }, TIME_DELAY);
     }
-  }, [user]);
+  }, [user.login]);
 
   return (
     <main className={`profile ${mix}`} aria-label="Личный кабинет">
