@@ -8,6 +8,7 @@ import { TIME_DELAY } from "../../utils/constants";
 import Loader from "../Loader/Loader";
 import PopupDeleteProfileMeeting from "../PopupDeleteProfileMeeting/PopupDeleteProfileMeeting";
 import UserContext from "../../contexts/UserContext";
+import UserData from "../UserData/UserData";
 
 const Profile = ({ mix }) => {
   const [isLoading, setIsloading] = React.useState(false);
@@ -64,7 +65,7 @@ const Profile = ({ mix }) => {
   };
 
   React.useEffect(() => {
-    if (user.id) {
+    if (user.login) {
       setIsloading(true);
       // пока вместо запроса данных на сервер используем функцию setTimeout
       setTimeout(() => {
@@ -82,17 +83,13 @@ const Profile = ({ mix }) => {
   return (
     <main className={`profile ${mix}`} aria-label="Личный кабинет">
       {isLoading && <Loader />}
-      {user.id ? (
-        <>
-          <section className="profile__settings" aria-label="Кнопки">
-            <button className="profile__settings-button" type="button">
-              {city.name}. Изменить город
-            </button>
-            <button className="profile__settings-button" type="button">
-              Выход
-            </button>
-          </section>
 
+      <section className="profile__settings" aria-label="Данные пользователя">
+        <UserData />
+      </section>
+
+      {user.login ? (
+        <>
           <ProfileEvents events={events} />
 
           <ProfileHistory
