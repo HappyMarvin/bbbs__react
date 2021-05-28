@@ -3,9 +3,9 @@ import ProfileEvents from "../ProfileEvents/ProfileEvents";
 import ProfileHistory from "../ProfileHistory/ProfileHistory";
 import "./Profile.css";
 
+import { TEST_EVENTS, TEST_HISTORY } from "./ForTest";
 import { TIME_DELAY } from "../../utils/constants";
 import Loader from "../Loader/Loader";
-import { TEST_EVENTS, TEST_HISTORY } from "./ForTest";
 import PopupDeleteProfileMeeting from "../PopupDeleteProfileMeeting/PopupDeleteProfileMeeting";
 
 const Profile = ({ mix, isloggedIn }) => {
@@ -38,8 +38,9 @@ const Profile = ({ mix, isloggedIn }) => {
 
   const handleDeleteMetting = (meeting, endLoading, closePopup) => {
     // TO DO: запрос на сервер для удаления встречи
-    console.log(meeting);
     setTimeout(() => {
+      setHistory(history.filter((item) => item.id !== meeting.id));
+      endLoading();
       closePopup();
     }, TIME_DELAY);
   };

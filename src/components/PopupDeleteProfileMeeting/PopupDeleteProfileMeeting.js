@@ -1,7 +1,10 @@
 import React from "react";
+import Loader from "../Loader/Loader";
 import "./PopupDeleteProfileMeeting.css";
 
 const PopupDeleteProfileMeeting = ({ meeting, onClose, onDelete }) => {
+  const [isLoading, setIsLoading] = React.useState(false);
+
   const closePopup = (evt) => {
     if (evt.target.classList.contains("popup")) {
       onClose();
@@ -9,12 +12,15 @@ const PopupDeleteProfileMeeting = ({ meeting, onClose, onDelete }) => {
   };
 
   const handleDeleteMeetingClick = () => {
-    onDelete(meeting, () => {}, onClose);
+    setIsLoading(true);
+    onDelete(
+      meeting,
+      () => {
+        setIsLoading(false);
+      },
+      onClose
+    );
   };
-
-  // React.useEffect(() => {
-  //   console.log(meeting);
-  // }, []);
 
   return (
     <div className="popup popup-delete-profile-meeting" onClick={closePopup}>
@@ -36,6 +42,7 @@ const PopupDeleteProfileMeeting = ({ meeting, onClose, onDelete }) => {
             delete
           </button>
         </div>
+        {isLoading && <Loader />}
       </div>
     </div>
   );

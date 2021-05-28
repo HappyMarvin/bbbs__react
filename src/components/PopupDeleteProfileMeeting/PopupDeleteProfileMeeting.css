@@ -12,5 +12,6 @@
 }
 
 .popup-delete-profile-meeting__container {
+  position: relative;
   background-color: #fff;
 }
