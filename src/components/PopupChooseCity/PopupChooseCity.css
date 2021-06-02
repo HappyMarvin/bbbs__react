@@ -1,0 +1,63 @@
+.popup-choose-city {
+  position: relative;
+  padding: 30px 15px 50px;
+  min-height: 200px;
+  max-height: 90vh;
+  box-sizing: border-box;
+  overflow: scroll;
+  background-color: #fff;
+  border-radius: 30px;
+}
+
+.popup-choose-city__title {
+  margin: 0;
+  font-family: "Proto", "Arial", "Helvetica", sans-serif;
+  font-size: 19px;
+  line-height: 23px;
+  font-weight: 300;
+  text-align: center;
+  color: #000;
+}
+
+.popup-choose-city__cities-groups {
+  position: relative;
+  margin: 50px auto 0;
+  padding: 0;
+  list-style: none;
+}
+
+.popup-choose-city__cities-group {
+  margin: 0 0 15px;
+  padding: 0 0 15px;
+  border-bottom: 0.5px solid #a7a6a6;
+}
+
+.popup-choose-city__cities-group:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.popup-choose-city__cities {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.popup-choose-city__cities-item {
+  margin: 0 0 10px;
+}
+
+.popup-choose-city__cities-item:last-child {
+  margin-bottom: 0;
+}
+
+.popup-choose-city__city {
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.popup-choose-city__city:hover {
+  color: #224cff;
+}

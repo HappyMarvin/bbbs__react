@@ -1,0 +1,14 @@
+.profile {
+  margin: 30px auto 0;
+  position: relative;
+}
+
+.profile__settings {
+  margin: 0 0 25px;
+}
+
+@media (max-width: 1024px) {
+  .profile__settings {
+    display: none;
+  }
+}
