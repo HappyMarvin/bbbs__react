@@ -7,7 +7,7 @@ export default function HeaderMenu() {
     <nav className="header-menu">
       <ul className="header-menu__list">
         <li className="header-menu__list-item calender-open">
-          <Link to="/" className="header-menu__list-link">
+          <Link to="/calendar" className="header-menu__list-link">
             Календарь
           </Link>
         </li>
