@@ -1,0 +1,336 @@
+.profile-meeting-form {
+  margin: 50px auto 80px;
+  position: relative;
+  height: 470px;
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+}
+
+.profile-meeting-form__input {
+  margin: 0;
+  padding: 15px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Proto", sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  color: #000;
+  outline: 0;
+  border: 0;
+  border-radius: 30px;
+  background-color: #f3f2f2;
+}
+
+.profile-meeting-form__input::placeholder {
+  color: #a7a6a6;
+}
+
+.profile-meeting-form__input_textarea {
+  resize: none;
+}
+
+.profile-meeting-form__info {
+  color: #a7a6a6;
+}
+
+.profile-meeting-form__input-hide {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.profile-meeting-form__image {
+  width: 470px;
+  min-width: 470px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.profile-meeting-form__image-text {
+  padding: 115px 0 0;
+  font-family: "Proto", sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  color: #a7a6a6;
+  background-image: url("../../images/personal-account-btn-add-photo.svg");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 100px;
+}
+
+.profile-meeting-form__info {
+  padding: 30px 30px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-areas:
+    "place date"
+    "desc desc"
+    "rate btn";
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr auto;
+  justify-content: start;
+  align-content: start;
+  gap: 20px 30px;
+  background: #fff;
+  border-radius: 30px;
+}
+
+.profile-meeting-form__info-place {
+  grid-area: place;
+}
+
+.profile-meeting-form__info-date {
+  grid-area: date;
+  width: 240px;
+}
+
+.profile-meeting-form__info-description {
+  grid-area: desc;
+}
+
+.profile-meeting-form__rating {
+  grid-area: rate;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.profile-meeting-form__rating-emoji {
+  margin: 0 15px 0 0;
+  width: 26px;
+  height: 26px;
+  display: block;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.profile-meeting-form__rating-emoji_type_good {
+  background-image: url("../../images/feedback-good-black.svg");
+}
+
+.profile-meeting-form__rating-emoji_type_good:hover {
+  background-image: url("../../images/feedback-good-color.svg");
+}
+
+.profile-meeting-form__rating-emoji_type_good.profile-meeting-form__rating-emoji_active {
+  background-image: url("../../images/feedback-good-color.svg");
+}
+
+.profile-meeting-form__rating-emoji_type_normal {
+  background-image: url("../../images/feedback-normal-black.svg");
+}
+
+.profile-meeting-form__rating-emoji_type_normal:hover {
+  background-image: url("../../images/feedback-normal-color.svg");
+}
+
+.profile-meeting-form__rating-emoji_type_normal.profile-meeting-form__rating-emoji_active {
+  background-image: url("../../images/feedback-normal-color.svg");
+}
+
+.profile-meeting-form__rating-emoji_type_bad {
+  background-image: url("../../images/feedback-bad-black.svg");
+}
+
+.profile-meeting-form__rating-emoji_type_bad:hover {
+  background-image: url("../../images/feedback-bad-color.svg");
+}
+
+.profile-meeting-form__rating-emoji_type_bad.profile-meeting-form__rating-emoji_active {
+  background-image: url("../../images/feedback-bad-color.svg");
+}
+
+.profile-meeting-form__rating-text {
+  margin: 0;
+  font-family: "PT Root", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #a7a6a6;
+}
+
+.profile-meeting-form__rating-text_type_good {
+  color: #8cdd94;
+}
+
+.profile-meeting-form__rating-text_type_noraml {
+  color: #464646;
+}
+.profile-meeting-form__rating-text_type_bad {
+  color: #ff8585;
+}
+
+.profile-meeting-form__buttons {
+  grid-area: btn;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.profile-meeting-form__button {
+  outline: 0;
+  font-family: "Proto", sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.profile-meeting-form__button-reset {
+  margin: 0;
+  padding: 0;
+  color: #a7a6a6;
+  border: 0;
+  border-radius: 0;
+}
+
+.profile-meeting-form__button-reset:hover {
+  color: #000;
+}
+
+.profile-meeting-form__button-submit {
+  margin: 0 0 0 20px;
+  padding: 0 20px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #224cff;
+  border: 1px solid #224cff;
+  border-radius: 100px;
+}
+
+.profile-meeting-form__button-submit:disabled {
+  color: #a7a6a6;
+  border-color: #a7a6a6;
+  cursor: auto;
+}
+
+.profile-meeting-form__button-submit:hover:not(:disabled) {
+  color: #224cff;
+  border-color: #224cff;
+  background-color: #c8d1ff;
+}
+
+.profile-meeting-form__button-submit:active {
+  color: #f3f2f2;
+  border-color: #224cff;
+  background-color: #224cff;
+}
+
+.profile-meeting-form__button-submit:active:hover {
+  border-color: #2e2468;
+  background-color: #2e2468;
+}
+
+@media (max-width: 1280px) {
+  .profile-meeting-form {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .profile-meeting-form__image {
+    width: 100%;
+    min-width: 100%;
+    height: 470px;
+  }
+
+  .profile-meeting-form__info-description {
+    height: 120px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .profile-meeting-form {
+    margin: 30px auto 50px;
+  }
+
+  .profile-meeting-form__image-text {
+    padding-top: 95px;
+    font-size: 12px;
+    line-height: 17px;
+    background-size: 80px;
+  }
+
+  .profile-meeting-form__info {
+    padding: 30px 15px;
+  }
+
+  .profile-meeting-form__input {
+    padding: 10px 20px;
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .profile-meeting-form__info-date {
+    width: 180px;
+  }
+
+  .profile-meeting-form__rating-emoji {
+    margin-right: 10px;
+  }
+
+  .profile-meeting-form__rating-text {
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .profile-meeting-form__button {
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .profile-meeting-form__button-submit {
+    height: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-meeting-form__image {
+    height: 290px;
+  }
+
+  .profile-meeting-form__info {
+    grid-template-areas:
+      "place"
+      "date"
+      "desc"
+      "rate"
+      "btn";
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    gap: 10px;
+  }
+
+  .profile-meeting-form__info-date {
+    width: 100%;
+  }
+
+  .profile-meeting-form__rating {
+    margin: 10px auto 20px;
+  }
+
+  .profile-meeting-form__buttons {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .profile-meeting-form__button-submit{
+    margin-left: 0;
+  }
+}
