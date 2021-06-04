@@ -11,6 +11,11 @@ import Loader from "../Loader/Loader";
 import Events from "../Events/Events";
 import Questions from "../Questions/Questions";
 import ReadAndWatch from "../ReadAndWatch/ReadAndWatch";
+import Guide from "../Guide/Guide";
+import Books from "../Books/Books";
+import Video from "../Video/Video";
+import Articles from "../Articles/Articles";
+import Movies from "../Movies/Movies";
 import ChildrenRights from "../ChildrenRights/ChildrenRights";
 import Stories from "../Stories/Stories";
 import Profile from "../Profile/Profile";
@@ -95,6 +100,36 @@ function App() {
           </Route>
           <Route exact path={PROJECT_LINKS.readAndWatch.link}>
             <ReadAndWatch mix="app__content app__section" />
+          </Route>
+          <Route
+            exact
+            path={`${PROJECT_LINKS.readAndWatch.link}${PROJECT_LINKS.readAndWatch.children.guide.link}`}
+          >
+            <Guide mix="app__content app__section" />
+          </Route>
+          <Route
+            exact
+            path={`${PROJECT_LINKS.readAndWatch.link}${PROJECT_LINKS.readAndWatch.children.video.link}`}
+          >
+            <Video mix="app__content app__section" />
+          </Route>
+          <Route
+            exact
+            path={`${PROJECT_LINKS.readAndWatch.link}${PROJECT_LINKS.readAndWatch.children.articles.link}`}
+          >
+            <Articles mix="app__content app__section" />
+          </Route>
+          <Route
+            exact
+            path={`${PROJECT_LINKS.readAndWatch.link}${PROJECT_LINKS.readAndWatch.children.movies.link}`}
+          >
+            <Movies mix="app__content app__section" />
+          </Route>
+          <Route
+            exact
+            path={`${PROJECT_LINKS.readAndWatch.link}${PROJECT_LINKS.readAndWatch.children.books.link}`}
+          >
+            <Books mix="app__content app__section" />
           </Route>
           <Route exact path={PROJECT_LINKS.childrenRights.link}>
             <ChildrenRights mix="app__content app__section" />
