@@ -78,7 +78,9 @@ function App() {
           <Route path={PROJECT_LINKS.about.link}>
             <About mix="app__content app__section" />
           </Route>
-          <Route exact path="/calendar" component={Calendar}></Route>
+          <Route exact path={PROJECT_LINKS.calendar.link}>
+            <Calendar mix="app__content" />
+          </Route>
           <Route path="/profile">
             <Profile mix="app__content app__section" />
           </Route>

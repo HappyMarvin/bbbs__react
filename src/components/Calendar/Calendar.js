@@ -3,9 +3,9 @@ import Title from "../Title/Title";
 import SelectList from "../SelectList/SelectList";
 import CalendarList from "../CalendarList/CalendarList";
 
-function Calendar() {
+function Calendar({ mix }) {
   return (
-    <div className="calendar content">
+    <div className={`calendar ${mix}`}>
       <Title text={"Календарь"} />
       <SelectList />
       <CalendarList />
