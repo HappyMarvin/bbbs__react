@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./Popup.css";
 
 const Popup = ({ component: Component, onClose, ...props }) => {
@@ -13,6 +14,11 @@ const Popup = ({ component: Component, onClose, ...props }) => {
       <Component {...props} onClose={onClose} />
     </div>
   );
+};
+
+Popup.propTypes = {
+  component: PropTypes.elementType.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default Popup;

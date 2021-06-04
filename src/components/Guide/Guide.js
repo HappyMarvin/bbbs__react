@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./Guide.css";
 
 const Guide = ({ mix }) => {
@@ -7,6 +8,10 @@ const Guide = ({ mix }) => {
       <h1>Read And Watch - Guide</h1>
     </main>
   );
+};
+
+Guide.propTypes = {
+  mix: PropTypes.string,
 };
 
 export default Guide;

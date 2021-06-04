@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import "./Header.css";
 
 import HeaderMenu from "../HeaderMenu/HeaderMenu";
 import { PROJECT_LINKS, SOCIAL_LINKS } from "../../utils/links";
 
-export default function Header(props) {
+function Header(props) {
   const navLinks = Object.values(PROJECT_LINKS).filter((item) => item.nav);
 
   return (
@@ -56,3 +57,9 @@ export default function Header(props) {
     </header>
   );
 }
+
+Header.propTypes = {
+  handleButtonClick: PropTypes.func,
+};
+
+export default Header;

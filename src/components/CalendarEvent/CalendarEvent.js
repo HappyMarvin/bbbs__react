@@ -1,3 +1,5 @@
+import React from "react";
+import PropTypes from "prop-types";
 import "./CalendarEvent.css";
 
 function CalendarEvent({ event }) {
@@ -114,5 +116,9 @@ function CalendarEvent({ event }) {
     </>
   );
 }
+
+CalendarEvent.propTypes = {
+  event: PropTypes.object.isRequired,
+};
 
 export default CalendarEvent;

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./Articles.css";
 
 const Articles = ({ mix }) => {
@@ -7,6 +8,10 @@ const Articles = ({ mix }) => {
       <h1>Read And Watch - Articles</h1>
     </main>
   );
+};
+
+Articles.propTypes = {
+  mix: PropTypes.string,
 };
 
 export default Articles;

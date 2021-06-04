@@ -1,15 +1,17 @@
 import React from "react";
+import PropTypes from "prop-types";
+import "./Profile.css";
+
 import ProfileEvents from "../ProfileEvents/ProfileEvents";
 import ProfileHistory from "../ProfileHistory/ProfileHistory";
-import "./Profile.css";
+import PopupDeleteProfileMeeting from "../PopupDeleteProfileMeeting/PopupDeleteProfileMeeting";
+import Loader from "../Loader/Loader";
+import Popup from "../Popup/Popup";
 
 import { TEST_EVENTS, TEST_HISTORY } from "./ForTest";
 import { TIME_DELAY } from "../../utils/constants";
-import Loader from "../Loader/Loader";
-import PopupDeleteProfileMeeting from "../PopupDeleteProfileMeeting/PopupDeleteProfileMeeting";
 import UserContext from "../../contexts/UserContext";
 import UserData from "../UserData/UserData";
-import Popup from "../Popup/Popup";
 
 const Profile = ({ mix }) => {
   const [isLoading, setIsloading] = React.useState(false);
@@ -110,6 +112,10 @@ const Profile = ({ mix }) => {
       )}
     </main>
   );
+};
+
+Profile.propTypes = {
+  mix: PropTypes.string,
 };
 
 export default Profile;

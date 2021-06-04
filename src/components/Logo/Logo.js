@@ -1,10 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./Logo.css";
 import defaultImage from "../../images/logoSBSS.svg";
 
 import { LOGO_LINK } from "../../utils/links";
 
-// place = footer || mainpage || about
 const Logo = ({ place, image = defaultImage }) => {
   return (
     <a
@@ -20,6 +20,11 @@ const Logo = ({ place, image = defaultImage }) => {
       />
     </a>
   );
+};
+
+Logo.propTypes = {
+  place: PropTypes.oneOf(["footer", "mainpage", "about"]).isRequired,
+  defaultImage: PropTypes.string,
 };
 
 export default Logo;

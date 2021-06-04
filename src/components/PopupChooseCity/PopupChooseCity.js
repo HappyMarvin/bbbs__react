@@ -45,7 +45,7 @@ const PopupChooseCity = ({ onClose }) => {
     <UserContext.Consumer>
       {({ handleChangeUserCity }) => (
         <div className="popup-choose-city">
-          {isLoading && <Loader />}
+          {isLoading && <Loader isAbsolute={true} />}
           <p className="popup-choose-city__title">Выберите ваш город</p>
           {cities.length > 0 && (
             <ul className="popup-choose-city__cities-groups">

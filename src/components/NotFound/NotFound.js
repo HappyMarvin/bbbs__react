@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./NotFound.css";
 
 const NotFound = ({ mix }) => {
@@ -7,6 +8,10 @@ const NotFound = ({ mix }) => {
       <h1>Not Found</h1>
     </main>
   );
+};
+
+NotFound.propTypes = {
+  mix: PropTypes.string,
 };
 
 export default NotFound;

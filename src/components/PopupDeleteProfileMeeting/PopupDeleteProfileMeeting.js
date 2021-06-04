@@ -38,7 +38,7 @@ const PopupDeleteProfileMeeting = ({ meeting, onClose, onDelete }) => {
           Отмена
         </button>
       </div>
-      {isLoading && <Loader />}
+      {isLoading && <Loader isAbsolute={true} />}
     </div>
   );
 };

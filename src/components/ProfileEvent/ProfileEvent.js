@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { MONTHS } from "../../utils/constants";
 import "./ProfileEvent.css";
 
@@ -20,6 +21,10 @@ const ProfileEvent = ({ eventData }) => {
       </article>
     </li>
   );
+};
+
+ProfileEvent.propTypes = {
+  eventData: PropTypes.object.isRequired,
 };
 
 export default ProfileEvent;

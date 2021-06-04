@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./ChildrenRights.css";
 
 const ChildrenRights = ({ mix }) => {
@@ -7,6 +8,10 @@ const ChildrenRights = ({ mix }) => {
       <h1>Children Rights</h1>
     </main>
   );
+};
+
+ChildrenRights.propTypes = {
+  mix: PropTypes.string,
 };
 
 export default ChildrenRights;

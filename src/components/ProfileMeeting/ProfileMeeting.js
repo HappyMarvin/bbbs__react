@@ -1,7 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./ProfileMeeting.css";
 
 import { MONTHS } from "../../utils/constants";
+
 import ProfileMeetingForm from "../ProfileMeetingForm/ProfileMeetingForm";
 import Loader from "../Loader/Loader";
 
@@ -106,10 +108,24 @@ const ProfileMeetting = ({ meeting, onUpdate, onDelete, onShare }) => {
             </figcaption>
           </figure>
         )}
-        {isLoading && <Loader />}
+        {isLoading && <Loader isAbsolute={true} />}
       </article>
     </li>
   );
+};
+
+ProfileMeetting.propTypes = {
+  meeting: PropTypes.shape({
+    date: PropTypes.string.isRequired,
+    place: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    rating: PropTypes.oneOf(["good", "normal", "bad", ""]),
+    isShared: PropTypes.bool,
+  }).isRequired,
+  onUpdate: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onShare: PropTypes.func.isRequired,
 };
 
 export default ProfileMeetting;

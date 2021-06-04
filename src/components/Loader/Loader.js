@@ -1,9 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./Loader.css";
 
-const Loader = () => {
+const Loader = ({ isAbsolute }) => {
   return (
-    <div className="loader">
+    <div className={`loader ${isAbsolute && "loader_absolute"}`}>
       <div className="loader__circle">
         <div className="loader__point"></div>
         <div className="loader__point"></div>
@@ -20,6 +21,10 @@ const Loader = () => {
       </div>
     </div>
   );
+};
+
+Loader.propTypes = {
+  mix: PropTypes.bool,
 };
 
 export default Loader;
