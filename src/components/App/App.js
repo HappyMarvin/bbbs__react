@@ -75,13 +75,13 @@ function App() {
           <Route exact path={PROJECT_LINKS.main.link}>
             <Main mix="app__content app__section" />
           </Route>
-          <Route path="/about">
+          <Route path={PROJECT_LINKS.about.link}>
             <About mix="app__content app__section" />
           </Route>
-          <Route path="/profile">
-            <Profile mix="app__content" />
-          </Route>
           <Route exact path="/calendar" component={Calendar}></Route>
+          <Route path="/profile">
+            <Profile mix="app__content app__section" />
+          </Route>
         </Switch>
         <Footer />
       </UserContext.Provider>
