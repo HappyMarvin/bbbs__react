@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import "./Footer.css";
 
-const Footer = () => {
+const Footer = ({ mix }) => {
   const navLinks = [
     { title: "О проекте", link: "about" },
     { title: "Календарь", link: "calendar" },
@@ -21,7 +21,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="footer">
+    <footer className={`footer ${mix}`}>
       <Logo place="footer" />
       <a
         className="footer__money"

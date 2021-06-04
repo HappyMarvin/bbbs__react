@@ -4,10 +4,13 @@ import "./App.css";
 
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
+import Main from "../Main/Main";
 import About from "../About/About";
 import Calendar from "../Calendar/Calendar";
 import Profile from "../Profile/Profile";
 import Loader from "../Loader/Loader";
+
+import { PROJECT_LINKS } from "../../utils/links";
 import { TIME_DELAY } from "../../utils/constants";
 import UserContext from "../../contexts/UserContext";
 
@@ -58,25 +61,30 @@ function App() {
 
   React.useEffect(() => {
     handleCheckToken();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <UserContext.Provider
       value={{ ...user, handleChangeUserCity, handleLogout }}
     >
-      {isLoading && <Loader />}
-      <Header />
-      <Switch>
-        <Route exact path="/"></Route>
-        <Route path="/about">
-          <About mix="app__content app__section" />
-        </Route>
-        <Route path="/profile">
-          <Profile mix="app__content" />
-        </Route>
-        <Route exact path="/calendar" component={Calendar}></Route>
-      </Switch>
-      <Footer />
+      <div className="app">
+        {isLoading && <Loader />}
+        <Header />
+        <Switch>
+          <Route exact path={PROJECT_LINKS.main.link}>
+            <Main mix="app__content app__section" />
+          </Route>
+          <Route path="/about">
+            <About mix="app__content app__section" />
+          </Route>
+          <Route path="/profile">
+            <Profile mix="app__content" />
+          </Route>
+          <Route exact path="/calendar" component={Calendar}></Route>
+        </Switch>
+        <Footer mix="app__footer" />
+      </div>
     </UserContext.Provider>
   );
 }
