@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 
 import HeaderMenu from "../HeaderMenu/HeaderMenu";
+import { PROJECT_LINKS, SOCIAL_LINKS } from "../../utils/links";
 
 export default function Header(props) {
+  const navLinks = Object.values(PROJECT_LINKS).filter((item) => item.nav);
+
   return (
     <header className="header">
       <div className="header__wrapper">
@@ -23,88 +26,29 @@ export default function Header(props) {
         <div className="header__burger-wrapper">
           <nav className="header__menu-burger">
             <ul className="header__burger-list">
-              <li className="header__burger-item">
-                <Link to="/about" className="header__burger-link">
-                  О проекте
-                </Link>
-              </li>
-              <li className="header__burger-item">
-                <Link
-                  to="/calendar"
-                  className="header__burger-link calender-open"
-                >
-                  Календарь
-                </Link>
-              </li>
-              <li className="header__burger-item">
-                <Link to="/" className="header__burger-link">
-                  Куда пойти
-                </Link>
-              </li>
-              <li className="header__burger-item">
-                <Link to="/" className="header__burger-link">
-                  Вопросы
-                </Link>
-              </li>
-              <li className="header__burger-item">
-                <Link to="/" className="header__burger-link">
-                  Читать и смотреть
-                </Link>
-              </li>
-              <li className="header__burger-item">
-                <Link to="/" className="header__burger-link">
-                  Права детей
-                </Link>
-              </li>
-              <li className="header__burger-item">
-                <Link to="/" className="header__burger-link">
-                  Истории
-                </Link>
-              </li>
+              {navLinks.map((item, index) => (
+                <li key={index} className="header__burger-item">
+                  <Link to={item.link} className="header__burger-link">
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
           <nav className="header__menu-burger">
             <ul className="header__burger-list">
-              <li className="header__burger-item">
-                <a
-                  href="https://www.facebook.com/BigBrothers.BigSisters.Russia/"
-                  className="header__burger-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  facebook
-                </a>
-              </li>
-              <li className="header__burger-item">
-                <a
-                  href="https://vk.com/big.brothers.big.sisters"
-                  className="header__burger-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  vkontakte
-                </a>
-              </li>
-              <li className="header__burger-item">
-                <a
-                  href="https://www.instagram.com/nastavniki_org/"
-                  className="header__burger-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  instagram
-                </a>
-              </li>
-              <li className="header__burger-item">
-                <a
-                  href="https://www.youtube.com/user/Nastavniki"
-                  className="header__burger-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  youtube
-                </a>
-              </li>
+              {SOCIAL_LINKS.map((item, index) => (
+                <li key={index} className="header__burger-item">
+                  <a
+                    href={item.link}
+                    className="header__burger-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.title}
+                  </a>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>

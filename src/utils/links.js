@@ -51,10 +51,22 @@ export const PROJECT_LINKS = {
 
 // RU: Ссылки на соц сети
 export const SOCIAL_LINKS = [
-  { title: "facebook", link: "http://facebook.com" },
-  { title: "vkontakte", link: "http://vk.com" },
-  { title: "instagram", link: "http://instagram.com" },
-  { title: "youtube", link: "http://youtube.com" },
+  {
+    title: "facebook",
+    link: "https://www.facebook.com/BigBrothers.BigSisters.Russia/",
+  },
+  {
+    title: "vkontakte",
+    link: "https://vk.com/big.brothers.big.sisters",
+  },
+  {
+    title: "instagram",
+    link: "https://www.instagram.com/nastavniki_org/",
+  },
+  {
+    title: "youtube",
+    link: "https://www.youtube.com/user/Nastavniki",
+  },
 ];
 
 // RU: Яндекс Практикум
