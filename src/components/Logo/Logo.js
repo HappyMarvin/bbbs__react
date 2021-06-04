@@ -2,12 +2,14 @@ import React from "react";
 import "./Logo.css";
 import defaultImage from "../../images/logoSBSS.svg";
 
+import { LOGO_LINK } from "../../utils/links";
+
 // place = footer || mainpage || about
 const Logo = ({ place, image = defaultImage }) => {
   return (
     <a
       className={`logo logo_place_${place}`}
-      href="https://www.nastavniki.org/o-nas/ob-organizaczii/"
+      href={LOGO_LINK}
       target="_blank"
       rel="noopener noreferrer"
     >

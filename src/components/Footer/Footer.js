@@ -13,7 +13,7 @@ import {
 } from "../../utils/links";
 
 const Footer = () => {
-  const navLinks = Object.values(PROJECT_LINKS).filter((item) => item.footer);
+  const navLinks = Object.values(PROJECT_LINKS).filter((item) => item.nav);
 
   return (
     <footer className="footer">

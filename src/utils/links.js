@@ -2,29 +2,29 @@
 // RU: Маршруты сайта - это объект, если нужен массив, используйте Object.values(PROJECT_LINKS)
 export const PROJECT_LINKS = {
   main: { title: "Главная", link: "/" },
-  about: { title: "О проекте", link: "/about", footer: true },
+  about: { title: "О проекте", link: "/about", nav: true },
   calendar: {
     title: "Календарь",
     link: "/calendar",
-    footer: true,
+    nav: true,
     header: true,
   },
   events: {
     title: "Куда пойти",
     link: "/events",
-    footer: true,
+    nav: true,
     header: true,
   },
   questions: {
     title: "Вопросы",
     link: "/questions",
-    footer: true,
+    nav: true,
     header: true,
   },
   readAndWatch: {
     title: "Читать и смотреть",
     link: "/read-and-watch",
-    footer: true,
+    nav: true,
     header: true,
     children: {
       guide: { title: "Справочник", link: "/guide" },
@@ -37,13 +37,13 @@ export const PROJECT_LINKS = {
   childrenRights: {
     title: "Права детей",
     link: "/children-rights",
-    footer: true,
+    nav: true,
     header: true,
   },
   stories: {
     title: "Истории",
     link: "/stories",
-    footer: true,
+    nav: true,
     header: true,
   },
   profile: { title: "Личный кабинет", link: "/profile" },
@@ -57,12 +57,23 @@ export const SOCIAL_LINKS = [
   { title: "youtube", link: "http://youtube.com" },
 ];
 
-// RU: помочь деньгами
-export const HELP_MONEY_LINK =
-  "https://www.nastavniki.org/campaign/pomoch-dengami/";
-
 // RU: Яндекс Практикум
 export const YANDEX_PRAKTIKUM_LINK = "https://praktikum.yandex.ru/";
 
 // RU: Дизайн
 export const DESIGN_LINK = "https://krkr.design/";
+
+// RU: Ссылка для лого
+export const LOGO_LINK = "https://www.nastavniki.org/o-nas/ob-organizaczii/";
+
+// RU: помочь деньгами / пожертвования
+export const HELP_MONEY_LINK =
+  "https://www.nastavniki.org/campaign/pomoch-dengami/";
+
+// RU: наставничество
+export const MENTORING_LINK =
+  "https://www.nastavniki.org/volontyorstvo/kak-stat-volonterom/";
+
+// RU: партнерство
+export const PARTHERSHIP_LINK =
+  "https://www.nastavniki.org/oficzialno/korporativnyim-partnyoram/";

@@ -3,6 +3,11 @@ import Logo from "../Logo/Logo";
 import "./About.css";
 
 import logoBlue from "../../images/logoSBSS-blue.svg";
+import {
+  HELP_MONEY_LINK,
+  MENTORING_LINK,
+  PARTHERSHIP_LINK,
+} from "../../utils/links";
 
 const About = ({ mix }) => {
   return (
@@ -71,7 +76,7 @@ const About = ({ mix }) => {
                 </p>
                 <a
                   className="about__actions-more"
-                  href="https://www.nastavniki.org/campaign/pomoch-dengami/"
+                  href={HELP_MONEY_LINK}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -98,7 +103,7 @@ const About = ({ mix }) => {
                 </p>
                 <a
                   className="about__actions-more"
-                  href="https://www.nastavniki.org/campaign/pomoch-dengami/"
+                  href={MENTORING_LINK}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -123,7 +128,7 @@ const About = ({ mix }) => {
                 </p>
                 <a
                   className="about__actions-more"
-                  href="https://www.nastavniki.org/campaign/pomoch-dengami/"
+                  href={PARTHERSHIP_LINK}
                   target="_blank"
                   rel="noreferrer"
                 >
