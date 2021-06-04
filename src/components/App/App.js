@@ -14,6 +14,7 @@ import { PROJECT_LINKS } from "../../utils/links";
 import { TIME_DELAY } from "../../utils/constants";
 import UserContext from "../../contexts/UserContext";
 import Events from "../Events/Events";
+import Questions from "../Questions/Questions";
 
 function App() {
   const [isLoading, setIsLoading] = React.useState(false);
@@ -84,6 +85,9 @@ function App() {
           </Route>
           <Route path={PROJECT_LINKS.events.link}>
             <Events mix="app__content app__section" />
+          </Route>
+          <Route path={PROJECT_LINKS.questions.link}>
+            <Questions mix="app__content app__section" />
           </Route>
           <Route path="/profile">
             <Profile mix="app__content app__section" />
