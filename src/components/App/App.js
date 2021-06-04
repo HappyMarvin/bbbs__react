@@ -65,10 +65,10 @@ function App() {
   }, []);
 
   return (
-    <UserContext.Provider
-      value={{ ...user, handleChangeUserCity, handleLogout }}
-    >
-      <div className="app">
+    <div className="app">
+      <UserContext.Provider
+        value={{ ...user, handleChangeUserCity, handleLogout }}
+      >
         {isLoading && <Loader />}
         <Header />
         <Switch>
@@ -83,9 +83,9 @@ function App() {
           </Route>
           <Route exact path="/calendar" component={Calendar}></Route>
         </Switch>
-        <Footer mix="app__footer" />
-      </div>
-    </UserContext.Provider>
+        <Footer />
+      </UserContext.Provider>
+    </div>
   );
 }
 
