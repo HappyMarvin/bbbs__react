@@ -17,7 +17,8 @@
 
 .header-menu__list-item {
   margin: 0 30px 0 0;
-  padding: 0;
+  padding: 6px 0;
+  box-sizing: border-box;
   list-style-type: none;
   position: relative;
 }
@@ -27,12 +28,13 @@
 }
 
 .header-menu__list-link {
+  position: relative;
   margin: 0;
   padding: 0;
   text-decoration: none;
   text-transform: uppercase;
   color: #000;
-  font-family: 'Proto', Arial, sans-serif;
+  font-family: "Proto", Arial, sans-serif;
   font-size: 14px;
   line-height: 17px;
   letter-spacing: 0.2px;
@@ -40,26 +42,72 @@
   text-align: left;
 }
 
-.header-menu__list-link:hover {
-  color: #224CFF;
+.header-menu__list-item:hover .header-menu__list-link{
+  color: #224cff;
+}
+
+.header-menu__subgroup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin: 0;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #f3f2f2;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 0px 0px 30px 30px;
+}
+
+.header-menu__list-item:hover .header-menu__subgroup {
+  display: flex;
+}
+
+.header-menu__subitem{
+  margin: 0 0 10px;
+}
+
+.header-menu__subitem:last-child{
+  margin-bottom: 0;
+}
+
+
+.header-menu__sublink {
+  margin: 0;
+  font-family: "Proto", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 19px;
+  text-decoration: none;
+  color: #000;
+}
+
+.header-menu__sublink:hover {
+  color: #224cff;
 }
 
 /* медиа-запросы */
 @media (max-width: 1918px) {
   .header-menu {
-      margin-right: 0;
+    margin-right: 0;
   }
 }
 
 @media (max-width: 1330px) {
-  .header-menu__list{
-      flex-wrap: wrap-reverse;
-      width: 400px;
+  .header-menu__list {
+    flex-wrap: wrap;
+    width: 400px;
   }
 }
 
 @media (max-width: 1024px) {
   .header-menu__list {
-      display: none;
+    display: none;
   }
 }
