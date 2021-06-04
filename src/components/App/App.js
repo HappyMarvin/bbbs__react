@@ -81,7 +81,7 @@ function App() {
         value={{ ...user, handleChangeUserCity, handleLogout }}
       >
         {isLoading && <Loader />}
-        <Header />
+        <Header mix="app__section" />
         <Switch>
           <Route exact path={PROJECT_LINKS.main.link}>
             <Main mix="app__content app__section" />
