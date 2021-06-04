@@ -5,13 +5,13 @@ import "./Footer.css";
 
 const Footer = () => {
   const navLinks = [
-    { title: "О проекте", link: "about" },
-    { title: "Календарь", link: "calendar" },
-    { title: "Куда пойти", link: "where_to_go" },
-    { title: "Вопросы", link: "questions" },
-    { title: "Читать и смотреть", link: "read_watch" },
-    { title: "Права детей", link: "rights" },
-    { title: "Истории", link: "stories" },
+    { title: "О проекте", link: "/about" },
+    { title: "Календарь", link: "/calendar" },
+    { title: "Куда пойти", link: "/where_to_go" },
+    { title: "Вопросы", link: "/questions" },
+    { title: "Читать и смотреть", link: "/read_watch" },
+    { title: "Права детей", link: "/rights" },
+    { title: "Истории", link: "/stories" },
   ];
   const navSocial = [
     { title: "facebook", link: "http://facebook.com" },

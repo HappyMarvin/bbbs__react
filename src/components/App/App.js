@@ -7,14 +7,18 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import About from "../About/About";
 import Calendar from "../Calendar/Calendar";
-import Profile from "../Profile/Profile";
 import Loader from "../Loader/Loader";
+import Events from "../Events/Events";
+import Questions from "../Questions/Questions";
+import ReadAndWatch from "../ReadAndWatch/ReadAndWatch";
+import ChildrenRights from "../ChildrenRights/ChildrenRights";
+import Stories from "../Stories/Stories";
+import Profile from "../Profile/Profile";
+import NotFound from "../NotFound/NotFound";
 
 import { PROJECT_LINKS } from "../../utils/links";
 import { TIME_DELAY } from "../../utils/constants";
 import UserContext from "../../contexts/UserContext";
-import Events from "../Events/Events";
-import Questions from "../Questions/Questions";
 
 function App() {
   const [isLoading, setIsLoading] = React.useState(false);
@@ -77,20 +81,32 @@ function App() {
           <Route exact path={PROJECT_LINKS.main.link}>
             <Main mix="app__content app__section" />
           </Route>
-          <Route path={PROJECT_LINKS.about.link}>
+          <Route exact path={PROJECT_LINKS.about.link}>
             <About mix="app__content app__section" />
           </Route>
           <Route exact path={PROJECT_LINKS.calendar.link}>
             <Calendar mix="app__content" />
           </Route>
-          <Route path={PROJECT_LINKS.events.link}>
+          <Route exact path={PROJECT_LINKS.events.link}>
             <Events mix="app__content app__section" />
           </Route>
-          <Route path={PROJECT_LINKS.questions.link}>
+          <Route exact path={PROJECT_LINKS.questions.link}>
             <Questions mix="app__content app__section" />
           </Route>
-          <Route path="/profile">
+          <Route exact path={PROJECT_LINKS.readAndWatch.link}>
+            <ReadAndWatch mix="app__content app__section" />
+          </Route>
+          <Route exact path={PROJECT_LINKS.childrenRights.link}>
+            <ChildrenRights mix="app__content app__section" />
+          </Route>
+          <Route exact path={PROJECT_LINKS.stories.link}>
+            <Stories mix="app__content app__section" />
+          </Route>
+          <Route exact path={PROJECT_LINKS.profile.link}>
             <Profile mix="app__content app__section" />
+          </Route>
+          <Route path="*">
+            <NotFound mix="app__content app__section" />
           </Route>
         </Switch>
         <Footer />
