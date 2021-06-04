@@ -1,31 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "../Logo/Logo";
 import "./Footer.css";
 
+import Logo from "../Logo/Logo";
+
+import {
+  PROJECT_LINKS,
+  SOCIAL_LINKS,
+  HELP_MONEY_LINK,
+  YANDEX_PRAKTIKUM_LINK,
+  DESIGN_LINK,
+} from "../../utils/links";
+
 const Footer = () => {
-  const navLinks = [
-    { title: "О проекте", link: "/about" },
-    { title: "Календарь", link: "/calendar" },
-    { title: "Куда пойти", link: "/where_to_go" },
-    { title: "Вопросы", link: "/questions" },
-    { title: "Читать и смотреть", link: "/read_watch" },
-    { title: "Права детей", link: "/rights" },
-    { title: "Истории", link: "/stories" },
-  ];
-  const navSocial = [
-    { title: "facebook", link: "http://facebook.com" },
-    { title: "vkontakte", link: "http://vk.com" },
-    { title: "instagram", link: "http://instagram.com" },
-    { title: "youtube", link: "http://youtube.com" },
-  ];
+  const navLinks = Object.values(PROJECT_LINKS).filter((item) => item.footer);
 
   return (
     <footer className="footer">
       <Logo place="footer" />
       <a
         className="footer__money"
-        href="https://www.nastavniki.org/campaign/pomoch-dengami/"
+        href={HELP_MONEY_LINK}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -45,7 +40,7 @@ const Footer = () => {
         </nav>
         <nav className="footer__menu">
           <ul className="footer__list">
-            {navSocial.map((item, index) => (
+            {SOCIAL_LINKS.map((item, index) => (
               <li key={index} className="footer__list-item">
                 <a
                   className="footer__list-link"
@@ -69,7 +64,7 @@ const Footer = () => {
             Разработка &mdash; студенты &nbsp;
             <a
               className="footer__develop-accent"
-              href="https://praktikum.yandex.ru/"
+              href={YANDEX_PRAKTIKUM_LINK}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -80,7 +75,7 @@ const Footer = () => {
             Концепия и дизайн &mdash; &nbsp;
             <a
               className="footer__develop-accent"
-              href="https://krkr.design/"
+              href={DESIGN_LINK}
               target="_blank"
               rel="noopener noreferrer"
             >
