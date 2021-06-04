@@ -13,6 +13,7 @@ import Loader from "../Loader/Loader";
 import { PROJECT_LINKS } from "../../utils/links";
 import { TIME_DELAY } from "../../utils/constants";
 import UserContext from "../../contexts/UserContext";
+import Events from "../Events/Events";
 
 function App() {
   const [isLoading, setIsLoading] = React.useState(false);
@@ -80,6 +81,9 @@ function App() {
           </Route>
           <Route exact path={PROJECT_LINKS.calendar.link}>
             <Calendar mix="app__content" />
+          </Route>
+          <Route path={PROJECT_LINKS.events.link}>
+            <Events mix="app__content app__section" />
           </Route>
           <Route path="/profile">
             <Profile mix="app__content app__section" />
