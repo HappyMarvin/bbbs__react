@@ -5,10 +5,16 @@ import "./HeaderMenu.css";
 
 import { PROJECT_LINKS, SOCIAL_LINKS } from "../../utils/links";
 import UserContext from "../../contexts/UserContext";
+import UserData from "../UserData/UserData";
 
-const HeaderMenu = ({ isOpen }) => {
+const HeaderMenu = ({ isOpen, onClose }) => {
   const user = React.useContext(UserContext);
   const navLinks = Object.values(PROJECT_LINKS).filter((item) => item.nav);
+
+  React.useEffect(() => {
+    onClose();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user.login]);
 
   return (
     <div className={`header-menu ${isOpen && "header-menu_open"}`}>
@@ -25,19 +31,28 @@ const HeaderMenu = ({ isOpen }) => {
             }`}
           />
         </div>
-        <Link to={PROJECT_LINKS.main.link} className="header-menu__logo">
+        <Link
+          to={PROJECT_LINKS.main.link}
+          className="header-menu__logo"
+          onClick={onClose}
+        >
           наставники.про
         </Link>
         <button
           type="button"
           className="header-menu__button header-menu__button-close"
+          onClick={onClose}
         />
       </div>
       <nav className="header-menu__nav">
         <ul className="header-menu__nav-list">
           {navLinks.map((item, index) => (
             <li key={index} className="header-menu__nav-item">
-              <Link to={item.link} className="header-menu__nav-link">
+              <Link
+                to={item.link}
+                className="header-menu__nav-link"
+                onClick={onClose}
+              >
                 {item.title}
               </Link>
             </li>
@@ -46,62 +61,27 @@ const HeaderMenu = ({ isOpen }) => {
         <ul className="header-menu__nav-list">
           {SOCIAL_LINKS.map((item, index) => (
             <li key={index} className="header-menu__nav-item">
-              <a href={item.link} className="header-menu__nav-link">
+              <a
+                href={item.link}
+                className="header-menu__nav-link"
+                onClick={onClose}
+              >
                 {item.title}
               </a>
             </li>
           ))}
         </ul>
       </nav>
-      {/* <div className="header__wrapper">
-        <Link to="/" className="header__logo-bad" />
-        <button type="button" className="header__burger-btn"></button>
-        <HeaderMenu />
-        <nav className="header__action">
-          <Link to="/" className="header__button-search"></Link>
-          <button
-            onClick={props.handleButtonClick}
-            className="header__button-login header__button-login_unauthorized"
-          ></button>
-        </nav>
-      </div> */}
-      {/* <div className="header__burger header__burger_hidden">
-        <div className="header__burger-wrapper">
-          <nav className="header__menu-burger">
-            <ul className="header__burger-list">
-              {navLinks.map((item, index) => (
-                <li key={index} className="header__burger-item">
-                  <Link to={item.link} className="header__burger-link">
-                    {item.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <nav className="header__menu-burger">
-            <ul className="header__burger-list">
-              {SOCIAL_LINKS.map((item, index) => (
-                <li key={index} className="header__burger-item">
-                  <a
-                    href={item.link}
-                    className="header__burger-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {item.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
-      </div> */}
+      <div className="header-menu__user-data">
+        <UserData />
+      </div>
     </div>
   );
 };
 
 HeaderMenu.propTypes = {
   isOpen: PropTypes.bool,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default HeaderMenu;

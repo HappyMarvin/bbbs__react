@@ -11,10 +11,23 @@ import HeaderMenu from "../HeaderMenu/HeaderMenu";
 
 function Header({ mix }) {
   const user = React.useContext(UserContext);
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  const openMenu = () => {
+    setIsMenuOpen(true);
+  };
 
   return (
     <header className={`header ${mix}`}>
-      <button type="button" className="header__button header__button-menu" />
+      <button
+        type="button"
+        className="header__button header__button-menu"
+        onClick={openMenu}
+      />
       <Link to={PROJECT_LINKS.main.link} className="header__logo">
         наставники.про
       </Link>
@@ -35,57 +48,13 @@ function Header({ mix }) {
           />
         </div>
       </div>
-      <HeaderMenu isOpen={true} />
-      {/* <div className="header__wrapper">
-        <Link to="/" className="header__logo-bad" />
-        <button type="button" className="header__burger-btn"></button>
-        <HeaderMenu />
-        <nav className="header__action">
-          <Link to="/" className="header__button-search"></Link>
-          <button
-            onClick={props.handleButtonClick}
-            className="header__button-login header__button-login_unauthorized"
-          ></button>
-        </nav>
-      </div> */}
-      {/* <div className="header__burger header__burger_hidden">
-        <div className="header__burger-wrapper">
-          <nav className="header__menu-burger">
-            <ul className="header__burger-list">
-              {navLinks.map((item, index) => (
-                <li key={index} className="header__burger-item">
-                  <Link to={item.link} className="header__burger-link">
-                    {item.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <nav className="header__menu-burger">
-            <ul className="header__burger-list">
-              {SOCIAL_LINKS.map((item, index) => (
-                <li key={index} className="header__burger-item">
-                  <a
-                    href={item.link}
-                    className="header__burger-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {item.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
-      </div> */}
+      <HeaderMenu isOpen={isMenuOpen} onClose={closeMenu} />
     </header>
   );
 }
 
 Header.propTypes = {
   mix: PropTypes.string,
-  handleButtonClick: PropTypes.func,
 };
 
 export default Header;
