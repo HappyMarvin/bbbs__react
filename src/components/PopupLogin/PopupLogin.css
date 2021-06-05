@@ -34,7 +34,7 @@
   text-align: center;
 }
 
-.popup-login__text:last-child {
+.popup-login__text:last-of-type {
   margin-bottom: 50px;
 }
 
@@ -42,6 +42,7 @@
   margin: 0 auto 20px;
   padding: 15px 20px;
   width: 100%;
+  box-sizing: border-box;
   font-family: "PT Root", "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -132,4 +133,55 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+@media (max-width: 768px) {
+  .popup-login {
+    max-width: 290px;
+    padding: 60px 15px 50px;
+  }
+
+  .popup-login__title {
+    font-size: 19px;
+    line-height: 23px;
+  }
+
+  .popup-login__button-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  .popup-login__text {
+    margin-bottom: 25px;
+    font-size: 15px;
+    line-height: 21px;
+  }
+
+  .popup-login__input {
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .popup-login__text:last-of-type {
+    margin-bottom: 30px;
+  }
+
+  .popup-login__input:last-of-type {
+    margin-bottom: 20px;
+  }
+
+  .popup-login__button-forgot {
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .popup-login__button-submit {
+    margin: 0;
+    padding: 10px 15px;
+    font-size: 12px;
+    line-height: 17px;
+  }
 }
