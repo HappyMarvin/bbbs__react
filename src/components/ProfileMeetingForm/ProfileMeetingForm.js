@@ -1,9 +1,11 @@
 import React from "react";
-import Loader from "../Loader/Loader";
+import PropTypes from "prop-types";
 import "./ProfileMeetingForm.css";
 
+import Loader from "../Loader/Loader";
+
 const ProfileMeetingForm = ({
-  meeting = { place: "", description: "" },
+  meeting = { place: "", description: "", imageUrl: "" },
   mix,
   onClose,
   onSubmit,
@@ -62,7 +64,7 @@ const ProfileMeetingForm = ({
 
   return (
     <form className={`profile-meeting-form ${mix}`} onSubmit={handleSubmit}>
-      {isLoading && <Loader />}
+      {isLoading && <Loader isAbsolute={true} />}
       <label className="profile-meeting-form__image">
         <input
           className="profile-meeting-form__input-hide"
@@ -144,6 +146,21 @@ const ProfileMeetingForm = ({
       </div>
     </form>
   );
+};
+
+ProfileMeetingForm.propTypes = {
+  meeting: PropTypes.shape({
+    date: PropTypes.string.isRequired,
+    place: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    rating: PropTypes.oneOf(["good", "normal", "bad", ""]),
+    isShared: PropTypes.bool,
+  }),
+  mix: PropTypes.string,
+  onClose: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default ProfileMeetingForm;

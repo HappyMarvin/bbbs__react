@@ -2,11 +2,9 @@ import React from "react";
 import "./UserData.css";
 
 import UserContext from "../../contexts/UserContext";
-import Popup from "../Popup/Popup";
-import PopupChooseCity from "../PopupChooseCity/PopupChooseCity";
 
 const UserData = () => {
-  const [isPopupChooseCity, setIsPopupChooseCity] = React.useState(false);
+  const { openPopupChooseCity } = React.useContext(UserContext);
 
   return (
     <UserContext.Consumer>
@@ -17,7 +15,7 @@ const UserData = () => {
               <button
                 className="user-data__settings-button"
                 type="button"
-                onClick={() => setIsPopupChooseCity(true)}
+                onClick={openPopupChooseCity}
               >
                 {`${city.name}. Изменить город`}
               </button>
@@ -28,12 +26,6 @@ const UserData = () => {
               >
                 Выход
               </button>
-              {isPopupChooseCity && (
-                <Popup
-                  component={PopupChooseCity}
-                  onClose={() => setIsPopupChooseCity(false)}
-                />
-              )}
             </div>
           )}
         </>

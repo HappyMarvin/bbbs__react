@@ -1,3 +1,5 @@
+import React from "react";
+import PropTypes from "prop-types";
 import "./SelectList.css";
 
 function SelectList({ list, mix }) {
@@ -18,4 +20,10 @@ function SelectList({ list, mix }) {
     </div>
   );
 }
+
+SelectList.propTypes = {
+  list: PropTypes.arrayOf(PropTypes.string).isRequired,
+  mix: PropTypes.string,
+};
+
 export default SelectList;

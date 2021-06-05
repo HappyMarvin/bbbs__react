@@ -1,114 +1,61 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import "./Header.css";
 
+import HeaderLinks from "../HeaderLinks/HeaderLinks";
+
+import { PROJECT_LINKS } from "../../utils/links";
+import UserContext from "../../contexts/UserContext";
 import HeaderMenu from "../HeaderMenu/HeaderMenu";
 
-export default function Header(props) {
+function Header({ mix }) {
+  const { login, handleAccountButtonClick } = React.useContext(UserContext);
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  const openMenu = () => {
+    setIsMenuOpen(true);
+  };
+
   return (
-    <header className="header">
-      <div className="header__wrapper">
-        <Link to="/" className="header__logo" />
-        <button type="button" className="header__burger-btn"></button>
-        <HeaderMenu />
-        <nav className="header__action">
-          <Link to="/" className="header__button-search"></Link>
+    <header className={`header ${mix}`}>
+      <button
+        type="button"
+        className="header__button header__button-menu"
+        onClick={openMenu}
+      />
+      <Link to={PROJECT_LINKS.main.link} className="header__logo">
+        наставники.про
+      </Link>
+      <HeaderLinks />
+      <div className="header__actions">
+        <div className="header__action">
           <button
-            onClick={props.handleButtonClick}
-            className="header__button-login header__button-login_unauthorized"
-          ></button>
-        </nav>
-      </div>
-      <div className="header__burger header__burger_hidden">
-        <div className="header__burger-wrapper">
-          <nav className="header__menu-burger">
-            <ul className="header__burger-list">
-              <li className="header__burger-item">
-                <Link to="/about" className="header__burger-link">
-                  О проекте
-                </Link>
-              </li>
-              <li className="header__burger-item">
-                <Link
-                  to="/calendar"
-                  className="header__burger-link calender-open"
-                >
-                  Календарь
-                </Link>
-              </li>
-              <li className="header__burger-item">
-                <Link to="/" className="header__burger-link">
-                  Куда пойти
-                </Link>
-              </li>
-              <li className="header__burger-item">
-                <Link to="/" className="header__burger-link">
-                  Вопросы
-                </Link>
-              </li>
-              <li className="header__burger-item">
-                <Link to="/" className="header__burger-link">
-                  Читать и смотреть
-                </Link>
-              </li>
-              <li className="header__burger-item">
-                <Link to="/" className="header__burger-link">
-                  Права детей
-                </Link>
-              </li>
-              <li className="header__burger-item">
-                <Link to="/" className="header__burger-link">
-                  Истории
-                </Link>
-              </li>
-            </ul>
-          </nav>
-          <nav className="header__menu-burger">
-            <ul className="header__burger-list">
-              <li className="header__burger-item">
-                <a
-                  href="https://www.facebook.com/BigBrothers.BigSisters.Russia/"
-                  className="header__burger-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  facebook
-                </a>
-              </li>
-              <li className="header__burger-item">
-                <a
-                  href="https://vk.com/big.brothers.big.sisters"
-                  className="header__burger-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  vkontakte
-                </a>
-              </li>
-              <li className="header__burger-item">
-                <a
-                  href="https://www.instagram.com/nastavniki_org/"
-                  className="header__burger-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  instagram
-                </a>
-              </li>
-              <li className="header__burger-item">
-                <a
-                  href="https://www.youtube.com/user/Nastavniki"
-                  className="header__burger-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  youtube
-                </a>
-              </li>
-            </ul>
-          </nav>
+            type="button"
+            className=" header__button header__button-search"
+          />
+        </div>
+        <div className="header__action">
+          <button
+            type="button"
+            className={`header__button header__button-account ${
+              login && "header__button-account_login"
+            }`}
+            onClick={handleAccountButtonClick}
+          />
         </div>
       </div>
+      <HeaderMenu isOpen={isMenuOpen} onClose={closeMenu} />
     </header>
   );
 }
+
+Header.propTypes = {
+  mix: PropTypes.string,
+};
+
+export default Header;

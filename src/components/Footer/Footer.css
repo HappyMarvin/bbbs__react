@@ -197,7 +197,7 @@
     margin-top: 30px;
     flex-direction: row;
   }
-  
+
   .footer__copyright {
     margin-right: 30px;
     margin-bottom: 0;
@@ -233,5 +233,11 @@
 
   .footer__develop-text:last-child {
     margin-bottom: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 15px 30px;
   }
 }

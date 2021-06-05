@@ -204,26 +204,7 @@
     font-size: 15px;
     line-height: 21px;
   }
-}
-
-@media (max-width: 1024px) {
-  .about__intro-text {
-    max-width: 770px;
-    font-size: 19px;
-    line-height: 23px;
-  }
-
-  .about__target {
-    margin: 50px auto;
-    padding: 30px 0;
-  }
-
-  .about__target-text {
-    max-width: 100%;
-    font-size: 23px;
-    line-height: 30px;
-  }
-
+  
   .about__actions-list {
     grid-auto-flow: row;
     justify-items: center;
@@ -253,6 +234,25 @@
     margin-top: 15px;
     font-size: 12px;
     line-height: 17px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about__intro-text {
+    max-width: 770px;
+    font-size: 19px;
+    line-height: 23px;
+  }
+
+  .about__target {
+    margin: 50px auto;
+    padding: 30px 0;
+  }
+
+  .about__target-text {
+    max-width: 100%;
+    font-size: 23px;
+    line-height: 30px;
   }
 }
 
