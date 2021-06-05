@@ -4,7 +4,7 @@ import "./App.css";
 
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
-import Main from "../Main/Main";
+import Main from "../MainPage/Main/Main";
 import About from "../About/About";
 import Calendar from "../Calendar/Calendar";
 import Loader from "../Loader/Loader";
