@@ -4,13 +4,13 @@ import PropTypes from "prop-types";
 import "./Header.css";
 
 import HeaderLinks from "../HeaderLinks/HeaderLinks";
-
-import { PROJECT_LINKS } from "../../utils/links";
-import UserContext from "../../contexts/UserContext";
 import HeaderMenu from "../HeaderMenu/HeaderMenu";
 
+import { PROJECT_LINKS } from "../../utils/links";
+import AppContext from "../../contexts/AppContext";
+
 function Header({ mix }) {
-  const { login, handleAccountButtonClick } = React.useContext(UserContext);
+  const { user, handleAccountButtonClick } = React.useContext(AppContext);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const closeMenu = () => {
@@ -43,7 +43,7 @@ function Header({ mix }) {
           <button
             type="button"
             className={`header__button header__button-account ${
-              login && "header__button-account_login"
+              user.login && "header__button-account_login"
             }`}
             onClick={handleAccountButtonClick}
           />

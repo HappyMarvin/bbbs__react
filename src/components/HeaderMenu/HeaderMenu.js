@@ -4,16 +4,16 @@ import { Link } from "react-router-dom";
 import "./HeaderMenu.css";
 
 import { PROJECT_LINKS, SOCIAL_LINKS } from "../../utils/links";
-import UserContext from "../../contexts/UserContext";
 import UserData from "../UserData/UserData";
+import AppContext from "../../contexts/AppContext";
 
 const HeaderMenu = ({ isOpen, onClose }) => {
-  const user = React.useContext(UserContext);
+  const { user, handleAccountButtonClick } = React.useContext(AppContext);
   const navLinks = Object.values(PROJECT_LINKS).filter((item) => item.nav);
 
-  const handleAccountButtonClick = () => {
+  const handleClickAccountButton = () => {
     onClose();
-    user.handleAccountButtonClick();
+    handleAccountButtonClick();
   };
 
   React.useEffect(() => {
@@ -34,7 +34,7 @@ const HeaderMenu = ({ isOpen, onClose }) => {
             className={`header-menu__action header-menu__button header-menu__button-account ${
               user.login && "header-menu__button-account_login"
             }`}
-            onClick={handleAccountButtonClick}
+            onClick={handleClickAccountButton}
           />
         </div>
         <Link

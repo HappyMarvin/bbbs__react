@@ -10,12 +10,12 @@ import Popup from "../Popup/Popup";
 
 import { TEST_EVENTS, TEST_HISTORY } from "./ForTest";
 import { TIME_DELAY } from "../../utils/constants";
-import UserContext from "../../contexts/UserContext";
 import UserData from "../UserData/UserData";
+import AppContext from "../../contexts/AppContext";
 
 const Profile = ({ mix }) => {
   const [isLoading, setIsloading] = React.useState(false);
-  const user = React.useContext(UserContext);
+  const { user } = React.useContext(AppContext);
   const [events, setEvents] = React.useState([]);
   const [history, setHistory] = React.useState([]);
   const [isPopupDeleteOpen, setIsPopupDeleteOpen] = React.useState(false);

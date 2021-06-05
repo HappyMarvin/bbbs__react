@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import "./PopupLogin.css";
 import Loader from "../Loader/Loader";
 import { TIME_DELAY } from "../../utils/constants";
-import UserContext from "../../contexts/UserContext";
+import AppContext from "../../contexts/AppContext";
 
 const PopupLogin = ({ onClose }) => {
-  const { handleLogin } = React.useContext(UserContext);
+  const { handleLogin } = React.useContext(AppContext);
   const [isLoading, setIsLoading] = React.useState(false);
   const [isValid, setIsValid] = React.useState(false);
   const [userData, setUserData] = React.useState({ name: "", password: "" });
