@@ -4,6 +4,7 @@ import "./App.css";
 
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
+import Main from "../MainPage/Main/Main";
 import About from "../About/About";
 import Calendar from "../Calendar/Calendar";
 import Profile from "../Profile/Profile";
@@ -67,7 +68,9 @@ function App() {
       {isLoading && <Loader />}
       <Header />
       <Switch>
-        <Route exact path="/"></Route>
+        <Route exact path="/">
+          <Main mix="app__content app__section" />
+        </Route>
         <Route path="/about">
           <About mix="app__content app__section" />
         </Route>
