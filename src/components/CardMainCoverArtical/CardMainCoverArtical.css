@@ -1,0 +1,37 @@
+@import "../Card/Card.css";
+
+.card-main-cover-artical {
+  min-height: 490px;
+  height: min-content;
+  justify-content: space-between;
+  padding: 120px 0 30px;
+}
+
+.card-main-cover-artical__title {
+  max-width: 970px;
+  margin: 0 0 71px;
+}
+
+@media screen and (max-width: 1400px) {
+  .card-main-cover-artical {
+    min-height: 312px;
+    padding: 30px 40px 15px;
+  }
+
+  .card-main-cover-artical__title {
+    margin: 0;
+    font-size: 19px;
+    line-height: 23px;
+  }
+
+  .card-main-cover-artical__link {
+    font-size: 12px;
+    line-height: 17px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .card-main-cover-artical {
+    padding: 30px 15px 15px;
+  }
+}

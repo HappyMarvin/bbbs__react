@@ -1,0 +1,14 @@
+.card__link {
+  font-family: 'Proto', Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.27;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  color: #224CFF;
+  cursor: pointer;
+}
+
+.card__link:hover {
+  color: #000;
+}

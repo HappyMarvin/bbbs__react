@@ -1,0 +1,11 @@
+.card__title {
+  font-family: 'Proto', Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 23px;
+  line-height: 1.3;
+}
+
+.card__title_size_l {
+  font-size: 44px;
+  line-height: 1.14;
+}
