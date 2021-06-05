@@ -93,7 +93,6 @@ function App() {
           openPopupChooseCity,
         }}
       >
-        <button type="button" onClick={() => setIsPopupChooseCityOpen(true)} />
         {isLoading && <Loader />}
         <Header mix="app__section" />
         <Switch>

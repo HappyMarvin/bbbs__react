@@ -14,7 +14,7 @@ const HeaderMenu = ({ isOpen, onClose }) => {
   React.useEffect(() => {
     onClose();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user.login]);
+  }, [user]);
 
   return (
     <div className={`header-menu ${isOpen && "header-menu_open"}`}>
