@@ -182,20 +182,16 @@ function App() {
           </Route>
         </Switch>
         <Footer />
-        {isPopupChooseCityOpen && (
-          <Popup
-            component={PopupChooseCity}
-            isOpen={isPopupChooseCityOpen}
-            onClose={() => setIsPopupChooseCityOpen(false)}
-          />
-        )}
-        {isPopupLoginOpen && (
-          <Popup
-            component={PopupLogin}
-            isOpen={isPopupLoginOpen}
-            onClose={() => setIsPopupLoginOpen(false)}
-          />
-        )}
+        <Popup
+          component={PopupChooseCity}
+          isOpen={isPopupChooseCityOpen}
+          onClose={() => setIsPopupChooseCityOpen(false)}
+        />
+        <Popup
+          component={PopupLogin}
+          isOpen={isPopupLoginOpen}
+          onClose={() => setIsPopupLoginOpen(false)}
+        />
       </UserContext.Provider>
     </div>
   );

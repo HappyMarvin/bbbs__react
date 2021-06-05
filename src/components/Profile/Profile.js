@@ -79,38 +79,38 @@ const Profile = ({ mix }) => {
   }, [user.login]);
 
   return (
-    <main className={`profile ${mix}`} aria-label="Личный кабинет">
-      {isLoading && <Loader />}
+    <>
+      <main className={`profile ${mix}`} aria-label="Личный кабинет">
+        {isLoading && <Loader />}
 
-      <section className="profile__settings" aria-label="Данные пользователя">
-        <UserData />
-      </section>
+        <section className="profile__settings" aria-label="Данные пользователя">
+          <UserData />
+        </section>
 
-      {user.login ? (
-        <>
-          <ProfileEvents events={events} />
+        {user.login ? (
+          <>
+            <ProfileEvents events={events} />
 
-          <ProfileHistory
-            history={history}
-            onAddMeeting={handleAddMeeting}
-            onUpdateMeeting={handleUpdateMeeting}
-            onDeleteMeeting={handleDeleteMeetingPopupOpen}
-            onShare={handleShareMeeting}
-          />
-
-          {isPopupDeleteOpen && (
-            <Popup
-              component={PopupDeleteProfileMeeting}
-              meeting={deleteMeeting}
-              onDelete={handleDeleteMetting}
-              onClose={() => setIsPopupDeleteOpen(false)}
+            <ProfileHistory
+              history={history}
+              onAddMeeting={handleAddMeeting}
+              onUpdateMeeting={handleUpdateMeeting}
+              onDeleteMeeting={handleDeleteMeetingPopupOpen}
+              onShare={handleShareMeeting}
             />
-          )}
-        </>
-      ) : (
-        <p>Не осуществлен вход</p>
-      )}
-    </main>
+          </>
+        ) : (
+          <p>Не осуществлен вход</p>
+        )}
+      </main>
+      <Popup
+        isOpen={isPopupDeleteOpen}
+        component={PopupDeleteProfileMeeting}
+        meeting={deleteMeeting}
+        onDelete={handleDeleteMetting}
+        onClose={() => setIsPopupDeleteOpen(false)}
+      />
+    </>
   );
 };
 
