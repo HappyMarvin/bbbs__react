@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./ProfileHistory.css";
 
 import ProfileMeetingForm from "../ProfileMeetingForm/ProfileMeetingForm";
@@ -58,6 +59,14 @@ const ProfileHistory = ({
       </ul>
     </section>
   );
+};
+
+ProfileHistory.propTypes = {
+  history: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onAddMeeting: PropTypes.func.isRequired,
+  onUpdateMeeting: PropTypes.func.isRequired,
+  onDeleteMeeting: PropTypes.func.isRequired,
+  onShare: PropTypes.func.isRequired,
 };
 
 export default ProfileHistory;

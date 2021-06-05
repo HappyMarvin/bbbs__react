@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./Popup.css";
 
-const Popup = ({ component: Component, onClose, ...props }) => {
+const Popup = ({ component: Component, isOpen, onClose, ...props }) => {
   const closePopup = (evt) => {
     if (evt.target.classList.contains("popup")) {
       onClose();
@@ -9,10 +10,16 @@ const Popup = ({ component: Component, onClose, ...props }) => {
   };
 
   return (
-    <div className="popup" onClick={closePopup}>
+    <div className={`popup ${isOpen && "popup_open"}`} onClick={closePopup}>
       <Component {...props} onClose={onClose} />
     </div>
   );
+};
+
+Popup.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  component: PropTypes.elementType.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default Popup;

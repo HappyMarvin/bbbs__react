@@ -1,15 +1,17 @@
 import React from "react";
+import PropTypes from "prop-types";
+import "./Profile.css";
+
 import ProfileEvents from "../ProfileEvents/ProfileEvents";
 import ProfileHistory from "../ProfileHistory/ProfileHistory";
-import "./Profile.css";
+import PopupDeleteProfileMeeting from "../PopupDeleteProfileMeeting/PopupDeleteProfileMeeting";
+import Loader from "../Loader/Loader";
+import Popup from "../Popup/Popup";
 
 import { TEST_EVENTS, TEST_HISTORY } from "./ForTest";
 import { TIME_DELAY } from "../../utils/constants";
-import Loader from "../Loader/Loader";
-import PopupDeleteProfileMeeting from "../PopupDeleteProfileMeeting/PopupDeleteProfileMeeting";
 import UserContext from "../../contexts/UserContext";
 import UserData from "../UserData/UserData";
-import Popup from "../Popup/Popup";
 
 const Profile = ({ mix }) => {
   const [isLoading, setIsloading] = React.useState(false);
@@ -77,39 +79,43 @@ const Profile = ({ mix }) => {
   }, [user.login]);
 
   return (
-    <main className={`profile ${mix}`} aria-label="Личный кабинет">
-      {isLoading && <Loader />}
+    <>
+      <main className={`profile ${mix}`} aria-label="Личный кабинет">
+        {isLoading && <Loader />}
 
-      <section className="profile__settings" aria-label="Данные пользователя">
-        <UserData />
-      </section>
+        <section className="profile__settings" aria-label="Данные пользователя">
+          <UserData />
+        </section>
 
-      {user.login ? (
-        <>
-          <ProfileEvents events={events} />
+        {user.login ? (
+          <>
+            <ProfileEvents events={events} />
 
-          <ProfileHistory
-            history={history}
-            onAddMeeting={handleAddMeeting}
-            onUpdateMeeting={handleUpdateMeeting}
-            onDeleteMeeting={handleDeleteMeetingPopupOpen}
-            onShare={handleShareMeeting}
-          />
-
-          {isPopupDeleteOpen && (
-            <Popup
-              component={PopupDeleteProfileMeeting}
-              meeting={deleteMeeting}
-              onDelete={handleDeleteMetting}
-              onClose={() => setIsPopupDeleteOpen(false)}
+            <ProfileHistory
+              history={history}
+              onAddMeeting={handleAddMeeting}
+              onUpdateMeeting={handleUpdateMeeting}
+              onDeleteMeeting={handleDeleteMeetingPopupOpen}
+              onShare={handleShareMeeting}
             />
-          )}
-        </>
-      ) : (
-        <p>Не осуществлен вход</p>
-      )}
-    </main>
+          </>
+        ) : (
+          <p>Не осуществлен вход</p>
+        )}
+      </main>
+      <Popup
+        isOpen={isPopupDeleteOpen}
+        component={PopupDeleteProfileMeeting}
+        meeting={deleteMeeting}
+        onDelete={handleDeleteMetting}
+        onClose={() => setIsPopupDeleteOpen(false)}
+      />
+    </>
   );
+};
+
+Profile.propTypes = {
+  mix: PropTypes.string,
 };
 
 export default Profile;

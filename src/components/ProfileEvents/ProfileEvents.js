@@ -1,6 +1,7 @@
 import React from "react";
-import ProfileEvent from "../ProfileEvent/ProfileEvent";
+import PropTypes from "prop-types";
 import "./ProfileEvents.css";
+import ProfileEvent from "../ProfileEvent/ProfileEvent";
 
 const ProfileEvents = ({ events }) => {
   return (
@@ -19,6 +20,10 @@ const ProfileEvents = ({ events }) => {
       )}
     </section>
   );
+};
+
+ProfileEvents.propTypes = {
+  events: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default ProfileEvents;
