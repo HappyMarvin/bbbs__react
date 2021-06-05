@@ -1,0 +1,135 @@
+.popup-login {
+  position: relative;
+  padding: 50px 100px;
+  max-width: 770px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.popup-login__title {
+  margin: 0 0 16px;
+  padding: 0;
+  font-family: "Proto", "Arial", "Helvetica", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 23px;
+  line-height: 30px;
+}
+
+.popup-login__text {
+  margin: 0 0 30px;
+  max-width: 550px;
+  font-family: "PT Root", "Arial", "Helvetica", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+
+  text-align: center;
+}
+
+.popup-login__text:last-child {
+  margin-bottom: 50px;
+}
+
+.popup-login__input {
+  margin: 0 auto 20px;
+  padding: 15px 20px;
+  width: 100%;
+  font-family: "PT Root", "Arial", "Helvetica", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  outline: 0;
+  border: 0;
+  border-radius: 30px;
+  background-color: #f3f2f2;
+}
+
+.popup-login__input::placeholder {
+  color: #a7a6a6;
+}
+
+.popup-login__button-forgot {
+  margin: 0 0 30px;
+  align-self: flex-start;
+  font-family: "PT Root", "Arial", "Helvetica", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  color: #464646;
+  outline: 0;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.popup-login__button-forgot:hover {
+  color: #224cff;
+}
+
+.popup-login__button-submit {
+  margin: 0;
+  padding: 15px 20px;
+  align-self: flex-start;
+  font-family: "Proto", "Arial", "Helvetica", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  outline: 0;
+  border: 1px solid #000;
+  border-radius: 100px;
+  background-color: transparent;
+}
+
+.popup-login__button-submit:disabled {
+  color: #a7a6a6;
+  border-color: #a7a6a6;
+}
+
+.popup-login__button-submit:not(:disabled):hover {
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+
+.popup-login__button-submit:active {
+  color: #fff;
+  border-color: #000;
+  background-color: #000;
+}
+
+.popup-login__button-submit:active:hover {
+  color: #fff;
+  border-color: #2e2468;
+  background-color: #2e2468;
+}
+
+.popup-login__button-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  outline: 0;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  background-image: url("../../images/close.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}

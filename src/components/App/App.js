@@ -64,6 +64,19 @@ function App() {
     }, TIME_DELAY);
   };
 
+  const handleLogin = (userData, endLoading) => {
+    const testData = {
+      ...userData,
+      id: 1,
+      user: 1,
+      city: { id: 2, name: "Тест", isPrimary: false },
+    };
+    setTimeout(() => {
+      setUser({ ...testData, login: true });
+      endLoading();
+    }, TIME_DELAY);
+  };
+
   const handleChangeUserCity = (city, endLoading) => {
     // TO DO: запрос на сервер для смены города пользователя
     setTimeout(() => {
@@ -98,6 +111,7 @@ function App() {
         value={{
           ...user,
           handleChangeUserCity,
+          handleLogin,
           handleLogout,
           openPopupChooseCity,
           handleAccountButtonClick,

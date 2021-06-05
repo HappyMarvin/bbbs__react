@@ -52,42 +52,39 @@ const PopupChooseCity = ({ onClose, isOpen }) => {
   }, []);
 
   return (
-    isOpen && (
-      <div className="popup-choose-city">
-        {isLoading && <Loader isAbsolute={true} />}
-        <p className="popup-choose-city__title">Выберите ваш город</p>
-        {cities.length > 0 && (
-          <ul className="popup-choose-city__cities-groups">
-            {cities
-              .filter((item) => item.length > 0)
-              .map((cityGroup, index) => (
-                <li key={index} className="popup-choose-city__cities-group">
-                  <ul className="popup-choose-city__cities">
-                    {cityGroup.map((city) => (
-                      <li
-                        key={city.id}
-                        className="popup-choose-city__cities-item"
+    <div className="popup-choose-city">
+      {isLoading && <Loader isAbsolute={true} />}
+      <p className="popup-choose-city__title">Выберите ваш город</p>
+      {cities.length > 0 && (
+        <ul className="popup-choose-city__cities-groups">
+          {cities
+            .filter((item) => item.length > 0)
+            .map((cityGroup, index) => (
+              <li key={index} className="popup-choose-city__cities-group">
+                <ul className="popup-choose-city__cities">
+                  {cityGroup.map((city) => (
+                    <li
+                      key={city.id}
+                      className="popup-choose-city__cities-item"
+                    >
+                      <p
+                        className="popup-choose-city__city"
+                        onClick={() => handleCityChoose(city)}
                       >
-                        <p
-                          className="popup-choose-city__city"
-                          onClick={() => handleCityChoose(city)}
-                        >
-                          {city.name}
-                        </p>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              ))}
-          </ul>
-        )}
-      </div>
-    )
+                        {city.name}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+        </ul>
+      )}
+    </div>
   );
 };
 
 PopupChooseCity.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
 };
 

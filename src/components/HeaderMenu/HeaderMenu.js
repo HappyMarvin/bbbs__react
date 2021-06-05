@@ -11,6 +11,11 @@ const HeaderMenu = ({ isOpen, onClose }) => {
   const user = React.useContext(UserContext);
   const navLinks = Object.values(PROJECT_LINKS).filter((item) => item.nav);
 
+  const handleAccountButtonClick = () => {
+    onClose();
+    user.handleAccountButtonClick();
+  };
+
   React.useEffect(() => {
     onClose();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -29,7 +34,7 @@ const HeaderMenu = ({ isOpen, onClose }) => {
             className={`header-menu__action header-menu__button header-menu__button-account ${
               user.login && "header-menu__button-account_login"
             }`}
-            onClick={user.handleAccountButtonClick}
+            onClick={handleAccountButtonClick}
           />
         </div>
         <Link
