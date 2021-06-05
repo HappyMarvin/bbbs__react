@@ -8,8 +8,12 @@
   align-items: center;
 }
 
+.test{
+  height: 20px;
+}
+
 .calendar__title {
-  margin: 0 auto;
+  margin: 0 auto 40px;
   font-family: "Proto", "Arial", sans-serif;
   font-style: normal;
   font-weight: 300;
@@ -24,6 +28,7 @@
   }
 
   .calendar__title {
+    margin-bottom: 20px;
     font-size: 37px;
     line-height: 39px;
   }

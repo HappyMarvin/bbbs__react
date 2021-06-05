@@ -1,0 +1,55 @@
+.calendar-months__list {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar-months__item {
+  margin: 15px 0 0;
+}
+
+.calendar-months__month {
+  margin: 0;
+  padding: 15px 20px;
+  font-family: "Proto", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  color: #000;
+  outline: 0;
+  border: 1px solid #000000;
+  border-radius: 100px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.calendar-months__month:hover {
+  background: #e0e0e0;
+}
+
+.calendar-months__month_selected {
+  color: #fff;
+  border-color: #000;
+  background: #000;
+}
+
+.calendar-months__month_selected:hover {
+  border-color: #2e2468;
+  background: #2e2468;
+}
+
+@media (max-width: 1024px) {
+  .calendar-months__month {
+    padding: 10px 15px;
+    font-size: 12px;
+    line-height: 17px;
+  }
+}

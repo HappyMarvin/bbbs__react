@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./Calendar.css";
 
-import SelectList from "../SelectList/SelectList";
+import CalendarMonths from "../CalendarMonths/CalendarMonths";
 import CalendarList from "../CalendarList/CalendarList";
 import Loader from "../Loader/Loader";
 
@@ -13,12 +13,25 @@ function Calendar({ mix }) {
   const [isLoading, setIsLoading] = React.useState(true);
   const [events, setEvents] = React.useState([]);
   const [months, setMonths] = React.useState([]);
+  const [selectedMonths, setSelectedMonths] = React.useState([]);
 
   const getCalendarEvents = () => {
     setEvents(testCalendarEvents);
-    setMonths(
-      testCalendarEvents.map((event) => new Date(event.startAt).getMonth())
+    const arr = testCalendarEvents.map((event) =>
+      new Date(event.startAt).getMonth()
     );
+    setMonths(arr.filter((item, index) => arr.indexOf(item) === index));
+  };
+
+  const handleMonthClick = (number) => {
+    const index = selectedMonths.indexOf(number);
+    if (index === -1) {
+      setSelectedMonths(selectedMonths.concat(number));
+    } else {
+      const arr = selectedMonths.slice(0);
+      arr.splice(index, 1);
+      setSelectedMonths(arr);
+    }
   };
 
   React.useEffect(() => {
@@ -32,9 +45,13 @@ function Calendar({ mix }) {
   return (
     <main className={`calendar ${mix}`}>
       {isLoading && <Loader isAbsolute={true} />}
-      {/* <button type="button" onClick={() => console.log(events, months)} /> */}
       <h1 className="calendar__title">Календарь</h1>
-      <SelectList list={["Декабрь", "Январь", "Февраль"]} />
+      <CalendarMonths
+        months={months}
+        selectedMonths={selectedMonths}
+        onClickMonth={handleMonthClick}
+      />
+      {/* <SelectList list={["Декабрь", "Январь", "Февраль"]} /> */}
       <CalendarList events={[]} />
     </main>
   );
