@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import "./App.css";
 
 import Footer from "../Footer/Footer";
@@ -26,11 +26,14 @@ import { TIME_DELAY } from "../../utils/constants";
 import UserContext from "../../contexts/UserContext";
 import Popup from "../Popup/Popup";
 import PopupChooseCity from "../PopupChooseCity/PopupChooseCity";
+import PopupLogin from "../PopupLogin/PopupLogin";
 
 function App() {
   const [isLoading, setIsLoading] = React.useState(false);
   const [isPopupChooseCityOpen, setIsPopupChooseCityOpen] =
     React.useState(false);
+  const [isPopupLoginOpen, setIsPopupLoginOpen] = React.useState(false);
+  const history = useHistory();
   const [user, setUser] = React.useState({ login: false });
 
   const handleCheckToken = () => {
@@ -78,6 +81,12 @@ function App() {
     setIsPopupChooseCityOpen(true);
   };
 
+  const handleAccountButtonClick = () => {
+    user.login
+      ? history.push(PROJECT_LINKS.profile.link)
+      : setIsPopupLoginOpen(true);
+  };
+
   React.useEffect(() => {
     handleCheckToken();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -91,6 +100,7 @@ function App() {
           handleChangeUserCity,
           handleLogout,
           openPopupChooseCity,
+          handleAccountButtonClick,
         }}
       >
         {isLoading && <Loader />}
@@ -163,6 +173,13 @@ function App() {
             component={PopupChooseCity}
             isOpen={isPopupChooseCityOpen}
             onClose={() => setIsPopupChooseCityOpen(false)}
+          />
+        )}
+        {isPopupLoginOpen && (
+          <Popup
+            component={PopupLogin}
+            isOpen={isPopupLoginOpen}
+            onClose={() => setIsPopupLoginOpen(false)}
           />
         )}
       </UserContext.Provider>

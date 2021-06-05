@@ -10,7 +10,7 @@ import UserContext from "../../contexts/UserContext";
 import HeaderMenu from "../HeaderMenu/HeaderMenu";
 
 function Header({ mix }) {
-  const user = React.useContext(UserContext);
+  const { login, handleAccountButtonClick } = React.useContext(UserContext);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const closeMenu = () => {
@@ -43,8 +43,9 @@ function Header({ mix }) {
           <button
             type="button"
             className={`header__button header__button-account ${
-              user.login && "header__button-account_login"
+              login && "header__button-account_login"
             }`}
+            onClick={handleAccountButtonClick}
           />
         </div>
       </div>

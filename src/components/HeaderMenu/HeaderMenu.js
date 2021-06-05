@@ -29,6 +29,7 @@ const HeaderMenu = ({ isOpen, onClose }) => {
             className={`header-menu__action header-menu__button header-menu__button-account ${
               user.login && "header-menu__button-account_login"
             }`}
+            onClick={user.handleAccountButtonClick}
           />
         </div>
         <Link
