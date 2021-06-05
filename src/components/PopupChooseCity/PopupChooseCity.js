@@ -2,14 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./PopupChooseCity.css";
 
-import { TIME_DELAY } from "../../utils/constants";
 import Loader from "../Loader/Loader";
-import UserContext from "../../contexts/UserContext";
+
+import { TIME_DELAY } from "../../utils/constants";
+import AppContext from "../../contexts/AppContext";
 
 const PopupChooseCity = ({ onClose, isOpen }) => {
   const [cities, setCities] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(false);
-  const { handleChangeUserCity } = React.useContext(UserContext);
+  const { handleChangeUserCity } = React.useContext(AppContext);
 
   const handleCityChoose = (city) => {
     setIsLoading(true);

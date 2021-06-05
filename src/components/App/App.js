@@ -20,13 +20,13 @@ import ChildrenRights from "../ChildrenRights/ChildrenRights";
 import Stories from "../Stories/Stories";
 import Profile from "../Profile/Profile";
 import NotFound from "../NotFound/NotFound";
-
-import { PROJECT_LINKS } from "../../utils/links";
-import { TIME_DELAY } from "../../utils/constants";
-import UserContext from "../../contexts/UserContext";
 import Popup from "../Popup/Popup";
 import PopupChooseCity from "../PopupChooseCity/PopupChooseCity";
 import PopupLogin from "../PopupLogin/PopupLogin";
+
+import { PROJECT_LINKS } from "../../utils/links";
+import { TIME_DELAY } from "../../utils/constants";
+import AppContext from "../../contexts/AppContext";
 
 function App() {
   const [isLoading, setIsLoading] = React.useState(false);
@@ -107,9 +107,9 @@ function App() {
 
   return (
     <div className="app">
-      <UserContext.Provider
+      <AppContext.Provider
         value={{
-          ...user,
+          user,
           handleChangeUserCity,
           handleLogin,
           handleLogout,
@@ -192,7 +192,7 @@ function App() {
           isOpen={isPopupLoginOpen}
           onClose={() => setIsPopupLoginOpen(false)}
         />
-      </UserContext.Provider>
+      </AppContext.Provider>
     </div>
   );
 }
