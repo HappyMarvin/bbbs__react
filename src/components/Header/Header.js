@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./Header.css";
 
-import HeaderMenu from "../HeaderMenu/HeaderMenu";
-import { PROJECT_LINKS, SOCIAL_LINKS } from "../../utils/links";
+import HeaderLinks from "../HeaderLinks/HeaderLinks";
+
+import { PROJECT_LINKS } from "../../utils/links";
 import UserContext from "../../contexts/UserContext";
+import HeaderMenu from "../HeaderMenu/HeaderMenu";
 
 function Header({ mix }) {
   const user = React.useContext(UserContext);
-  const navLinks = Object.values(PROJECT_LINKS).filter((item) => item.nav);
 
   return (
     <header className={`header ${mix}`}>
@@ -17,7 +18,7 @@ function Header({ mix }) {
       <Link to={PROJECT_LINKS.main.link} className="header__logo">
         наставники.про
       </Link>
-      <HeaderMenu />
+      <HeaderLinks />
       <div className="header__actions">
         <div className="header__action">
           <button
@@ -34,6 +35,7 @@ function Header({ mix }) {
           />
         </div>
       </div>
+      <HeaderMenu isOpen={true} />
       {/* <div className="header__wrapper">
         <Link to="/" className="header__logo-bad" />
         <button type="button" className="header__burger-btn"></button>
