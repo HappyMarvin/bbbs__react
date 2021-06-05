@@ -1,3 +1,37 @@
 .calendar {
-    margin: 80px auto 120px;
+  position: relative;
+  margin-top: 80px;
+  margin-bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.calendar__title {
+  margin: 0 auto;
+  font-family: "Proto", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 74px;
+  line-height: 80px;
+}
+
+@media (max-width: 1024px) {
+  .calendar {
+    margin-top: 30px;
+    margin-bottom: 100px;
+  }
+
+  .calendar__title {
+    font-size: 37px;
+    line-height: 39px;
+  }
+}
+
+@media (max-width: 768px) {
+  .calendar {
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
 }
