@@ -1,13 +1,23 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./PopupChooseCity.css";
 
 import { TIME_DELAY } from "../../utils/constants";
 import Loader from "../Loader/Loader";
 import UserContext from "../../contexts/UserContext";
 
-const PopupChooseCity = ({ onClose }) => {
+const PopupChooseCity = ({ onClose, isOpen }) => {
   const [cities, setCities] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(false);
+  const { handleChangeUserCity } = React.useContext(UserContext);
+
+  const handleCityChoose = (city) => {
+    setIsLoading(true);
+    handleChangeUserCity(city, () => {
+      setIsLoading(false);
+      onClose();
+    });
+  };
 
   React.useEffect(() => {
     setIsLoading(true);
@@ -42,46 +52,43 @@ const PopupChooseCity = ({ onClose }) => {
   }, []);
 
   return (
-    <UserContext.Consumer>
-      {({ handleChangeUserCity }) => (
-        <div className="popup-choose-city">
-          {isLoading && <Loader isAbsolute={true} />}
-          <p className="popup-choose-city__title">Выберите ваш город</p>
-          {cities.length > 0 && (
-            <ul className="popup-choose-city__cities-groups">
-              {cities
-                .filter((item) => item.length > 0)
-                .map((cityGroup, index) => (
-                  <li key={index} className="popup-choose-city__cities-group">
-                    <ul className="popup-choose-city__cities">
-                      {cityGroup.map((city) => (
-                        <li
-                          key={city.id}
-                          className="popup-choose-city__cities-item"
+    isOpen && (
+      <div className="popup-choose-city">
+        {isLoading && <Loader isAbsolute={true} />}
+        <p className="popup-choose-city__title">Выберите ваш город</p>
+        {cities.length > 0 && (
+          <ul className="popup-choose-city__cities-groups">
+            {cities
+              .filter((item) => item.length > 0)
+              .map((cityGroup, index) => (
+                <li key={index} className="popup-choose-city__cities-group">
+                  <ul className="popup-choose-city__cities">
+                    {cityGroup.map((city) => (
+                      <li
+                        key={city.id}
+                        className="popup-choose-city__cities-item"
+                      >
+                        <p
+                          className="popup-choose-city__city"
+                          onClick={() => handleCityChoose(city)}
                         >
-                          <p
-                            className="popup-choose-city__city"
-                            onClick={() => {
-                              setIsLoading(true);
-                              handleChangeUserCity(city, () => {
-                                setIsLoading(false);
-                                onClose();
-                              });
-                            }}
-                          >
-                            {city.name}
-                          </p>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                ))}
-            </ul>
-          )}
-        </div>
-      )}
-    </UserContext.Consumer>
+                          {city.name}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+          </ul>
+        )}
+      </div>
+    )
   );
+};
+
+PopupChooseCity.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default PopupChooseCity;

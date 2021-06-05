@@ -24,9 +24,13 @@ import NotFound from "../NotFound/NotFound";
 import { PROJECT_LINKS } from "../../utils/links";
 import { TIME_DELAY } from "../../utils/constants";
 import UserContext from "../../contexts/UserContext";
+import Popup from "../Popup/Popup";
+import PopupChooseCity from "../PopupChooseCity/PopupChooseCity";
 
 function App() {
   const [isLoading, setIsLoading] = React.useState(false);
+  const [isPopupChooseCityOpen, setIsPopupChooseCityOpen] =
+    React.useState(false);
   const [user, setUser] = React.useState({ login: false });
 
   const handleCheckToken = () => {
@@ -70,6 +74,10 @@ function App() {
     setUser({ login: false });
   };
 
+  const openPopupChooseCity = () => {
+    setIsPopupChooseCityOpen(true);
+  };
+
   React.useEffect(() => {
     handleCheckToken();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -78,8 +86,14 @@ function App() {
   return (
     <div className="app">
       <UserContext.Provider
-        value={{ ...user, handleChangeUserCity, handleLogout }}
+        value={{
+          ...user,
+          handleChangeUserCity,
+          handleLogout,
+          openPopupChooseCity,
+        }}
       >
+        <button type="button" onClick={() => setIsPopupChooseCityOpen(true)} />
         {isLoading && <Loader />}
         <Header mix="app__section" />
         <Switch>
@@ -145,6 +159,13 @@ function App() {
           </Route>
         </Switch>
         <Footer />
+        {isPopupChooseCityOpen && (
+          <Popup
+            component={PopupChooseCity}
+            isOpen={isPopupChooseCityOpen}
+            onClose={() => setIsPopupChooseCityOpen(false)}
+          />
+        )}
       </UserContext.Provider>
     </div>
   );
