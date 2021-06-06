@@ -4,12 +4,18 @@ import "./CalendarEvent.css";
 
 import { MONTHS, WEEK_DAYS } from "../../utils/constants";
 
+// !!! IMPOTANT !!!
+// EN: use only calendar
+// RU: используется только в каледаре, чтобы переимспользовать компонент на главной сранице необходимо его доработать
+// все запросы на сервер описываются в Calendar
+// Необходим попап PopupCalendarEvent
+
 const CalendarEvent = ({
   mix,
   calEvent,
-  openPopup,
   isPopup = false,
-  onUpdate,
+  onLook,
+  onConfirmingUpdate,
 }) => {
   return (
     <article
@@ -53,7 +59,7 @@ const CalendarEvent = ({
           className={`calendar-event__action ${
             calEvent.booked && "calendar-event__action_active"
           }`}
-          onClick={() => onUpdate(calEvent)}
+          onClick={() => onConfirmingUpdate(calEvent)}
           disabled={!calEvent.booked && !calEvent.remainSeats}
         >
           {calEvent.booked ? "Отменить запись" : "Записаться"}
@@ -70,7 +76,7 @@ const CalendarEvent = ({
           <button
             type="button"
             className="calendar-event__action calendar-event__action_open-popup"
-            onClick={() => openPopup(calEvent)}
+            onClick={() => onLook(calEvent)}
           />
         )}
       </div>
@@ -91,9 +97,9 @@ CalendarEvent.propTypes = {
     booked: PropTypes.bool,
     description: PropTypes.string,
   }).isRequired,
-  openPopup: PropTypes.func,
   isPopup: PropTypes.bool,
-  onUpdate: PropTypes.func,
+  onLook: PropTypes.func,
+  onConfirmingUpdate: PropTypes.func,
 };
 
 export default CalendarEvent;

@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import PropTypes, { element } from "prop-types";
 import "./Calendar.css";
 
 import Loader from "../Loader/Loader";
@@ -46,7 +46,34 @@ function Calendar({ mix }) {
     } */
   };
 
-  const handleEventUpdateClick = (item) => {
+  const handleUpdateEvent = (item, endLoading) => {
+    setTimeout(() => {
+      if (item.booked) {
+        // RU: запись с ошибкой (TO DO: необходимо переделать при взаимодествии с API)
+        setEvents((state) =>
+          state.map((c) =>
+            c.id !== item.id
+              ? c
+              : { ...c, booked: false, remainSeats: item.remainSeats + 1 }
+          )
+        );
+        setPopupCalendarEventStep("error");
+      } else {
+        // RU: отмена записи без ошибки (TO DO: необходимо переделать при взаимодествии с API)
+        setEvents((state) =>
+          state.map((c) =>
+            c.id !== item.id
+              ? c
+              : { ...c, booked: true, remainSeats: item.remainSeats - 1 }
+          )
+        );
+        setPopupCalendarEventStep("success");
+      }
+      endLoading();
+    }, TIME_DELAY);
+  };
+
+  const handleEventUpdateonConfirming = (item) => {
     setSelectedEvent(item);
     setPopupCalendarEventStep("update");
     setIsCalendarEventPopupOpen(true);
@@ -81,7 +108,7 @@ function Calendar({ mix }) {
       setVisibleEvents(events);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [months, selectedMonths]);
+  }, [months, selectedMonths, events]);
 
   return (
     <>
@@ -99,9 +126,9 @@ function Calendar({ mix }) {
               <li key={item.id} className="calendar__events-item">
                 <CalendarEvent
                   calEvent={item}
-                  onLook={openCalendarEventPopup}
-                  onUpdate={handleEventUpdateClick}
                   openPopup={openCalendarEventPopup}
+                  onLook={openCalendarEventPopup}
+                  onConfirmingUpdate={handleEventUpdateonConfirming}
                 />
               </li>
             ))}
@@ -114,7 +141,8 @@ function Calendar({ mix }) {
         isOpen={isCalendarEventPopupOpen}
         onClose={closeCalendarEventPopup}
         step={popupCalendarEventStep}
-        onUpdate={handleEventUpdateClick}
+        onConfirmingUpdate={handleEventUpdateonConfirming}
+        onUpdate={handleUpdateEvent}
       />
     </>
   );
