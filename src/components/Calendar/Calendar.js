@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes, { element } from "prop-types";
+import PropTypes from "prop-types";
 import "./Calendar.css";
 
 import Loader from "../Loader/Loader";
