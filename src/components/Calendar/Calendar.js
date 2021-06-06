@@ -5,6 +5,8 @@ import "./Calendar.css";
 import Loader from "../Loader/Loader";
 import CalendarMonths from "../CalendarMonths/CalendarMonths";
 import CalendarEvent from "../CalendarEvent/CalendarEvent";
+import Popup from "../Popup/Popup";
+import PopupCalendarEvent from "../PopupCalendarEvent/PopupCalendarEvent";
 
 import testCalendarEvents from "./ForTest";
 import { TIME_DELAY } from "../../utils/constants";
@@ -15,6 +17,11 @@ function Calendar({ mix }) {
   const [visibleEvents, setVisibleEvents] = React.useState([]);
   const [months, setMonths] = React.useState([]);
   const [selectedMonths, setSelectedMonths] = React.useState([]);
+  const [selectedEvent, setSelectedEvent] = React.useState({});
+  const [isCalendarEventPopupOpen, setIsCalendarEventPopupOpen] =
+    React.useState(false);
+  const [popupCalendarEventStep, setPopupCalendarEventStep] =
+    React.useState("");
 
   const getCalendarEvents = () => {
     setEvents(testCalendarEvents);
@@ -39,6 +46,22 @@ function Calendar({ mix }) {
     } */
   };
 
+  const handleEventUpdateClick = (item) => {
+    setSelectedEvent(item);
+    setPopupCalendarEventStep("update");
+    setIsCalendarEventPopupOpen(true);
+  };
+
+  const openCalendarEventPopup = (item) => {
+    setPopupCalendarEventStep("look");
+    setSelectedEvent(item);
+    setIsCalendarEventPopupOpen(true);
+  };
+
+  const closeCalendarEventPopup = () => {
+    setIsCalendarEventPopupOpen(false);
+  };
+
   React.useEffect(() => {
     setIsLoading(true);
     setTimeout(() => {
@@ -61,24 +84,39 @@ function Calendar({ mix }) {
   }, [months, selectedMonths]);
 
   return (
-    <main className={`calendar ${mix}`}>
-      {isLoading && <Loader />}
-      <h1 className="calendar__title">Календарь</h1>
-      <CalendarMonths
-        months={months}
-        selectedMonths={selectedMonths}
-        onClickMonth={handleMonthClick}
+    <>
+      <main className={`calendar ${mix}`}>
+        {isLoading && <Loader />}
+        <h1 className="calendar__title">Календарь</h1>
+        <CalendarMonths
+          months={months}
+          selectedMonths={selectedMonths}
+          onClickMonth={handleMonthClick}
+        />
+        <section aria-label="События календаря" className="calendar__events">
+          <ul className="calendar__events-list">
+            {visibleEvents.map((item) => (
+              <li key={item.id} className="calendar__events-item">
+                <CalendarEvent
+                  calEvent={item}
+                  onLook={openCalendarEventPopup}
+                  onUpdate={handleEventUpdateClick}
+                  openPopup={openCalendarEventPopup}
+                />
+              </li>
+            ))}
+          </ul>
+        </section>
+      </main>
+      <Popup
+        component={PopupCalendarEvent}
+        calEvent={selectedEvent}
+        isOpen={isCalendarEventPopupOpen}
+        onClose={closeCalendarEventPopup}
+        step={popupCalendarEventStep}
+        onUpdate={handleEventUpdateClick}
       />
-      <section aria-label="События календаря" className="calendar__events">
-        <ul className="calendar__events-list">
-          {visibleEvents.map((item) => (
-            <li key={item.id} className="calendar__events-item">
-              <CalendarEvent calEvent={item} />
-            </li>
-          ))}
-        </ul>
-      </section>
-    </main>
+    </>
   );
 }
 

@@ -1,16 +1,15 @@
-/*363*/
 .calendar-event {
   position: relative;
   margin: 0;
   padding: 30px;
-  min-height: 415px;
+  height: 100%;
   box-sizing: border-box;
   border-radius: 30px;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: stretch;
-  align-items: flex-start;
+  align-items: stretch;
   color: #000;
   border: 1px solid #fff;
   overflow: hidden;
@@ -73,6 +72,8 @@
 }
 
 .calendar-event__meeting {
+  margin-top: 50px;
+  width: 100%;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -99,6 +100,16 @@
 .calendar-event__meeting-info:last-child {
   padding-bottom: 0;
   border-bottom: 0;
+}
+
+.calendar-event__description {
+  margin: 30px auto 0;
+  font-family: "Proto PT", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  color: #1a1a1a;
 }
 
 .calendar-event__actions {
@@ -186,7 +197,6 @@
 @media (max-width: 1024px) {
   .calendar-event {
     padding: 30px 15px;
-    min-height: 380px;
   }
 
   .calendar-event__tags {
@@ -216,6 +226,11 @@
     font-size: 12px;
     line-height: 17px;
     border-width: 0.5px;
+  }
+
+  .calendar-event__description {
+    font-size: 12px;
+    line-height: 17px;
   }
 
   .calendar-event__action {

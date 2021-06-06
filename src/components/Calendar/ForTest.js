@@ -16,7 +16,7 @@ const testCalendarEvents = [
     title: "Субботний meet up: учимся проходить интевью",
     startAt: "2021-05-08T16:22:00Z",
     endAt: "2021-05-08T17:22:00Z",
-    address: "Садовническая наб., д. 77 стр. 1 (офис компании Ernst&Young)",
+    address: "Садовническая наб., д. 77 стр. 1",
     contact: "Александра, +7 926 356-78-90",
     remainSeats: 5,
     description:
