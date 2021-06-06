@@ -8,7 +8,7 @@ const CalendarMonths = ({ months, selectedMonths, onClickMonth }) => {
 
   React.useEffect(() => {
     setData(
-      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => {
+      months.map((item) => {
         return {
           value: item,
           title: MONTHS[item],
@@ -20,7 +20,7 @@ const CalendarMonths = ({ months, selectedMonths, onClickMonth }) => {
   }, [months, selectedMonths]);
 
   return (
-    <ul className="calendar-months__list">
+    <ul className="calendar-months">
       {data.map((month, index) => (
         <li key={index} className="calendar-months__item">
           <button
