@@ -23,6 +23,7 @@ import NotFound from "../NotFound/NotFound";
 import Popup from "../Popup/Popup";
 import PopupChooseCity from "../PopupChooseCity/PopupChooseCity";
 import PopupLogin from "../PopupLogin/PopupLogin";
+import PopupVideo from "../PopupVideo/PopupVideo";
 
 import { PROJECT_LINKS } from "../../utils/links";
 import { TIME_DELAY } from "../../utils/constants";
@@ -33,8 +34,10 @@ function App() {
   const [isPopupChooseCityOpen, setIsPopupChooseCityOpen] =
     React.useState(false);
   const [isPopupLoginOpen, setIsPopupLoginOpen] = React.useState(false);
+  const [isPopupVideoOpen, setIsPopupVideoOpen] = React.useState(false);
   const history = useHistory();
   const [user, setUser] = React.useState({ login: false });
+  const [isLoggedIn, setIsLogggedIn] = React.useState(null);
 
   const handleCheckToken = () => {
     // TO DO: проверка, что пользователь залогинин
@@ -100,6 +103,10 @@ function App() {
       : setIsPopupLoginOpen(true);
   };
 
+  const handleVideoPopupOpen = () => {
+    setIsPopupVideoOpen(true);
+  };
+
   React.useEffect(() => {
     handleCheckToken();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -121,7 +128,11 @@ function App() {
         <Header mix="app__section" />
         <Switch>
           <Route exact path={PROJECT_LINKS.main.link}>
-            <Main mix="app__content app__section" />
+            <Main
+              mix="app__content app__section"
+              isLoggedIn={isLoggedIn}
+              handleOpenPopup={handleVideoPopupOpen}
+            />
           </Route>
           <Route exact path={PROJECT_LINKS.about.link}>
             <About mix="app__content app__section" />
@@ -191,6 +202,10 @@ function App() {
           component={PopupLogin}
           isOpen={isPopupLoginOpen}
           onClose={() => setIsPopupLoginOpen(false)}
+        />
+        <PopupVideo
+          isOpen={isPopupVideoOpen}
+          onClose={() => setIsPopupVideoOpen(false)}
         />
       </AppContext.Provider>
     </div>

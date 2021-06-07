@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "./ArticlePreview.css";
+import { PROJECT_LINKS } from "../../../utils/links";
 
 export default function ArticlePreview({ isGreen }) {
   // для корректной работы неразрывного пробела
@@ -14,7 +15,7 @@ export default function ArticlePreview({ isGreen }) {
           : `preview-article`
       } `}
     >
-      <Link className="mainlink" to="/read-and-watch"></Link>
+      <Link className="mainlink" to={PROJECT_LINKS.readAndWatch.link}></Link>
       <h2 className="preview-article__title">
         {isGreen
           ? `У${xspace}таких детей возникает ощущение отверженности. Оно приводит
@@ -24,7 +25,10 @@ export default function ArticlePreview({ isGreen }) {
         в${xspace}семьях. Все этапы развития у${xspace}детей-сирот проходят
         с${xspace}искажениями и${xspace}имеют ряд негативных особенностей.`}
       </h2>
-      <Link className="preview-article__link" to="/read-and-watch">
+      <Link
+        className="preview-article__link"
+        to={PROJECT_LINKS.readAndWatch.link}
+      >
         читать статью
       </Link>
     </article>
