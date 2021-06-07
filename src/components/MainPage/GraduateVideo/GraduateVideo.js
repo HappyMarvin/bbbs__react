@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import "./GraduateVideo.css";
+import { PROJECT_LINKS } from "../../../utils/links";
 
 export default function GraduateVideo() {
   return (
@@ -21,7 +21,7 @@ export default function GraduateVideo() {
           Иван Рустаев, выпускник программы
         </p>
         <Link
-          to="/read-and-watch"
+          to={PROJECT_LINKS.readAndWatch.link}
           className="video-bigcard__link clickable-element"
         >
           смотреть видео

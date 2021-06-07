@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./MoviesCard.css";
 
@@ -17,14 +18,14 @@ export default function MoviesCard({ movie }) {
         </div>
         <h2 className="video__title video-card__title">{movie.title}</h2>
         <p className="video-card__caption caption">{movie.description}</p>
-        <a
+        <Link
           className="clickable-element"
-          href={movie.trailerLink}
+          to={movie.trailerLink}
           target="_blank"
           rel="noopener noreferrer"
         >
           смотреть трейлер
-        </a>
+        </Link>
       </div>
     </li>
   );

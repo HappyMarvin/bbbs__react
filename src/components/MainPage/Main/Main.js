@@ -2,7 +2,6 @@ import React from "react";
 
 import Bbbs from "../../Bbbs/Bbbs";
 import EventCard from "../EventCard/EventCard";
-import Events from "../Events/Events";
 import Story from "../Story/Story";
 import ArticlePreview from "../ArticlePreview/ArticlePreview";
 import MoviesPreviewList from "../MoviesPreviewList/MoviesPreviewList";
@@ -22,7 +21,6 @@ export default function Main({ isLoggedIn, event, mix, handleOpenPopup }) {
 
         <section className="mainpage__blocks">
           {/* Этот блок Иван делает, его не трогаю */}
-          <Events />
         </section>
 
         <section className="mainpage__block">
