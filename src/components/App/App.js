@@ -127,7 +127,7 @@ function App() {
             <About mix="app__content app__section" />
           </Route>
           <Route exact path={PROJECT_LINKS.calendar.link}>
-            <Calendar mix="app__content" />
+            <Calendar mix="app__content app__section" />
           </Route>
           <Route exact path={PROJECT_LINKS.events.link}>
             <Events mix="app__content app__section" />
