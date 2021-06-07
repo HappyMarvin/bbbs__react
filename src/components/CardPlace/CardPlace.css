@@ -1,0 +1,123 @@
+@import "../Card/Card.css";
+
+.card-place {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 585px;
+  grid-template-rows: 629px;
+  justify-content: center;
+}
+
+.card-place__cover {
+  padding: 15px 30px 30px;
+}
+
+.card-place__tag {
+  margin: 0 0 17px;
+}
+
+.card-place__title {
+  margin: 0 0 5px;
+}
+
+.card-place__caption-cover {
+  margin: 0 0 70px;
+}
+
+.card-place__img {
+  height: 394px;
+  margin: 0 0 15px;
+}
+
+.card-place__description {
+  padding: 47px 15px 69px 30px;
+}
+
+.card-place__caption-description {
+  align-self: flex-start;
+  margin: 0 0 105px;
+}
+
+.card-place__description-text {
+  font-family: 'PT Root', Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  overflow-y: scroll;
+}
+
+.card-place__description-text::-webkit-scrollbar-thumb {
+  height: 30px;
+  border-radius: 5px;
+  background: #E8E6E6;
+}
+
+.card-place__description-text::-webkit-scrollbar {
+  background-color: transparent;
+  width: 5px;
+}
+
+@media screen and (max-width: 1400px) {
+  .card-place {
+    grid-template-columns: 1fr;
+    grid-template-rows: 537px 188px;
+  }
+
+  .card-place__cover {
+    padding: 15px;
+  }
+
+  .card-place__tag {
+    margin: 0 0 5px;
+  }
+
+  .card-place__title {
+    font-size: 19px;
+    line-height: 23px;
+  }
+
+  .card-place__caption-cover {
+    font-size: 12px;
+    line-height: 17px;
+    margin: 0 0 62px;
+  }
+
+  .card-place__link {
+    font-size: 12px;
+    line-height: 17px
+  }
+
+  .card-place__caption-description {
+    margin: 0 0 5px;
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .card-place__description-text {
+    font-size: 15px;
+    line-height: 21px;
+  }
+
+  .card-place__description {
+    padding: 30px 15px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .card-place {
+    grid-template-rows: 333px 188px;
+  }
+
+  .card-place__caption-cover {
+    font-size: 12px;
+    line-height: 17px;
+    margin: 0 0 39px;
+  }
+
+  .card-place__description-text::-webkit-scrollbar {
+    width: 3px;
+  }
+}

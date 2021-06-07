@@ -1,0 +1,170 @@
+.popup-calendar-event {
+  position: relative;
+  width: 770px;
+  min-height: 670px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.popup-calendar-event__button-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  outline: 0;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  background-image: url("../../images/close.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.popup-calendar-event__event {
+  margin: 20px 70px;
+}
+
+.popup-calendar-event__booking {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+.popup-calendar-event__text {
+  margin: 0 auto 30px;
+  max-width: 570px;
+}
+
+.popup-calendar-event__paragraph {
+  margin: 0;
+  font-family: "Proto", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 23px;
+  line-height: 30px;
+  text-align: center;
+  color: #000;
+}
+
+.popup-calendar-event__actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-calendar-event__button {
+  margin: 0 15px;
+  padding: 15px 20px;
+  font-family: "Proto", "Arial", sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  color: #224cff;
+  outline: 0;
+  border: 1px solid #224cff;
+  border-radius: 100px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.popup-calendar-event__button:hover {
+  background-color: #c8d1ff;
+}
+
+.popup-calendar-event__button_active {
+  color: #f3f2f2;
+  border-color: #224cff;
+  background-color: #224cff;
+}
+
+.popup-calendar-event__button_active:hover {
+  border-color: #2e2468;
+  background-color: #2e2468;
+}
+
+.popup-calendar-event__button_cancel {
+  color: #000;
+  border-color: #000;
+}
+
+.popup-calendar-event__button_cancel:hover {
+  background-color: #e0e0e0;
+}
+
+.popup-calendar-event__resalt {
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-calendar-event__resalt-image {
+  margin: 30px auto;
+  width: 400px;
+  object-position: center;
+  object-fit: contain;
+}
+
+@media (max-width: 1024px) {
+  .popup-calendar-event {
+    width: 290px;
+    min-height: auto;
+  }
+
+  .popup-calendar-event__event {
+    margin: 30px 0 0;
+  }
+
+  .popup-calendar-event__booking {
+    padding: 60px 15px 30px;
+  }
+
+  .popup-calendar-event__text {
+    max-width: 100%;
+  }
+
+  .popup-calendar-event__paragraph {
+    font-size: 19px;
+    line-height: 23px;
+  }
+
+  .popup-calendar-event__actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .popup-calendar-event__button {
+    margin: 0;
+    padding: 10px 15px;
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .popup-calendar-event__resalt {
+    padding: 30px 15px;
+  }
+
+  .popup-calendar-event__resalt-image {
+    width: calc(100% - 30px);
+  }
+}
+
+@media (max-width: 768px) {
+  .popup-calendar-event__button-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+}

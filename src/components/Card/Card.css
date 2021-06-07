@@ -1,0 +1,16 @@
+@import "./CardCaption/CardCaption.css";
+@import "./CardImg/CardImg.css";
+@import "./CardLink/CardLink.css";
+@import "./CardTag/CardTag.css";
+@import "./CardTitle/CardTitle.css";
+
+.card {
+  border-radius: 30px;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

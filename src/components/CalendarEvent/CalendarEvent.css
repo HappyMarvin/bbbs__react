@@ -1,0 +1,251 @@
+.calendar-event {
+  position: relative;
+  margin: 0;
+  padding: 30px;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 30px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+  color: #000;
+  border: 1px solid #fff;
+  overflow: hidden;
+}
+
+.calendar-event_booked {
+  background-color: #c8d1ff;
+}
+
+.calendar-event__heading {
+  display: grid;
+  grid-template-areas:
+    "tags date"
+    "title day";
+}
+
+.calendar-event__tags {
+  grid-area: tags;
+  margin: 0;
+  padding: 0;
+  font-family: "Proto PT", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #464646;
+}
+
+.calendar-event__title {
+  margin: 10px 0;
+  font-family: "Proto PT", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 23px;
+  line-height: 30px;
+}
+
+.calendar-event__date {
+  grid-area: date;
+  margin: 0;
+  font-family: "Proto PT", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  text-align: right;
+}
+
+.calendar-event__day {
+  grid-area: day;
+  margin: 10px 0;
+  font-family: "Proto", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 100px;
+  line-height: 100px;
+  letter-spacing: -2px;
+  text-align: right;
+}
+
+.calendar-event__meeting {
+  margin-top: 50px;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: stretch;
+}
+
+.calendar-event__meeting-info {
+  margin: 0;
+  padding: 10px 0;
+  font-family: "Proto PT", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  border-bottom: 1px solid #a7a6a6;
+}
+
+.calendar-event__meeting-info:first-child {
+  padding-top: 0;
+}
+
+.calendar-event__meeting-info:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.calendar-event__description {
+  margin: 30px auto 0;
+  font-family: "Proto PT", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  color: #1a1a1a;
+}
+
+.calendar-event__actions {
+  margin: 30px auto 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-event__action {
+  padding: 15px 20px;
+  font-family: "Proto PT", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+  color: #224cff;
+  outline: 0;
+  border: 1px solid #224cff;
+  border-radius: 100px;
+  background-color: transparent;
+}
+
+.calendar-event__action:disabled {
+  color: #a7a6a6;
+  border: 1px solid #a7a6a6;
+}
+
+.calendar-event__action:disabled {
+  color: #a7a6a6;
+  border: 1px solid #a7a6a6;
+}
+
+.calendar-event__action:not(:disabled):hover {
+  cursor: pointer;
+  background-color: #c8d1ff;
+}
+
+.calendar-event__action_active {
+  color: #f3f2f2;
+  border-color: #224cff;
+  background-color: #224cff;
+}
+
+.calendar-event__action_active:not(:disabled):hover {
+  border-color: #2e2468;
+  background-color: #2e2468;
+}
+
+.calendar-event__remain-seats {
+  margin: 0 0 0 15px;
+  flex: 1;
+  font-family: "Proto PT", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+}
+
+.calendar-event__action_open-popup {
+  padding: 0;
+  height: 48px;
+  width: 48px;
+  box-sizing: border-box;
+  background-image: url("../../images/event-card__details-button.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.calendar-event__action_open-popup:active:not(:disabled) {
+  border-color: #224cff;
+  background-color: #224cff;
+  background-image: url("../../images/event-card__details-button_active.svg");
+}
+
+.calendar-event__action_open-popup:active:not(:hover) {
+  border-color: #2e2468;
+  background-color: #2e2468;
+}
+
+@media (max-width: 1024px) {
+  .calendar-event {
+    padding: 30px 15px;
+  }
+
+  .calendar-event__tags {
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .calendar-event__title {
+    margin: 5px 0;
+    font-size: 19px;
+    line-height: 23px;
+  }
+
+  .calendar-event__day {
+    margin: 5px 0;
+    font-size: 60px;
+    line-height: 60px;
+  }
+
+  .calendar-event__date {
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .calendar-event__meeting-info {
+    padding: 5px 0;
+    font-size: 12px;
+    line-height: 17px;
+    border-width: 0.5px;
+  }
+
+  .calendar-event__description {
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .calendar-event__action {
+    padding: 10px 15px;
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .calendar-event__remain-seats {
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .calendar-event__action_open-popup {
+    height: 40px;
+    width: 40px;
+  }
+}

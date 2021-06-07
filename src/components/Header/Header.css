@@ -1,0 +1,110 @@
+.header {
+  position: relative;
+  min-height: 35px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.header__logo {
+  margin: 0;
+  align-self: flex-start;
+  font-family: "Proto", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 25px;
+  line-height: 28px;
+  text-decoration: none;
+  color: #224cff;
+  cursor: pointer;
+}
+
+.header__logo:hover {
+  color: #2e2468;
+}
+
+.header__actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__action:not(:last-child)::after {
+  content: "";
+  margin: 0 15px;
+  width: 1px;
+  height: 20px;
+  background-color: #a7a6a6;
+}
+
+.header__button {
+  margin: 0;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  outline: 0;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.header__button-search {
+  background-image: url("../../images/search.svg");
+}
+
+.header__button-account {
+  background-image: url("../../images/login.svg");
+}
+
+.header__button-account_login {
+  background-image: url("../../images/lk.svg");
+}
+
+.header__button-menu {
+  display: none;
+  background-image: url("../../images/burger-menu.svg");
+}
+
+@media (max-width: 1280px) {
+  .header {
+    margin-top: 30px;
+    min-height: 50px;
+    flex-direction: row-reverse;
+  }
+
+  .header__button-menu {
+    display: block;
+  }
+
+  .header__logo {
+    align-self: center;
+    font-size: 17.5px;
+    line-height: 17px;
+  }
+
+  .header__button-account {
+    display: none;
+  }
+
+  .header__action::after {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    margin-top: 0;
+  }
+}
