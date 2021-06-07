@@ -2,6 +2,7 @@
 
 .card-place {
   display: grid;
+  width: 100%;
   grid-template-columns: 1fr 585px;
   grid-template-rows: 629px;
   justify-content: center;
