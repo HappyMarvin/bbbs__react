@@ -7,6 +7,8 @@ import ArticlePreview from "../ArticlePreview/ArticlePreview";
 import MoviesPreviewList from "../MoviesPreviewList/MoviesPreviewList";
 import GraduateVideo from "../GraduateVideo/GraduateVideo";
 import WidgetQuestions from "../WidgetQuestions/WidgetQuestions";
+import CardPlace from "../../CardPlace/CardPlace.jsx";
+import CONST_CARD_PLACE from "../../CardPlace/constCardPlace";
 
 import "./Main.css";
 
@@ -20,7 +22,7 @@ export default function Main({ isLoggedIn, event, mix, handleOpenPopup }) {
         </section>
 
         <section className="mainpage__blocks">
-          {/* Этот блок Иван делает, его не трогаю */}
+          <CardPlace {...CONST_CARD_PLACE} />
         </section>
 
         <section className="mainpage__block">
